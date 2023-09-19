@@ -7,7 +7,7 @@ This browser based web application to ...
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
 * Hi my name is Alex and I'm excited to create a web app from the beginning!
-* Hi I'm Richard, I like hiking and reading.
+* Hi I'm Richard, I like hiking and reading!
 * Hello, My name is Inez!I am excited to learn how to use Git and Github.
 
 ## 3. Technologies and Resources Used
