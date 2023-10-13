@@ -1,1 +1,37 @@
+.button {
+    background-color: #b8a9c9;
+    border: none;
+    color: #622569;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    border-radius: 30px;
+    font-weight: bold;
+}
 
+a {
+    color: grey;
+    text-decoration: none;
+    padding: 12px;
+    text-align: center;
+}
+
+a:hover {
+    background-color: white;
+    color: black;
+}
+
+a:link {
+    text-decoration: none;
+    color: grey;
+    font-size: 22px;
+}
+
+.navbar {
+    font-size: 18px;
+    background-color: aquamarine;
+    font-weight: bold;
+}
