@@ -37,13 +37,6 @@ a:link {
 }
 
 /* body  */
-.container-fluid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    /* Center vertically within the viewport */
-}
 
 .middle-align {
     display: flex;
@@ -68,8 +61,10 @@ a:link {
 
 footer {
     display: flex;
-    justify-content: space-around;
+    background-color: #C9EFC7;
+    justify-content: space-around; 
 }
+
 
 button {
     border-radius: 50%;
