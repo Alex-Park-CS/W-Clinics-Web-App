@@ -35,3 +35,75 @@ a:link {
     background-color: #C9EFC7;
     font-weight: bold;
 }
+
+/* body  */
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Center vertically within the viewport */
+}
+
+.middle-align {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-body {
+    margin: 10px;
+}
+
+.material-symbols-outlined {
+    /* Home button */
+    font-variation-settings: 'FILL' 0,
+        'wght' 200,
+        'GRAD' 0,
+        'opsz' 24;
+    font-size: 50px;
+    text-align: center;
+    display: block;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Star */
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+/* History */
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+.welcome-banner {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

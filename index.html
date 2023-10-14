@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>My BCIT Project</title>
+    <title>W-Clinics</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
@@ -16,9 +16,15 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <!-- Other libraries go here -->
-
-    <!-- Link to styles of your own -->
+    <!-- Home Icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Favourite Star Icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- History -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <link rel="stylesheet" href="./styles/style.css">
 
@@ -26,24 +32,37 @@
 
 <body>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
-    <!-- basic dropdown -->
-    <!-- some ui elements -->
-
     <!-- The Navbar -->
     <div class="navbar row">
         <div class="container justify-content-between">
+            <button>
+                <a href="#" class="material-symbols-outlined">
+                    redo
+                </a>
+            </button>
             <img src="./images/w_clinics_logo.png" width="180" height="100">
-            <a href="#" class="nav-link"><img src="./images/hamburger_icon.png" width="50" height="50"></a>
+            <button>
+                <a href="#" class="material-symbols-outlined">
+                    menu
+                </a>
+            </button>
         </div>
     </div>
 
-    <!-- ------------------------------ -->
-
+    <!-- welcoming message -->
     <div class="container-fluid">
+        <div class="welcome-banner">
+            <h1 class="display-9 fw-bold align-middle"> Welcome W-clinics </h1>
+            <p class="col-md-8 fs-4">We are here to help you find the best clinic for your needs.</p>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- search bar -->
+    <div class=" container-fluid">
         <div class="middle-align">
             <!-- text entry -->
             <div class="card-body form-group">
@@ -51,33 +70,41 @@
                 <input type="text" id="search" class="form-control">
             </div>
 
-            <!---------------------------------------------->
-            <!-- Your own JavaScript functions go here    -->
-            <!---------------------------------------------->
+            <!-- basic dropdown -->
+            <div class="card-body form-group dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort by
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><button class="dropdown-item" type="button" id="leveleasy">Location</button></li>
+                    <li><button class="dropdown-item" type="button" id="levelmoderate">Rating</button></li>
+                    <li><button class="dropdown-item" type="button" id="levelhard">Wait time</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-            <!-- Link to scripts of your own -->
-            <!-- <script src="./scripts/script.js"></script> -->
-
-            <footer>
-                <button>
-                    <a href="#" class="material-symbols-outlined">
-                        history
-                    </a>
-                    History
-                </button>
-                <button>
-                    <a href="#" class="material-symbols-outlined">
-                        home
-                    </a>
-                    Home
-                </button>
-                <button>
-                    <a href="#" class="material-symbols-outlined">
-                        star
-                    </a>
-                    Star
-                </button>
-            </footer>
+    <footer>
+        <button>
+            <a href="#" class="material-symbols-outlined">
+                history
+            </a>
+            History
+        </button>
+        <button>
+            <a href="#" class="material-symbols-outlined">
+                home
+            </a>
+            Home
+        </button>
+        <button>
+            <a href="#" class="material-symbols-outlined">
+                star
+            </a>
+            Star
+        </button>
+    </footer>
 
 </body>
 
