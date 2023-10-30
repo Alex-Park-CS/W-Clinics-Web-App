@@ -1,9 +1,10 @@
 /* History Page */
-.welcome-banner a{
+.welcome-banner a {
     color: #303030;
     background-color: #C9EFC7;
     border-color: grey;
 }
+
 /* it's required to put at the top, because the button below overrides it */
 
 
@@ -23,8 +24,8 @@
 }
 
 a {
-    color: grey;
-    text-decoration: none;
+    color: black;
+    text-decoration: none !important;
     padding: 12px;
     text-align: center;
 }
@@ -59,19 +60,19 @@ a:link {
 }
 
 /* log-in button */
-#log_in  a{
-    background-color:#C9EFC7;
+#log_in a {
+    background-color: #C9EFC7;
     border: none;
     color: #303030;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 24px;
     border-radius: 30px;
     font-weight: bold;
 }
+
 /* footer */
 .material-symbols-outlined {
     /* Home button */
@@ -97,22 +98,7 @@ button {
     background-color: transparent;
 }
 
-a {
-    text-decoration: none;
-    color: black;
-}
-
 /* Star */
-.material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
-}
-
-/* History */
-
 .material-symbols-outlined {
     font-variation-settings:
         'FILL' 0,
@@ -137,3 +123,60 @@ a {
     text-align: center;
 }
 
+/* ---------- Clinic List CSS (Alex) ---------- */
+
+.clinic-list {
+    margin-bottom: 80px;
+}
+
+.clinic-list a {
+    text-decoration: none;
+}
+
+.clinic-card {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    border: solid grey 2px;
+    border-radius: 30px;
+    margin: 20px auto;
+
+}
+
+.text-clinic-card {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.clinic-card-title {
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.clinic-card-distance-time {
+    font-size: 14px;
+}
+
+.clinic-card-icons {
+    size: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+/* -----------Clinic Profile (Alex) ------------*/
+
+.clinic-profile img {
+    width: 100%;
+}
+
+.profile-title {
+    font-size: 30px;
+}
+
+.clinic-info {
+    margin-top: 10px;
+    background-color: lightgrey;
+}
