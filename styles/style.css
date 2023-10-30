@@ -113,9 +113,11 @@ a {
 }
 
 
-/* ---------- Clinic List CSS ---------- */
+/* ---------- Clinic List CSS (Alex) ---------- */
 
-/* .clinic-list {} */
+.clinic-list {
+    margin-bottom: 80px;
+}
 
 .clinic-card {
     display: flex;
@@ -149,7 +151,7 @@ a {
     align-items: center;
 }
 
-/* -----------Clinic Profile------------*/
+/* -----------Clinic Profile (Alex) ------------*/
 
 .clinic-profile img {
     width: 100%;
