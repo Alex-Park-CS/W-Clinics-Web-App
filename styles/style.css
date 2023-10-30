@@ -1,3 +1,13 @@
+/* History Page */
+.welcome-banner a{
+    color: #303030;
+    background-color: #C9EFC7;
+    border-color: grey;
+}
+/* it's required to put at the top, because the button below overrides it */
+
+
+/* header */
 .button {
     background-color: #b8a9c9;
     border: none;
@@ -48,6 +58,21 @@ a:link {
     margin: 10px;
 }
 
+/* log-in button */
+#log_in  a{
+    background-color:#C9EFC7;
+    border: none;
+    color: #303030;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+/* footer */
 .material-symbols-outlined {
     /* Home button */
     font-variation-settings: 'FILL' 0,
@@ -101,6 +126,11 @@ a {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
+
+.login_words {
+    text-align: center;
+}
+
