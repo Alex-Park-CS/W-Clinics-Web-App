@@ -113,13 +113,36 @@ a {
 }
 
 
-.clinic-list {
-    
-}
+.clinic-list {}
 
 .clinic-card {
+    display: flex;
     width: 80%;
-    height: 20%;
-    border-bottom: solid grey 2px;
+    height: 100%;
+    border: solid grey 2px;
     border-radius: 30px;
+    margin: 20px auto;
+
+}
+
+.text-clinic-card {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.clinic-card-title {
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.clinic-card-distance-time {
+    font-size: 14px;
+}
+
+.clinic-card-icons {
+    size: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
