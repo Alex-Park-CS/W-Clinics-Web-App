@@ -151,7 +151,7 @@ button {
 
 .clinic-card-title {
     font-size: 20px;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
 .clinic-card-distance-time {
@@ -166,7 +166,7 @@ button {
 }
 
 
-/* -----------Clinic Profile (Alex) ------------*/
+/* -----------Clinic Profile/Review (Alex) ------------*/
 
 .clinic-profile img {
     width: 100%;
@@ -179,4 +179,113 @@ button {
 .clinic-info {
     margin-top: 10px;
     background-color: lightgrey;
+}
+
+body {
+    font-family: Arial;
+    margin: 0 auto;
+    /* Center website */
+    max-width: 800px;
+    /* Max width */
+    padding: 20px;
+}
+
+.heading {
+    font-size: 25px;
+    margin-right: 25px;
+}
+
+.fa {
+    font-size: 25px;
+}
+
+.checked {
+    color: orange;
+}
+
+/* Three column layout */
+.side {
+    float: left;
+    width: 15%;
+    margin-top: 10px;
+}
+
+.middle {
+    float: left;
+    width: 70%;
+    margin-top: 10px;
+}
+
+/* Place text to the right */
+.right {
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The bar container */
+.bar-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+}
+
+/* Individual bars */
+.bar-5 {
+    width: 60%;
+    height: 18px;
+    background-color: #04AA6D;
+}
+
+.bar-4 {
+    width: 30%;
+    height: 18px;
+    background-color: #2196F3;
+}
+
+.bar-3 {
+    width: 10%;
+    height: 18px;
+    background-color: #00bcd4;
+}
+
+.bar-2 {
+    width: 4%;
+    height: 18px;
+    background-color: #ff9800;
+}
+
+.bar-1 {
+    width: 15%;
+    height: 18px;
+    background-color: #f44336;
+}
+
+.review-in-profile {
+    margin-bottom: 50px;
+}
+
+.add-and-view-buttons-group {
+    display: flex;
+    justify-content: space-around;
+}
+
+.add-and-view-button-1 {
+    width: 100px;
+    margin: 0px 20px 0px 20px;
+    background-color: grey;
+    color: black;
+}
+
+.add-and-view-button-2 {
+    width: 100px;
+    margin: 0px 20px 0px 20px;
+    background-color: grey;
+    color: black;
 }
