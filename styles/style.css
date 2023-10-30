@@ -113,6 +113,8 @@ a {
 }
 
 
+/* ---------- Clinic List CSS ---------- */
+
 /* .clinic-list {} */
 
 .clinic-card {
@@ -145,4 +147,19 @@ a {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+/* -----------Clinic Profile------------*/
+
+.clinic-profile img {
+    width: 100%;
+}
+
+.profile-title {
+    font-size: 30px;
+}
+
+.clinic-info {
+    margin-top: 10px;
+    background-color: lightgrey;
 }
