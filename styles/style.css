@@ -62,7 +62,7 @@ a:link {
 footer {
     display: flex;
     background-color: #C9EFC7;
-    justify-content: space-around; 
+    justify-content: space-around;
 }
 
 
@@ -97,10 +97,17 @@ a {
 }
 
 .welcome-banner {
+    width: 70%;
+    text-align: center;
     align-items: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding-top: 60px;
-    padding-bottom: 60px;
+    padding-bottom: 0px;
+    margin: 0 auto;
+}
+
+.welcome-banner>p {
+    padding-top: 20px;
 }
