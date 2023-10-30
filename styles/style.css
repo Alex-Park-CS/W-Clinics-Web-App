@@ -185,7 +185,7 @@ body {
     font-family: Arial;
     margin: 0 auto;
     /* Center website */
-    max-width: 800px;
+    /* max-width: 800px; */
     /* Max width */
     padding: 20px;
 }
@@ -208,6 +208,8 @@ body {
     float: left;
     width: 15%;
     margin-top: 10px;
+    font-size: 12px;
+
 }
 
 .middle {
@@ -268,7 +270,7 @@ body {
 }
 
 .review-in-profile {
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 
 .add-and-view-buttons-group {
