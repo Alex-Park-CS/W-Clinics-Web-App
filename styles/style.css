@@ -1,12 +1,16 @@
-/* History Page */
+/*-----------  Richard's Stuff except a button----------------------*/
+
+/* History Page */ 
 .welcome-banner a {
     color: #303030;
     background-color: #C9EFC7;
     border-color: grey;
 }
 
+.welcome-banner p{
+    margin: auto 0;
+}
 /* it's required to put at the top, because the button below overrides it */
-
 
 /* header */
 .button {
@@ -45,6 +49,7 @@ a:link {
     font-size: 18px;
     background-color: #C9EFC7;
     font-weight: bold;
+    margin: 0;
 }
 
 /* body  */
@@ -114,10 +119,11 @@ tr:nth-child(even) {
     background-color: #D6EEEE;
   }
 
+/* -----------More of Richard's stuff ----------- */
 
-/* footer */
+/* footer */ 
 .material-symbols-outlined {
-    /* Home button */
+/* Home button */ 
     font-variation-settings: 'FILL' 0,
         'wght' 200,
         'GRAD' 0,
