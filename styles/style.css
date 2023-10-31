@@ -73,6 +73,48 @@ a:link {
     font-weight: bold;
 }
 
+/* Inez */
+/* appointmnet */
+.form{
+   
+    padding: 5% 15% 10% 15%;
+
+}
+
+/* hamburger */
+
+
+#smallmenu{
+    color: grey;
+}
+
+.hamburgerright{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center the text content */
+    
+}
+
+/* userinfo */
+#contactemail, #contactcall, #contacttext{
+    padding: 100%;
+}
+
+table{
+    padding: 0% 15% 0% 15%;
+    text-align: center;
+}
+
+#userinfothtd {
+    padding:1%;
+  }
+
+tr:nth-child(even) {
+    background-color: #D6EEEE;
+  }
+
+
 /* footer */
 .material-symbols-outlined {
     /* Home button */
