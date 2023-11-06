@@ -29,7 +29,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="./scripts/firebaseAPI_DTC02.js"></script>
-    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/skeleton_index_login.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/authentication.js"></script>
 
@@ -47,26 +47,28 @@
 
 </head>
 
-<body>
-    <!-- The Navbar -->
-    <nav id="navbarPlaceholder"></nav>
-    <!-- welcoming message -->
-    <div>
-        <div class="welcome-banner">
-            <h1> Welcome to w-clinics </h1>
-            <p>We are here to help you find the best clinic for your needs.</p>
-            <h1>Let's Login!</h1>
+<div id = "body_container">
+    <body>
+        <!-- The Navbar -->
+        <nav id="navbarPlaceholder"></nav>
+        <!-- welcoming message -->
+        <div>
+            <div class="welcome-banner">
+                <h1> Welcome to w-clinics </h1>
+                <p>We are here to help you find the best clinic for your needs.</p>
+                <h1>Let's Login!</h1>
+            </div>
         </div>
+    <!-- stuff -->
+    <div class="login_words">
+        <div class="container">
+        </div>
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
     </div>
-<!-- stuff -->
-<div class="login_words">
-    <div class="container">
-    </div>
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
+    <!-- footer -->
+        <nav id="footerPlaceholder"></nav>
 </div>
-<!-- footer -->
-    <nav id="footerPlaceholder"></nav>
 
 
 
