@@ -50,10 +50,18 @@ a:link {
     background-color: #C9EFC7;
     font-weight: bold;
     margin: 0;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
 }
 
 /* body  */
 
+#body_container{
+    margin-top: 120.84px;
+    margin-bottom: 74.84px;
+}
 .middle-align {
     display: flex;
     flex-direction: column;
@@ -63,6 +71,7 @@ a:link {
 .card-body {
     margin: 10px;
 }
+
 
 /* log-in button */
 #log_in a {
