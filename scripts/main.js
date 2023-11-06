@@ -144,4 +144,4 @@ function readUserFavourite(userfavourite) {
     }
     )
 }
-readUserFavourite("user-info-details");
+readUserFavourite("user-info-details"); 
