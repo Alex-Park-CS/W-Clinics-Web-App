@@ -54,11 +54,11 @@
         <label for="lname">Last name:</label><br>
         <input type="text" id="lastname" name="lastname" value="Doe" required><br><br>
         
-        <label for="lname">DOB:</label><br>
+        <label for="lname">Date of Birth:</label><br>
         <input type="date" id="start" name="trip-start" value="2018-07-22" min="1900-01-01" max="2024-01-01" required/>
         <br><br>
 
-        <label for="lname">Sex:</label><br>
+        <label for="lname">Gender:</label><br>
         <input type="checkbox" id="male" name="male"/>
         <label for="scales">Male</label>
         <input type="checkbox" id="female" name="female"/>
@@ -75,8 +75,10 @@
         <br><br>
 
         <label for="lname">Appointment details:</label><br>
+        <!-- id=appmnt-date -->
         <small>Date</small>
         <input type="date" id="start" name="apptmentdate" value="2018-07-22" min="1900-01-01" max="2024-01-01" required/><br>
+        <!-- id=appmnt-time -->
         <small>Time</small>
         <input type="time" id="appt" name="appttime" min="07:00" max="18:00" required />
 
@@ -118,7 +120,7 @@
 <!-- footer -->
 <nav id="footerPlaceholder"></nav>
 
-
+<script src="./scripts/appmnt-info.js"></script>
 </body>
 
 </html>
