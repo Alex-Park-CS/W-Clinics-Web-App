@@ -1,3 +1,4 @@
+$(document).ready(setup())
 function sayHello() {
     
 }
@@ -14,3 +15,17 @@ function logout() {
         // An error happened.
       });
 }
+
+// History
+
+function countClicks() {
+    let count = 0;
+      count++;
+      console.log(count);
+      document.getElementById(".clinic-card-title").innerHTML = count;
+  };
+  
+  function setup() {
+    console.log("setting up");
+    $(".clinic-card-title").click(countClicks);
+  }

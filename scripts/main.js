@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // function for reading userinfo 
 function readUserfirstname(username) {
     db.collection("user-info").doc(username)
@@ -150,7 +148,6 @@ readUserFavourite("user-info-details");
 
 
 // Entering in Clinics into the database
->>>>>>> refs/remotes/origin/main
 function writeClinics() {
     //define a variable for the collection you want to create in Firestore to populate data
     var clinicsRef = db.collection("clinics");
