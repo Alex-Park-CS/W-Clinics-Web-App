@@ -200,21 +200,24 @@ function writeReviews() {
         userid: "",
         clinicName: "City Centre Urgent Primary Care Centre",
         rating: 4.0,
-        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+        comments: "good clinic",
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
     reviewsRef.add({
         username: "Bob Marley",
         userid: "",
         clinicName: "Keefer Walk-In and Medical Clinic",
         rating: 3.2,
-        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+        comments: "ok clinic",
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
     reviewsRef.add({
         username: "Carly Anderson",
         userid: "",
         clinicName: "TELUS Health Care Centres",
         rating: 2.7,
-        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+        comments: "bad clinic",
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
 }
 
@@ -225,7 +228,7 @@ function readClinicName(clinicName) {
         console.log(clinicData.data());
         nameOfClinic = clinicData.data().name;
         document.getElementById("clinicName").innerHTML = nameOfClinic;
-        })
+    })
 }
 readClinicName("clinic-name");
 

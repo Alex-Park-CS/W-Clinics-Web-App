@@ -30,6 +30,8 @@
     <script src="./scripts/firebaseAPI_DTC02.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/clinic_list.js"></script>
     <script>
         logout();       //make sure user is logged out
     </script>
@@ -47,141 +49,143 @@
 </head>
 
 <body>
-    <!-- The Navbar -->
-    <nav id="navbarPlaceholder"></nav>
-    <!-- Sort by dropdown -->
-    <div class="card-body form-group dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Sort by
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li><button class="dropdown-item" type="button" id="leveleasy">Location</button></li>
-            <li><button class="dropdown-item" type="button" id="levelmoderate">Rating</button></li>
-            <li><button class="dropdown-item" type="button" id="levelhard">Wait time</button></li>
-        </ul>
+    <div id="body_container">
+        <!-- The Navbar -->
+        <nav id="navbarPlaceholder"></nav>
+        <!-- Sort by dropdown -->
+        <div class="card-body form-group dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Sort by
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><button class="dropdown-item" type="button" id="leveleasy">Location</button></li>
+                <li><button class="dropdown-item" type="button" id="levelmoderate">Rating</button></li>
+                <li><button class="dropdown-item" type="button" id="levelhard">Wait time</button></li>
+            </ul>
+        </div>
+
+
+        <!-- Clinics container for all clinics  -->
+        <div class="clinic-list">
+            <div id="clinics-go-here"></div>
+        </div>
+
+        <!-- Clinic template -->
+
+        <template id="clinicCardTemplate">
+            <div class="clinic-card">
+                <div class="text-clinic-card">
+                    <a href="clinic_profile_page.html" class="clinic-name clinic-card-title ">Clinic 1</a>
+                    <p class="clinic-distance clinic-card-distance-time">102m</p>
+                    <p class="clinic-address clinic-card-distance-time">1234 Robson St</p>
+                </div>  
+                <div class="clinic-card-icons">
+                    <a href="#" class="material-symbols-outlined">
+                        phone
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        book
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        location_on
+                    </a>
+                </div>
+            </div>
+        </template>
+
+        <!-- list of clinics -->
+        <!-- <div class="clinic-list">
+            <div class="clinic-card">
+                <div class="text-clinic-card">
+                    <a href="clinic_profile_page.html" class="clinic-card-title">Clinic 1</a>
+                    <p class="clinic-card-distance-time">102m</p>
+                </div>
+                <div class="clinic-card-icons">
+                    <a href="#" class="material-symbols-outlined">
+                        phone
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        book
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        location_on
+                    </a>
+                </div>
+            </div>
+            <div class="clinic-card">
+                <div class="text-clinic-card">
+                    <a href="clinic_profile_page.html" class="clinic-card-title">Clinic 2</a>
+                    <p class="clinic-card-distance-time">502m</p>
+                </div>
+                <div class="clinic-card-icons">
+                    <a href="#" class="material-symbols-outlined">
+                        phone
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        book
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        location_on
+                    </a>
+                </div>
+            </div>
+            <div class="clinic-card">
+                <div class="text-clinic-card">
+                    <a href="clinic_profile_page.html" class="clinic-card-title">Clinic 3</a>
+                    <p class="clinic-card-distance-time">836m</p>
+                </div>
+                <div class="clinic-card-icons">
+                    <a href="#" class="material-symbols-outlined">
+                        phone
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        book
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        location_on
+                    </a>
+                </div>
+            </div>
+            <div class="clinic-card">
+                <div class="text-clinic-card">
+                    <a href="clinic_profile_page.html" class="clinic-card-title">Clinic 4</a>
+                    <p class="clinic-card-distance-time">1345m</p>
+                </div>
+                <div class="clinic-card-icons">
+                    <a href="#" class="material-symbols-outlined">
+                        phone
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        book
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        location_on
+                    </a>
+                </div>
+            </div>
+            <div class="clinic-card">
+                <div class="text-clinic-card">
+                    <a href="clinic_profile_page.html" class="clinic-card-title">Clinic 5</a>
+                    <p class="clinic-card-distance-time">1789m</p>
+                </div>
+                <div class="clinic-card-icons">
+                    <a href="#" class="material-symbols-outlined">
+                        phone
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        book
+                    </a>
+                    <a href="#" class="material-symbols-outlined">
+                        location_on
+                    </a>
+                </div>
+            </div>
+
+        </div> -->
+
+        <nav id="footerPlaceholder"></nav>
     </div>
-
-
-    <!-- Clinics container for all clinics -->
-    <!-- <div class="clinic-list">
-        <div id="clinics-go-here"></div>
-    </div> -->
-
-    <!-- Clinic template -->
-
-    <!-- <template id="clinicCardTemplate">
-        <div class="clinic-card">
-            <div class="text-clinic-card">
-                <a href="clinic_profile_page.html" class="clinic-card-title clinic-name">Clinic 1</a>
-                <p class="clinic-card-distance-time clinic-distance">102m</p>
-                <p class="clinic-card-distance-time clinic-address">1234 Robson St</p>
-            </div>
-            <div class="clinic-card-icons">
-                <a href="#" class="material-symbols-outlined">
-                    phone
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    book
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    location_on
-                </a>
-            </div>
-        </div>
-    </template> -->
-
-    <!-- list of clinics -->
-    <div class="clinic-list">
-        <div class="clinic-card">
-            <div class="text-clinic-card">
-                <a href="clinic_profile_page.html" class="clinic-card-title">Clinic 1</a>
-                <p class="clinic-card-distance-time">102m</p>
-            </div>
-            <div class="clinic-card-icons">
-                <a href="#" class="material-symbols-outlined">
-                    phone
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    book
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    location_on
-                </a>
-            </div>
-        </div>
-        <div class="clinic-card">
-            <div class="text-clinic-card">
-                <a href="clinic_profile_page.html" class="clinic-card-title">Clinic 2</a>
-                <p class="clinic-card-distance-time">502m</p>
-            </div>
-            <div class="clinic-card-icons">
-                <a href="#" class="material-symbols-outlined">
-                    phone
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    book
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    location_on
-                </a>
-            </div>
-        </div>
-        <div class="clinic-card">
-            <div class="text-clinic-card">
-                <a href="clinic_profile_page.html" class="clinic-card-title">Clinic 3</a>
-                <p class="clinic-card-distance-time">836m</p>
-            </div>
-            <div class="clinic-card-icons">
-                <a href="#" class="material-symbols-outlined">
-                    phone
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    book
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    location_on
-                </a>
-            </div>
-        </div>
-        <div class="clinic-card">
-            <div class="text-clinic-card">
-                <a href="clinic_profile_page.html" class="clinic-card-title">Clinic 4</a>
-                <p class="clinic-card-distance-time">1345m</p>
-            </div>
-            <div class="clinic-card-icons">
-                <a href="#" class="material-symbols-outlined">
-                    phone
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    book
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    location_on
-                </a>
-            </div>
-        </div>
-        <div class="clinic-card">
-            <div class="text-clinic-card">
-                <a href="clinic_profile_page.html" class="clinic-card-title">Clinic 5</a>
-                <p class="clinic-card-distance-time">1789m</p>
-            </div>
-            <div class="clinic-card-icons">
-                <a href="#" class="material-symbols-outlined">
-                    phone
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    book
-                </a>
-                <a href="#" class="material-symbols-outlined">
-                    location_on
-                </a>
-            </div>
-        </div>
-
-    </div>
-
-    <nav id="footerPlaceholder"></nav>
 
 </body>
 

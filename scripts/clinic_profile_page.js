@@ -10,7 +10,7 @@ function displayClinicInfo() {
         .get()
         .then(doc => {
             thisClinic = doc.data();
-            clinicCode = thisHike.code;
+            clinicCode = thisClinic.code;
             clinicName = doc.data().name;
             clinicAddress = doc.data().address;
 
