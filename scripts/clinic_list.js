@@ -16,7 +16,7 @@ function displayClinicsDynamically(collection) {
                 newcard.querySelector('.clinic-name').innerHTML = clinicName;
                 newcard.querySelector('.clinic-distance').innerHTML = distance + "m";
                 newcard.querySelector('.clinic-address').innerHTML = address;
-                newcard.querySelector('a').href = "clinic_profile_page.html?docID=" + docID;
+                // newcard.querySelector('a').href = "clinic_profile_page.html?docID=" + docID;
 
                 document.getElementById(collection + "-go-here").appendChild(newcard);
 
