@@ -23,4 +23,6 @@ function readAppmtTime(appointmenttime) {
 
 readAppmtTime("user-info-details");
 
-//reason for visit
+//reason for visit 
+
+//Inez
