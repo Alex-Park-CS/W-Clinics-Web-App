@@ -71,7 +71,20 @@ a:link {
 .card-body {
     margin: 10px;
 }
+/* submit and cancel button in add_reviews */
 
+#submit_cancel_buttons{
+    text-align: center;
+}
+
+#review_middle{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right:10px;
+    margin-bottom: 20px;
+}
 
 /* log-in button */
 #log_in a {
