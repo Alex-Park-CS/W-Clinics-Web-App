@@ -41,84 +41,90 @@
 </head>
 
 <body>
+    <div id = "body_container">
     <!-- The Navbar -->
-    <nav id="navbarPlaceholder"></nav>
-    <!-- user input form -->
-    <form class="form">
-        <label for="fname">First name:</label><br>
-        <input type="text" id="firstname" name="firstname" value="John" required><br><br>
-        
-        <label for="fname">Middle name:</label><br>
-        <input type="text" id="middlename" name="middlename" value="Smith"><br><br>
-        
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lastname" name="lastname" value="Doe" required><br><br>
-        
-        <label for="lname">DOB:</label><br>
-        <input type="date" id="start" name="trip-start" value="2018-07-22" min="1900-01-01" max="2024-01-01" required/>
-        <br><br>
+        <nav id="navbarPlaceholder"></nav>
+        <!-- user input form -->
+        <form class="form">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="firstname" name="firstname" value="John" required><br><br>
+            
+            <label for="fname">Middle name:</label><br>
+            <input type="text" id="middlename" name="middlename" value="Smith"><br><br>
+            
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lastname" name="lastname" value="Doe" required><br><br>
+            
+            <label for="lname">Date of Birth:</label><br>
+            <input type="date" id="start" name="trip-start" value="2018-07-22" min="1900-01-01" max="2024-01-01" required/>
+            <br><br>
 
-        <label for="lname">Sex:</label><br>
-        <input type="checkbox" id="male" name="male"/>
-        <label for="scales">Male</label>
-        <input type="checkbox" id="female" name="female"/>
-        <label for="scales">Female</label>
-        <input type="checkbox" id="others" name="others">
-        <label for="scales">Others</label><br><br>
-        
-        <label for="lname">Phone:</label><br>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="333-4444-4444" required />
-        <br><br>
+            <label for="lname">Gender:</label><br>
+            <input type="checkbox" id="male" name="male"/>
+            <label for="scales">Male</label>
+            <input type="checkbox" id="female" name="female"/>
+            <label for="scales">Female</label>
+            <input type="checkbox" id="others" name="others">
+            <label for="scales">Others</label><br><br>
+            
+            <label for="lname">Phone:</label><br>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="333-4444-4444" required />
+            <br><br>
 
-        <label for="lname">Email:</label><br>
-        <input type="email" id="email" pattern=".+@globex\.com" size="30" required />
-        <br><br>
+            <label for="lname">Email:</label><br>
+            <input type="email" id="email" pattern=".+@globex\.com" size="30" required />
+            <br><br>
 
-        <label for="lname">Appointment details:</label><br>
-        <small>Date</small>
-        <input type="date" id="start" name="apptmentdate" value="2018-07-22" min="1900-01-01" max="2024-01-01" required/><br>
-        <small>Time</small>
-        <input type="time" id="appt" name="appttime" min="07:00" max="18:00" required />
+            <label for="lname">Appointment details:</label><br>
+            <!-- id=appmnt-date -->
+            <small>Date</small>
+            <input type="date" id="start" name="apptmentdate" value="2018-07-22" min="1900-01-01" max="2024-01-01" required/><br>
+            <!-- id=appmnt-time -->
+            <small>Time</small>
+            <input type="time" id="appt" name="appttime" min="07:00" max="18:00" required />
 
-        <br><br>
+            <br><br>
+    
+            <label for="lname">Reason for visit:</label><br>
+            <input type="radio" id="visit1" name="fever" value="fever" />
+            <label for="contactChoice1">Fever / cough</label>
 
-        <label for="lname">Reason for visit:</label><br>
-        <input type="radio" id="visit1" name="fever" value="fever" />
-        <label for="contactChoice1">Fever / cough</label>
+            <input type="radio" id="visit2" name="rash" value="rash" />
+            <label for="contactChoice2">Rash</label>
 
-        <input type="radio" id="visit2" name="rash" value="rash" />
-        <label for="contactChoice2">Rash</label>
+            <input type="radio" id="visit3" name="stomache" value="stomache" />
+            <label for="contactChoice3">Stomache / Diarrhea</label>
 
-        <input type="radio" id="visit3" name="stomache" value="stomache" />
-        <label for="contactChoice3">Stomache / Diarrhea</label>
+            <input type="radio" id="visit4" name="fatigue" value="fatigue" />
+            <label for="contactChoice3">Fatigue</label><br>
+            
+            <input type="radio" id="visit5" name="jointpain" value="jointpain" />
+            <label for="contactChoice3">Joint / Muscle Pain</label>
+            
+            <input type="radio" id="visit6" name="mentalhealth" value="mentalhealth" />
+            <label for="contactChoice3">Mental health</label>
 
-        <input type="radio" id="visit4" name="fatigue" value="fatigue" />
-        <label for="contactChoice3">Fatigue</label><br>
-        
-        <input type="radio" id="visit5" name="jointpain" value="jointpain" />
-        <label for="contactChoice3">Joint / Muscle Pain</label>
-        
-        <input type="radio" id="visit6" name="mentalhealth" value="mentalhealth" />
-        <label for="contactChoice3">Mental health</label>
+            <input type="radio" id="visit7" name="consultation" value="consultation" />
+            <label for="contactChoice3">General health consultation</label>
 
-        <input type="radio" id="visit7" name="consultation" value="consultation" />
-        <label for="contactChoice3">General health consultation</label>
+            <input type="radio" id="visit8" name="others" value="others" />
+            <label for="contactChoice3">others</label>
+            </div>
+            <br><br><br>
 
-        <input type="radio" id="visit8" name="others" value="others" />
-        <label for="contactChoice3">others</label>
-        </div>
+            <!-- submit button is gone? -->
+            <input type="submit" value="Submit the form">
+        </form> 
+
         <br><br><br>
 
-        <!-- submit button is gone? -->
-        <input type="submit" value="Submit the form">
-      </form> 
+    <!-- footer -->
+    <nav id="footerPlaceholder"></nav>
 
-      <br><br><br>
-
-<!-- footer -->
-<nav id="footerPlaceholder"></nav>
-
-
+    <script src="./scripts/appmnt-info.js"></script>
+    </div>
 </body>
 
-</html>
+</html> 
+
+<!-- Inez -->
