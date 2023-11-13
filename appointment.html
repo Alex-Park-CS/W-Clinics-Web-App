@@ -41,19 +41,19 @@
 </head>
 
 <body>
-    <div id = "body_container">
+    <!-- <div id = "body_container"> -->
     <!-- The Navbar -->
-        <nav id="navbarPlaceholder"></nav>
+        <!-- <nav id="navbarPlaceholder"></nav> -->
         <!-- user input form -->
-        <form class="form">
+        <!-- <form class="form">
             <label for="fname">First name:</label><br>
             <input type="text" id="firstname" name="firstname" value="John" required><br><br>
             
             <label for="fname">Middle name:</label><br>
             <input type="text" id="middlename" name="middlename" value="Smith"><br><br>
             
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lastname" name="lastname" value="Doe" required><br><br>
+            <label for="lname">Last name:</label><br> -->
+            <!-- <input type="text" id="lastname" name="lastname" value="Doe" required><br><br>
             
             <label for="lname">Date of Birth:</label><br>
             <input type="date" id="start" name="trip-start" value="2018-07-22" min="1900-01-01" max="2024-01-01" required/>
@@ -75,12 +75,12 @@
             <input type="email" id="email" pattern=".+@globex\.com" size="30" required />
             <br><br>
 
-            <label for="lname">Appointment details:</label><br>
+            <label for="lname">Appointment details:</label><br> -->
             <!-- id=appmnt-date -->
-            <small>Date</small>
-            <input type="date" id="start" name="apptmentdate" value="2018-07-22" min="1900-01-01" max="2024-01-01" required/><br>
+            <!-- <small>Date</small> -->
+            <!-- <input type="date" id="start" name="apptmentdate" value="2018-07-22" min="1900-01-01" max="2024-01-01" required/><br> -->
             <!-- id=appmnt-time -->
-            <small>Time</small>
+            <!-- <small>Time</small>
             <input type="time" id="appt" name="appttime" min="07:00" max="18:00" required />
 
             <br><br>
@@ -111,10 +111,158 @@
             <label for="contactChoice3">others</label>
             </div>
             <br><br><br>
-
-            <!-- submit button is gone? -->
+        </form>  -->
+          
             <input type="submit" value="Submit the form">
-        </form> 
+
+
+
+            <!-- codep -->
+            <div class="appmnt-landing-page">
+                <div class="form-appointment">
+                    <div class="wpcf7" id="wpcf7-f560-p590-o1">
+                        <form action="/landing-page-template-do-not-delete/#wpcf7-f560-p590-o1" method="post" class="wpcf7-form" novalidate="novalidate" _lpchecked="1">
+                            <div style="display: none;">
+                            <input type="hidden" name="_wpcf7" value="560">
+                            <input type="hidden" name="_wpcf7_version" value="3.5">
+                            <input type="hidden" name="_wpcf7_locale" value="">
+                            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f560-p590-o1">
+                            <input type="hidden" name="_wpnonce" value="dbb28877d5">
+                            </div>
+                
+                    <div class="group">
+                        <div style="width: 48%; float: left;">
+                            <!-- first name -->
+                            <span class="wpcf7-form-control-wrap text-680">
+                                <input type="text" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="First Name (*required)">
+                                <!-- java -->
+                                <span id="user-firstname"></span>
+                            </span>
+                            <br>
+                            <!-- middle name -->
+                            <span class="wpcf7-form-control-wrap text-680">
+                                <input type="text" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="false" placeholder="Middle Name">
+                                <!-- java -->
+                                <span id="user-middlename"></span>
+                            </span>
+                            <br>
+                            <!-- last name -->
+                            <span class="wpcf7-form-control-wrap text-680">
+                                <input type="text" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Last Name (*required)">
+                                <!-- java -->
+                                <span id="user-lastname"></span>
+                            </span>
+                            <br>
+
+                        
+
+                            <!-- email -->
+                            <span class="wpcf7-form-control-wrap email-680">
+                                <input type="email" name="email-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" placeholder="Email (*required)">
+                                <!-- java -->
+                                <span id="user-email"></span>
+                            </span>
+                            <br>
+
+                            <!-- phone -->
+                            <span class="wpcf7-form-control-wrap tel-630">
+                                <input type="tel" name="tel-630" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" placeholder="Phone (*required)">
+                                <!-- java -->
+                                <span id="user-phone"></span>
+                            </span>
+                            <br>
+
+                            <!-- DOB -->
+                            <span class="wpcf7-form-control-wrap text-680">
+                                <p> Date of Birth (*required):
+                                <input type="date" name="text-680" value="1990-01-01" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Date of Birth (*required)">
+                                </p>
+                                <!-- java --> 
+                                <span id="user-DOB"></span>
+                            </span>
+
+                            <!-- Gender -->
+                            <span class="wpcf7-form-control-wrap text-680">
+                                <p> Gender (*required):
+                                        <span class="wpcf7-form-control wpcf7-radio">
+                                            <span class="wpcf7-list-item">
+                                                <label>
+                                                    <input type="radio" name="radio-98" value="Phone">&nbsp;<span class="wpcf7-list-item-label">
+                                                    Male</span></label></span>
+                                            <span class="wpcf7-list-item">
+                                                <label>
+                                                    <input type="radio" name="radio-98" value="Email">&nbsp;<span class="wpcf7-list-item-label">
+                                                    Female</span></label></span>
+                                            <span class="wpcf7-list-item">
+                                                <label>
+                                                    <input type="radio" name="radio-98" value="Phone">&nbsp;<span class="wpcf7-list-item-label">
+                                                    Others</span></label></span>
+                                </p>
+                                <!-- java --> 
+                                <span id="user-gender"></span>
+                            </span>
+                        </div>
+
+
+                        <div style="width: 48%; float: right;">
+                            <!-- contact method -->
+                            <h5>What is the best way to reach you?</h5>
+                                <p><span class="wpcf7-form-control-wrap radio-98">
+                                    <span class="wpcf7-form-control wpcf7-radio">
+                                        <span class="wpcf7-list-item">
+                                            <label>
+                                                <input type="radio" name="radio-98" value="Phone">&nbsp;<span class="wpcf7-list-item-label">
+                                                Phone</span></label></span>
+                                        <span class="wpcf7-list-item">
+                                            <label>
+                                                <input type="radio" name="radio-98" value="Email">&nbsp;<span class="wpcf7-list-item-label">
+                                                Email</span></label></span>
+                                        </span>
+                                    </span>
+                                </p>
+                                <!-- contact method java -->
+                                <span id="user-contactmethod"></span>
+                
+                            <!-- Appointment date -->
+                            <h5>Appointment Date:</h5>
+                            <input type="date" name="text-680" value="1990-01-01" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Appointment-date">
+                            <!-- appointment-info, appointment-info-details java -->
+                            <span id="appmtDate"></span>
+                
+                            <!-- Appointment time : doesnt work? -->
+                            <h5>appointment time: </h5>
+                                <div class="dropdown show">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown button
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+
+                                <!-- appointment-info, appointment-info-details java --> 
+                                <span id="appmt-time"></span>
+                            <br>
+
+                            <!-- special notes -->
+                            <span class="wpcf7-form-control-wrap textarea-398">
+                                <textarea name="textarea-398" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Special notes, concerns, or requirements"></textarea>
+                            </span>
+
+                            <br><br>
+                        </div>
+                
+                        <!-- center? -->
+                    <div style="text-align: center; padding-top: 2em; border-top: 1px solid rgb(153, 202, 129); margin-top: 1em; justify-content: center;">
+                        <input type="submit" value="Request My Appointment" class="wpcf7-form-control wpcf7-submit justify-content: center;">
+                        <img class="ajax-loader" src="http://www.professionalaudiologicalservices.com/wp-content/plugins/contact-form-7/images/ajax-loader.gif" alt="Sending ..." style="visibility: hidden;"></div>
+                    <div class="wpcf7-response-output wpcf7-display-none"></div></form>
+                </div>
+            </div>
+        </div>
+        
 
         <br><br><br>
 
