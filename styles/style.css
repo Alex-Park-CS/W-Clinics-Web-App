@@ -499,23 +499,26 @@ body {
     padding: 20px;
 }
 
-.add-and-view-buttons-group {
+.clinic-profile-page-buttons-group {
     display: flex;
     justify-content: space-around;
+   
 }
 
-.add-and-view-button-1 {
-    width: 100px;
+.review-button {
+    /* width: 100px;
     margin: 0px 20px 0px 20px;
     background-color: grey;
-    color: black;
+    color: black; */
+    background-color: #C9EFC7
 }
 
-.add-and-view-button-2 {
-    width: 100px;
+.appntmnt-button{
+    /* width: 100px;
     margin: 0px 20px 0px 20px;
     background-color: grey;
-    color: black;
+    color: black; */
+    background-color: #C9EFC7;
 }
 
 /*-----------Profile View Review----------- */
