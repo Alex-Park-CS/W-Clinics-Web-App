@@ -1,4 +1,6 @@
+// Inez
 // function for appointment info
+// directly from firebase
 function readAppmtDate(appointmentdate) {
     db.collection("user-info").doc(appointmentdate) 
     .onSnapshot(whatgoeshere => {
@@ -25,4 +27,10 @@ readAppmtTime("user-info-details");
 
 //reason for visit 
 
-//Inez
+// cdp
+
+$(document).ready(function () {
+    $('input[type=submit]').click(function () {
+      $('input[type=submit]').toggleClass('red');
+    });
+  });
