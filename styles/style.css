@@ -141,6 +141,12 @@ tr:nth-child(even) {
     background-color: #D6EEEE;
   }
 
+/* aboutus */
+#aboutus-body{
+    text-align:center;
+    padding: 20px;
+}
+
 /* -----------More of Richard's stuff ----------- */
 
 /* footer */ 
