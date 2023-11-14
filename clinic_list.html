@@ -31,10 +31,6 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/main.js"></script>
-    
-    <script>
-        logout();       //make sure user is logged out
-    </script>
 
 
     <!-- Home Icon -->
@@ -79,23 +75,16 @@
                     <a href="clinic_profile_page.html" class="clinic-name clinic-card-title ">Clinic 1</a>
                     <p class="clinic-distance clinic-card-distance-time">102m</p>
                     <p class="clinic-address clinic-card-distance-time">1234 Robson St</p>
-                </div>  
-                <div class="clinic-card-icons">
-                    <a href="#" class="material-symbols-outlined">
-                        phone
-                    </a>
-                    <!-- appointment html is connected (firebase) -->
-                    <a href="appointment.html" class="material-symbols-outlined" onclick="saveHikeDocumentIDAndRedirect()">
-                        book
-                    </a>
-                    <a href="#" class="material-symbols-outlined">
-                        location_on
-                    </a>
+                </div>
+                <div class="clinic-card-right">
+                    <!-- <img class="clinic-image responsive" src=""> -->
+                    <button class="btn btn-primary position-absolute bottom-0 end-0 m-3">Write
+                        Review</button>
                 </div>
             </div>
         </template>
 
-        
+
         <nav id="footerPlaceholder"></nav>
     </div>
     <script src="./scripts/clinic_list.js"></script>

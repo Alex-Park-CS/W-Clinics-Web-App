@@ -27,3 +27,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+function submitReview() {
+    console.log("inside write review");
+    let reviewTitle = document.getElementById("title").value;
+    let reviewComment = document.getElementById("review-comment").value;
+    let treated_On_Time = document.getElementById("treated-on-time").value;
+    
+    const stars = document.querySelectorAll('.star');
+    let clinicRating = 0;
+    stars.forEach((star) => {
+        if (star.textContent === 'star') {
+            clinicRating++;
+        }
+    });
+
+    console.log(reviewTitle, reviewComment, treated_On_Time, clinicRating);
+
+    var user = firebase.auth().currentUser;
+    if (user) {
+        var currentUser = db.collection("users").doc(user.uid);
+        var userID = user.uid;
+        console.log(userID)
+
+        // Get the document for the current user.
+        db.collection("reviews").add({
+            clinicID: clinicID,
+            userID: userID,
+            title: reviewTitle, //
+            comment: reviewComment,
+            treatedOnTime: treated_On_Time,
+            rating: clinicRating, // Include the rating in the review
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(() => {
+            window.location.href = "thanks.html"; // Redirect to the thanks page
+        });
+    } else {
+        console.log("No user is signed in");
+        // window.location.href = 'add_review.html';
+    }
+}
+submitReview();

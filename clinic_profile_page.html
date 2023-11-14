@@ -31,9 +31,6 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/main.js"></script>
-    <script>
-        logout();       //make sure user is logged out
-    </script>
 
 
     <!-- Home Icon -->
@@ -42,6 +39,7 @@
     <!-- Favourite Star Icon -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- History -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -69,6 +67,33 @@
                 <div id="clinic-waittime"></div>
             </div>
         </div>
+
+        <!-- Review container to add to -->
+        <div class="container">
+            <p class="profile-title">Reviews:</p>
+            <div id="details-go-here"></div>
+            <!-- Here is the container for cards with horizontal scrolling -->
+            <div class="card-container">
+                <div id="reviewCardGroup" class="row row-cols-auto">
+                    <!-- Add your card templates here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Template -->
+        <template id="reviewCardTemplate">
+            <div class="card bg-secondary">
+                <img class="card-img-top">
+                <div class="card-body bg-light">
+                    <p class="review-title">placeholder</p>
+                    <p class="star-rating"></p>
+                    <p class="time">placeholder</p>
+                    <p class="treated-on-time">placeholder</p>
+                    <p class="description">This card has supporting text below as a natural lead-in to additional
+                        content.</p>
+                </div>
+            </div>
+        </template>
 
 
         <nav id="footerPlaceholder"></nav>

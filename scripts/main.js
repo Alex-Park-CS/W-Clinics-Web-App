@@ -82,4 +82,3 @@ function writeReviews() {
 //     })
 // }
 // readClinicName("clinic-name");
-
