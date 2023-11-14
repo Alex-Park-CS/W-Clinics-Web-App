@@ -32,7 +32,6 @@ displayClinicsDynamically("clinics");  //input param is the name of the collecti
 
 
 //calling appointment html
-<<<<<<< HEAD
 function saveAppmntDocumentIDAndRedirect(){
     let params = new URL(window.location.href) //get the url from the search bar
     let appointmentdoc = params.searchParams.get("docID");
@@ -41,6 +40,3 @@ function saveAppmntDocumentIDAndRedirect(){
     window.location.href = 'appointment.html';
 }
 
-=======
-// saveHikeDocumentIDAndRedirect()
->>>>>>> refs/remotes/origin/main
