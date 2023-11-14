@@ -27,3 +27,6 @@ function displayClinicsDynamically(collection) {
 
 displayClinicsDynamically("clinics");  //input param is the name of the collection
 
+
+//calling appointment html
+saveHikeDocumentIDAndRedirect()

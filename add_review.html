@@ -10,8 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap Library CSS CDN go here -->
-    <link rel="stylesheet" hr ef="./styles/style.css">
+    <link rel="stylesheet" hr   ef="./styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -32,7 +33,7 @@
     <script src="./scripts/firebaseAPI_DTC02.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-
+    
 
 
     <!-- Home Icon -->
@@ -51,38 +52,46 @@
     <div id="body_container">
         <!-- The Navbar -->
         <nav id="navbarPlaceholder"></nav>
-
-        <!-- body -->
-        <div id="review_middle">
-            <span id="clinic-name" class="heading">User Rating</span>
-            <div class="rating-star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-            </div>
-            <form>
-                <div class="review_anonymosity">
-                    <label for="exampleFormControlSelect1"> Anonymous? </label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option> </option>
-                        <option> Yes </option>
-                        <option> No </option>
-                    </select>
-                </div>
-                <div class="review_comment">
-                    <label for="exampleFormControlTextarea1">Comment</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-                </div>
-            </form>
+ 
+<!-- body -->
+<!-- <div id = "review_middle">
+        <span class="heading">User Rating</span>
+        <div class="rating-star">
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+        </div> -->
+    <div class="card-body">
+        <p>User Rating:</p>
+        <span class="material-icons star" id="star1">star_outline</span>
+        <span class="material-icons star" id="star2">star_outline</span>
+        <span class="material-icons star" id="star3">star_outline</span>
+        <span class="material-icons star" id="star4">star_outline</span>
+        <span class="material-icons star" id="star5">star_outline</span>
+    </div>
+    <form>
+        <div class="review_anonymosity">
+          <label for="exampleFormControlSelect1"> Anonymous? </label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option> </option>
+            <option> Yes </option>
+            <option> No </option>
+          </select>
         </div>
-        <div id="submit_cancel_buttons">
-            <button type="submit" class="btn btn-success">Submit</button>
-            <button type="submit" class="btn btn-secondary">Cancel</button>
+        <div class="review_comment">
+          <label for="exampleFormControlTextarea1">Comment</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
         </div>
-        <!-- footer -->
-        <nav id="footerPlaceholder"></nav>
+      </form>
+</div>
+    <div id = "submit_cancel_buttons">
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-secondary">Cancel</button>
+    </div>  
+<!-- footer -->
+<nav id="footerPlaceholder"></nav>
 
         <script src="./scripts/add_review.js"></script>
 
