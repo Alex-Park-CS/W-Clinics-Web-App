@@ -41,9 +41,13 @@
 </head>
 
 <body>
-    <!-- <div id = "body_container"> -->
+    <div id = "body_container"> 
     <!-- The Navbar -->
-        <!-- <nav id="navbarPlaceholder"></nav> -->
+            <nav id="navbarPlaceholder"></nav>
+
+       
+            <br>
+          
         <!-- user input form -->
         <!-- <form class="form">
             <label for="fname">First name:</label><br>
@@ -112,8 +116,8 @@
             </div>
             <br><br><br>
         </form>  -->
-          
-            <input type="submit" value="Submit the form">
+<!--           
+            <input type="submit" value="Submit the form"> -->
 
 
 
@@ -227,30 +231,23 @@
                             <h5>Appointment Date:</h5>
                             <input type="date" name="text-680" value="1990-01-01" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Appointment-date">
                             <!-- appointment-info, appointment-info-details java -->
-                            <span id="appmtDate"></span>
-                
-                            <!-- Appointment time : doesnt work? -->
-                            <h5>appointment time: </h5>
-                                <div class="dropdown show">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown button
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-
+                            <span id="user-appmtDateTime"></span>
+                            <br>
+                            <br>
+                           
+                            <h5>Appointment Time: </h5>
+                                <input type="time" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Appointment-time">
+                    
                                 <!-- appointment-info, appointment-info-details java --> 
-                                <span id="appmt-time"></span>
+                                <span id="user-appmtDateTime"></span>
+                            <br>
                             <br>
 
                             <!-- special notes -->
                             <span class="wpcf7-form-control-wrap textarea-398">
                                 <textarea name="textarea-398" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Special notes, concerns, or requirements"></textarea>
                             </span>
-
+                            <span id="user-appmtDetail"></span>
                             <br><br>
                         </div>
                 
