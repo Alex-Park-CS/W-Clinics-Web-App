@@ -513,6 +513,11 @@ button {
 
 /* -----------Clinic Profile/Review (Alex) ------------*/
 
+#clinic-name{
+    font-size: 18px;
+    font-weight: 700;
+}
+
 .clinic-profile {
     font-size: 14px;
 }

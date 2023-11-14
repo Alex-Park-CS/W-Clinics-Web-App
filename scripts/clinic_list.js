@@ -29,4 +29,4 @@ displayClinicsDynamically("clinics");  //input param is the name of the collecti
 
 
 //calling appointment html
-saveHikeDocumentIDAndRedirect()
+// saveHikeDocumentIDAndRedirect()
