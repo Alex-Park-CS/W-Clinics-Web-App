@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i <= index; i++) {
                 // Change the text content of stars to 'star' (filled)
                 document.getElementById(`star${i + 1}`).textContent = 'star';
-                // Optional: If you want to change the color as well, you can use the following line
-                // document.getElementById(`star${i + 1}`).classList.add('selected');
             }
         });
     });
