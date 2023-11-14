@@ -1,10 +1,10 @@
 function displayClinicInfo() {
-    let params = new URL(window.location.href); //get URL of search bar
+    let params = new URL(window.location.href);
     console.log("params is = ", params)
-    let ID = params.searchParams.get("docID"); //get value for key "id"
+    let ID = params.searchParams.get("docID"); 
     console.log(ID);
 
-    // doublecheck: is your collection called "Reviews" or "reviews"?
+
     db.collection("clinics")
         .doc(ID)
         .get()
@@ -20,8 +20,6 @@ function displayClinicInfo() {
             clinicCode = doc.data().code
 
 
-
-            // only populate title, and image
             document.getElementById("clinicName").innerHTML = clinicName;
             document.getElementById("clinicAddress").innerHTML = "Address: " + clinicAddress;
             document.getElementById("clinic-hours").innerHTML = clinicHours
@@ -33,3 +31,11 @@ function displayClinicInfo() {
         });
 }
 displayClinicInfo();
+
+function saveClinicIDAndRedirect() {
+    let params = new URL(window.location.href);
+    let ID = params.searchParams.get("docID");
+
+    localStorage.setItem('clinicID', ID)
+    window.location.href = 'add_review.html';
+}

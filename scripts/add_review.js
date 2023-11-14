@@ -1,3 +1,16 @@
+var clinicID = localStorage.getItem("clinicID")
+console.log(clinicID)
+
+function writeClinicName() {
+    db.collection("clinics").doc(clinicID).get().then((thisClinic) => {
+        clinicName = thisClinic.data().clinicName;
+        document.getElementById("clinic-name").innerHTML = "Review: <br>" + clinicName;
+
+    })
+}
+
+writeClinicName()
+
 document.addEventListener('DOMContentLoaded', () => {
     // Select all elements with the class name "star" and store them in the "stars" variable
     const stars = document.querySelectorAll('.star');
