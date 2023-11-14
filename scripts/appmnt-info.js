@@ -238,7 +238,7 @@ function readUserVisitBack(userVisitBack) {
     )
 }
 
-readUserVisitBack("visit-backpain");
+readUserVisitBack("user-info-details");
 
 
 // jointpain
@@ -251,7 +251,7 @@ function readUserVisitJoint(userVisitJoint) {
     )
 }
 
-readUserVisitJoint("visit-jointpain");
+readUserVisitJoint("user-info-details");
 
 
 // visit-mental
@@ -264,7 +264,7 @@ function readUserVisitMental(userVisitMental) {
     )
 }
 
-readUserVisitMental("visit-mental");
+readUserVisitMental("user-info-details");
 
 
 // Mental
@@ -277,7 +277,7 @@ function readUserVisitHeadache(userVisitHeadache) {
     )
 }
 
-readUserVisitHeadache("visit-headache");
+readUserVisitHeadache("user-info-details");
 
 
 // Blood Pressure
@@ -290,7 +290,7 @@ function readUserVisitBlood(userVisitBlood) {
     )
 }
 
-readUserVisitBlood("visit-bloodpressure");
+readUserVisitBlood("user-info-details");
 
 //wellness
 function readUserVisitWellness(userVisitWellness) {
@@ -302,7 +302,7 @@ function readUserVisitWellness(userVisitWellness) {
     )
 }
 
-readUserVisitWellness("visit-wellness");
+readUserVisitWellness("user-info-details");
 
 //Others
 function readUserVisitOthers(userVisitOthers) {
@@ -314,7 +314,7 @@ function readUserVisitOthers(userVisitOthers) {
     )
 }
 
-readUserVisitOthers("visit-wellness");
+readUserVisitOthers("user-info-details");
 
 
 // cdp
