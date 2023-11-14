@@ -94,3 +94,13 @@ function populateReviews() {
 }
 
 populateReviews();
+
+
+//appointment button
+function makeAnAppointment() {
+    let params = new URL(window.location.href);
+    let ID = params.searchParams.get("docID");
+
+    localStorage.setItem('clinicID', ID)
+    window.location.href = 'appointment.html';
+}
