@@ -35,10 +35,10 @@ a {
     text-align: center;
 }
 
-a:hover {
-    background-color: white;
-    color: black;
-}
+/* a:hover {
+    text-shadow: 2px 2px;
+    box-shadow: 10px 10px lightblue;
+} */
 
 a:link {
     text-decoration: none;
