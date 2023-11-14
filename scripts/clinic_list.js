@@ -29,4 +29,11 @@ displayClinicsDynamically("clinics");  //input param is the name of the collecti
 
 
 //calling appointment html
-saveHikeDocumentIDAndRedirect()
+function saveAppmntDocumentIDAndRedirect(){
+    let params = new URL(window.location.href) //get the url from the search bar
+    let appointmentdoc = params.searchParams.get("docID");
+    
+    localStorage.setItem('appointmentID', appointmentdoc);
+    window.location.href = 'appointment.html';
+}
+

@@ -1,6 +1,7 @@
 // Inez
 // function for appointment info
 // directly from firebase
+const appointmentID = localStorage.getItem("appointmentID"); 
 
 //first name
 function readFirstname(userfirstname) {
@@ -139,7 +140,7 @@ function readContactMethodEmail(userContactmethodEmail) {
     db.collection("user-info").doc(userContactmethodEmail) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
-        document.getElementById("user-contact-phone").innerHTML = whatgoeshere.data().userContactMethod["Email"];
+        document.getElementById("user-contact-email").innerHTML = whatgoeshere.data().userContactMethod["Email"];
 
     }
     )
@@ -191,131 +192,135 @@ readUserApppointmentDetail("user-info-details");
 
 //reason for visit 
 //visit-coldflue
-function readUserVisitCold(userVisitCold) {
-    db.collection("user-info").doc(userVisitCold) 
-    .onSnapshot(whatgoeshere => {
-        console.log(whatgoeshere.data());
-        document.getElementById("visit-coldflue").innerHTML = whatgoeshere.data().userVisitReason["userReasonCold"];
-    }
-    )
-}
+// function readUserVisitCold(userVisitCold) {
+//     db.collection("user-info").doc(userVisitCold) 
+//     .onSnapshot(whatgoeshere => {
+//         console.log(whatgoeshere.data());
+//         document.getElementById("visit-coldflue").innerHTML = whatgoeshere.data().userVisitReason["userReasonCold"];
+//     }
+//     )
+// }
 
-readUserVisitCold("user-info-details");
-
-
-//allergies
-function readUserVisitAllergies(userVisitAllergies) {
-    db.collection("user-info").doc(userVisitAllergies) 
-    .onSnapshot(whatgoeshere => {
-        console.log(whatgoeshere.data());
-        document.getElementById("visit-allergies").innerHTML = whatgoeshere.data().userVisitReason["userReasonAllergies"];
-    }
-    )
-}
-
-readUserVisitAllergies("user-info-details");
-
-//skin
-function readUserVisitSkin(userVisitSkin) {
-    db.collection("user-info").doc(userVisitSkin) 
-    .onSnapshot(whatgoeshere => {
-        console.log(whatgoeshere.data());
-        document.getElementById("visit-skin").innerHTML = whatgoeshere.data().userVisitReason["userVisitSkin"];
-    }
-    )
-}
-
-readUserVisitSkin("user-info-details");
+// readUserVisitCold("user-info-details");
 
 
-//backpain
-function readUserVisitBack(userVisitBack) {
-    db.collection("user-info").doc(userVisitBack) 
-    .onSnapshot(whatgoeshere => {
-        console.log(whatgoeshere.data());
-        document.getElementById("visit-backpain").innerHTML = whatgoeshere.data().userVisitReason["userVisitBack"];
-    }
-    )
-}
+// //allergies
+// function readUserVisitAllergies(userVisitAllergies) {
+//     db.collection("user-info").doc(userVisitAllergies) 
+//     .onSnapshot(whatgoeshere => {
+//         console.log(whatgoeshere.data());
+//         document.getElementById("visit-allergies").innerHTML = whatgoeshere.data().userVisitReason["userReasonAllergies"];
+//     }
+//     )
+// }
 
-readUserVisitBack("user-info-details");
+// readUserVisitAllergies("user-info-details");
 
+// //skin
+// function readUserVisitSkin(userVisitSkin) {
+//     db.collection("user-info").doc(userVisitSkin) 
+//     .onSnapshot(whatgoeshere => {
+//         console.log(whatgoeshere.data());
+//         document.getElementById("visit-skin").innerHTML = whatgoeshere.data().userVisitReason["userVisitSkin"];
+//     }
+//     )
+// }
 
-// jointpain
-function readUserVisitJoint(userVisitJoint) {
-    db.collection("user-info").doc(userVisitJoint) 
-    .onSnapshot(whatgoeshere => {
-        console.log(whatgoeshere.data());
-        document.getElementById("visit-jointpain").innerHTML = whatgoeshere.data().userVisitReason["userVisitJoint"];
-    }
-    )
-}
-
-readUserVisitJoint("user-info-details");
-
-
-// visit-mental
-function readUserVisitMental(userVisitMental) {
-    db.collection("user-info").doc(userVisitMental) 
-    .onSnapshot(whatgoeshere => {
-        console.log(whatgoeshere.data());
-        document.getElementById("visit-mental").innerHTML = whatgoeshere.data().userVisitReason["userVisitMental"];
-    }
-    )
-}
-
-readUserVisitMental("user-info-details");
+// readUserVisitSkin("user-info-details");
 
 
-// Mental
-function readUserVisitHeadache(userVisitHeadache) {
-    db.collection("user-info").doc(userVisitHeadache) 
-    .onSnapshot(whatgoeshere => {
-        console.log(whatgoeshere.data());
-        document.getElementById("visit-headache").innerHTML = whatgoeshere.data().userVisitReason["userVisitHeadache"];
-    }
-    )
-}
+// //backpain
+// function readUserVisitBack(userVisitBack) {
+//     db.collection("user-info").doc(userVisitBack) 
+//     .onSnapshot(whatgoeshere => {
+//         console.log(whatgoeshere.data());
+//         document.getElementById("visit-backpain").innerHTML = whatgoeshere.data().userVisitReason["userVisitBack"];
+//     }
+//     )
+// }
 
-readUserVisitHeadache("user-info-details");
+// readUserVisitBack("user-info-details");
 
 
-// Blood Pressure
-function readUserVisitBlood(userVisitBlood) {
-    db.collection("user-info").doc(userVisitBlood) 
-    .onSnapshot(whatgoeshere => {
-        console.log(whatgoeshere.data());
-        document.getElementById("visit-bloodpressure").innerHTML = whatgoeshere.data().userVisitReason["userVisitBlood"];
-    }
-    )
-}
+// // jointpain
+// function readUserVisitJoint(userVisitJoint) {
+//     db.collection("user-info").doc(userVisitJoint) 
+//     .onSnapshot(whatgoeshere => {
+//         console.log(whatgoeshere.data());
+//         document.getElementById("visit-jointpain").innerHTML = whatgoeshere.data().userVisitReason["userVisitJoint"];
+//     }
+//     )
+// }
 
-readUserVisitBlood("user-info-details");
+// readUserVisitJoint("user-info-details");
 
-//wellness
-function readUserVisitWellness(userVisitWellness) {
-    db.collection("user-info").doc(userVisitWellness) 
-    .onSnapshot(whatgoeshere => {
-        console.log(whatgoeshere.data());
-        document.getElementById("visit-wellness").innerHTML = whatgoeshere.data().userVisitReason["userVisitWellness"];
-    }
-    )
-}
 
-readUserVisitWellness("user-info-details");
+// // visit-mental
+// function readUserVisitMental(userVisitMental) {
+//     db.collection("user-info").doc(userVisitMental) 
+//     .onSnapshot(whatgoeshere => {
+//         console.log(whatgoeshere.data());
+//         document.getElementById("visit-mental").innerHTML = whatgoeshere.data().userVisitReason["userVisitMental"];
+//     }
+//     )
+// }
 
-//Others
-function readUserVisitOthers(userVisitOthers) {
-    db.collection("user-info").doc(userVisitOthers) 
-    .onSnapshot(whatgoeshere => {
-        console.log(whatgoeshere.data());
-        document.getElementById("visit-wellness").innerHTML = whatgoeshere.data().userVisitReason["userVisitOthers"];
-    }
-    )
-}
+// readUserVisitMental("user-info-details");
 
-readUserVisitOthers("user-info-details");
 
+// // Mental
+// function readUserVisitHeadache(userVisitHeadache) {
+//     db.collection("user-info").doc(userVisitHeadache) 
+//     .onSnapshot(whatgoeshere => {
+//         console.log(whatgoeshere.data());
+//         document.getElementById("visit-headache").innerHTML = whatgoeshere.data().userVisitReason["userVisitHeadache"];
+//     }
+//     )
+// }
+
+// readUserVisitHeadache("user-info-details");
+
+
+// // Blood Pressure
+// function readUserVisitBlood(userVisitBlood) {
+//     db.collection("user-info").doc(userVisitBlood) 
+//     .onSnapshot(whatgoeshere => {
+//         console.log(whatgoeshere.data());
+//         document.getElementById("visit-bloodpressure").innerHTML = whatgoeshere.data().userVisitReason["userVisitBlood"];
+//     }
+//     )
+// }
+
+// readUserVisitBlood("user-info-details");
+
+// //wellness
+// function readUserVisitWellness(userVisitWellness) {
+//     db.collection("user-info").doc(userVisitWellness) 
+//     .onSnapshot(whatgoeshere => {
+//         console.log(whatgoeshere.data());
+//         document.getElementById("visit-wellness").innerHTML = whatgoeshere.data().userVisitReason["userVisitWellness"];
+//     }
+//     )
+// }
+
+// readUserVisitWellness("user-info-details");
+
+// //Others
+// function readUserVisitOthers(userVisitOthers) {
+//     db.collection("user-info").doc(userVisitOthers) 
+//     .onSnapshot(whatgoeshere => {
+//         console.log(whatgoeshere.data());
+//         document.getElementById("visit-wellness").innerHTML = whatgoeshere.data().userVisitReason["userVisitOthers"];
+//     }
+//     )
+// }
+
+// readUserVisitOthers("user-info-details");
+
+
+function submitappmt() {
+    document.getElementById("appmtsubmit").innerHTML = "thanks.html";
+  }
 
 // cdp
 
@@ -327,10 +332,26 @@ $(document).ready(function () {
 
 // DOM
 // step 2.5
-function saveHikeDocumentIDAndRedirect(){
-    let params = new URL(window.location.href) //get the url from the search bar
-    let ID = params.searchParams.get("docID");
-    localStorage.setItem('appointmentID', ID);
-    window.location.href = 'appointment.html';
+// function saveAppmntDocumentIDAndRedirect(){
+//     let params = new URL(window.location.href) //get the url from the search bar
+//     let ID = params.searchParams.get("docID");
+//     localStorage.setItem('appointmentID', ID);
+//     window.location.href = 'appointment.html';
+// }
+
+
+
+
+   //visible to all functions on this page
+
+function getClinicname(id) {
+    db.collection("clinics")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        clinicName = doc.data().clinicName;
+        document.getElementById("clinicName").innerHTML = clinicName;
+});
 }
 
+getClinicname(appointmentID);

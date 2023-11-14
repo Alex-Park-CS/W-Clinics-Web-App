@@ -194,20 +194,22 @@
                         <!-- Gender -->
                         <span class="wpcf7-form-control-wrap text-680">
                             <p> Gender (*required):
-                                <span class="wpcf7-form-control wpcf7-radio" >
+                                <span class="wpcf7-form-control wpcf7-radio">
                                     <span class="wpcf7-list-item">
                                         <label>
-                                            <input type="radio" name="radio-98" value="Phone">&nbsp;<span class="wpcf7-list-item-label" 
+                                            <input type="radio" name="radio-98" value="Male">&nbsp;<span class="wpcf7-list-item-label" 
                                             id="user-gender-male">
-                                            Male</span></label></span>
+                                            Male </span></label></span>
+
                                     <span class="wpcf7-list-item">
                                         <label>
-                                            <input type="radio" name="radio-98" value="Email">&nbsp;<span class="wpcf7-list-item-label"
+                                            <input type="radio" name="radio-98" value="Female">&nbsp;<span class="wpcf7-list-item-label"
                                             id="user-gender-female">
                                             Female</span></label></span>
+
                                     <span class="wpcf7-list-item">
                                         <label>
-                                            <input type="radio" name="radio-98" value="Phone">&nbsp;<span class="wpcf7-list-item-label"
+                                            <input type="radio" name="radio-98" value="Others">&nbsp;<span class="wpcf7-list-item-label"
                                             id="user-gender-others">
                                             Others</span></label></span>
                             </p>
@@ -230,7 +232,7 @@
                                     <span class="wpcf7-list-item">
                                         <label>
                                             <input type="radio" name="radio-98" value="Email">&nbsp;<span class="wpcf7-list-item-label"
-                                            id="user-contact-phone">
+                                            id="user-contact-email">
                                             Email</span></label></span>
                                     </span>
                                 </span>
@@ -279,7 +281,7 @@
                                             <input type="checkbox" name="checkbox" value="Allergies">&nbsp;<span class="wpcf7-list-item-label"
                                             id="visit-allergies">
                                             Allergies </span></label></span>
-                                            
+
                                         <label>
                                             <input type="checkbox" name="checkbox" value="Skin">&nbsp;<span class="wpcf7-list-item-label"
                                             id="visit-skin">
@@ -324,11 +326,18 @@
                             </p>
                     </div>
                 
-                        <!-- center? -->
-                    <div style="text-align: center; padding-top: 2em; border-top: 1px solid rgb(153, 202, 129); margin-top: 1em; justify-content: center;">
-                        <input type="submit" value="Request My Appointment" class="wpcf7-form-control wpcf7-submit justify-content: center;">
-                        <img class="ajax-loader" src="http://www.professionalaudiologicalservices.com/wp-content/plugins/contact-form-7/images/ajax-loader.gif" alt="Sending ..." style="visibility: hidden;"></div>
-                    <div class="wpcf7-response-output wpcf7-display-none"></div></form>
+                    <!-- center? -->
+                    
+                     <!-- <div style="text-align: center; padding-top: 2em; border-top: 1px solid rgb(153, 202, 129); margin-top: 1em; justify-content: center;"> -->
+                        <button onclick="submitappmt()" id="appmtsubmit"> Request My Appointment </button>
+                        <!-- <input type="submit" value="Request My Appointment" class="wpcf7-form-control wpcf7-submit justify-content: center;" onclick="submitappmt()" id="appmtsubmit"> -->
+                        <!-- <img class="ajax-loader" src="http://www.professionalaudiologicalservices.com/wp-content/plugins/contact-form-7/images/ajax-loader.gif" alt="Sending ..." style="visibility: hidden;"></div>  -->
+                        
+                    
+                        <!-- <div class="wpcf7-response-output wpcf7-display-none"></div> -->
+
+                    </form>
+
                 </div>
             </div>
         </div>
