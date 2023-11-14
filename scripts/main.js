@@ -82,5 +82,3 @@ function writeReviews() {
 //     })
 // }
 // readClinicName("clinic-name");
-
-console.log(db.collection("users").doc(user.uid))
