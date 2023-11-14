@@ -80,10 +80,10 @@ function saveUserInfo() {
         MiddleName: userMiddleName, 
         LastName: userLastName,
         DOB: userDOB,
-        gender: userGender,
+        Gender: userGender,
         email: userEmail,
-        phone: userPhone,
-        contactMethod: userContactMethod
+        Phone: userPhone,
+        ContactMethod: userContactMethod
     })
     .then(() => {
         console.log("Document successfully updated!");
