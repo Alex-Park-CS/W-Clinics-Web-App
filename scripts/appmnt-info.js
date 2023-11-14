@@ -324,34 +324,20 @@ function submitappmt() {
 
 // cdp
 
-$(document).ready(function () {
-    $('input[type=submit]').click(function () {
-      $('input[type=submit]').toggleClass('red');
-    });
-  });
+// $(document).ready(function () {
+//     $('input[type=submit]').click(function () {
+//       $('input[type=submit]').toggleClass('red');
+//     });
+//   });
 
 // DOM
 // step 2.5
-// function saveAppmntDocumentIDAndRedirect(){
-//     let params = new URL(window.location.href) //get the url from the search bar
-//     let ID = params.searchParams.get("docID");
-//     localStorage.setItem('appointmentID', ID);
-//     window.location.href = 'appointment.html';
-// }
 
+//visible to all functions on this page
+//event handler
 
+document.getElementById("submitApmnt").addEventListener("click", submitform())
 
-
-   //visible to all functions on this page
-
-function getClinicname(id) {
-    db.collection("clinics")
-      .doc(id)
-      .get()
-      .then((doc) => {
-        clinicName = doc.data().clinicName;
-        document.getElementById("clinicName").innerHTML = clinicName;
-});
-}
-
-getClinicname(appointmentID);
+function submitform() {(
+    location.replace("thanks.html")
+)}
