@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     // Select all elements with the class name "star" and store them in the "stars" variable
     const stars = document.querySelectorAll('.star');
