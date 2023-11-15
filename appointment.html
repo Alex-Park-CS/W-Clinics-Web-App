@@ -124,21 +124,20 @@
             <!-- codep -->
         <div class="appmnt-landing-page">
             <div class="form-appointment">
-                <div class="wpcf7" id="wpcf7-f560-p590-o1">
-                    <form action="/landing-page-template-do-not-delete/#wpcf7-f560-p590-o1" method="post" class="wpcf7-form" novalidate="novalidate" _lpchecked="1">
-                        <div style="display: none;">
+                <div>
+                        <!-- <div style="display: none;">
                         <input type="hidden" name="_wpcf7" value="560">
                         <input type="hidden" name="_wpcf7_version" value="3.5">
                         <input type="hidden" name="_wpcf7_locale" value="">
                         <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f560-p590-o1">
                         <input type="hidden" name="_wpnonce" value="dbb28877d5">
                         </div>
-            
+             
                 <div class="group">
                     <div style="width: 48%; float: left;">
                         <!-- first name -->
-                        <span class="wpcf7-form-control-wrap text-680">
-                            <input type="text" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" 
+                        <span>
+                            <input type="text" name="text-680" value="" size="45" aria-required="true" 
                             placeholder="First Name (*required)" id="user-firstname">
                             <!-- java -->
                             <!-- <span id="user-firstname"></span> -->
@@ -146,8 +145,8 @@
                         <br>
 
                         <!-- middle name -->
-                        <span class="wpcf7-form-control-wrap text-680">
-                            <input type="text" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="false" 
+                        <span>
+                            <input type="text" name="text-680" value="" size="45" aria-required="false" 
                             placeholder="Middle Name" id="user-middlename">
                             <!-- java -->
                             <!-- <span id="user-middlename"></span> -->
@@ -155,8 +154,8 @@
                         <br>
 
                         <!-- last name -->
-                        <span class="wpcf7-form-control-wrap text-680">
-                            <input type="text" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" 
+                        <span >
+                            <input type="text" name="text-680" value="" size="45"  aria-required="true" 
                             placeholder="Last Name (*required)" id="user-lastname">
                             <!-- java -->
                             <!-- <span id="user-lastname"></span> -->
@@ -164,8 +163,8 @@
                         <br>
 
                         <!-- email -->
-                        <span class="wpcf7-form-control-wrap email-680">
-                            <input type="email" name="email-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" 
+                        <span>
+                            <input type="email" name="email-680" value="" size="45" aria-required="true" 
                             placeholder="Email (*required)" id="user-email">
                             <!-- java -->
                             <!-- <span id="user-email"></span> -->
@@ -173,8 +172,8 @@
                         <br>
 
                         <!-- phone -->
-                        <span class="wpcf7-form-control-wrap tel-630">
-                            <input type="tel" name="tel-630" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" 
+                        <span >
+                            <input type="tel" name="tel-630" value="" size="45" aria-required="true" 
                             placeholder="Phone (*required)" id="user-phone">
                             <!-- java -->
                             <!-- <span id="user-phone"></span> -->
@@ -182,9 +181,9 @@
                         <br>
 
                         <!-- DOB -->
-                        <span class="wpcf7-form-control-wrap text-680">
+                        <span>
                             <p> Date of Birth (*required):
-                            <input type="date" name="text-680" value="1990-01-01" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" 
+                            <input type="date" name="text-680" value="1990-01-01" size="45"  aria-required="true" 
                             placeholder="Date of Birth (*required)" id="user-DOB">
                             </p>
                             <!-- java --> 
@@ -192,9 +191,9 @@
                         </span>
 
                         <!-- Gender -->
-                        <span class="wpcf7-form-control-wrap text-680">
+                        <span >
                             <p> Gender (*required):
-                                <span class="wpcf7-form-control wpcf7-radio">
+                                <span>
                                     <span class="wpcf7-list-item">
                                         <label>
                                             <input type="radio" name="radio-98" value="Male">&nbsp;<span class="wpcf7-list-item-label" 
@@ -325,21 +324,9 @@
                                 </span>
                             </p>
                     </div>
-                
-                    <!-- center? -->
-                    
-                     <!-- <div style="text-align: center; padding-top: 2em; border-top: 1px solid rgb(153, 202, 129); margin-top: 1em; justify-content: center;"> -->
-                        <!-- <button onclick="submitappmt()" id="appmtsubmit"> Request My Appointment </button> -->
-                        <!-- <input type="submit" value="Request My Appointment" class="wpcf7-form-control wpcf7-submit justify-content: center;" onclick="submitappmt()" id="appmtsubmit"> -->
-                        <!-- <img class="ajax-loader" src="http://www.professionalaudiologicalservices.com/wp-content/plugins/contact-form-7/images/ajax-loader.gif" alt="Sending ..." style="visibility: hidden;"></div>  -->
-                        
-                    
-                        <!-- <div class="wpcf7-response-output wpcf7-display-none"> </div> -->
-
-                        <!-- <input type="submit" value="Request appointment" id="submitApmnt"> 
-                        <button onclick="">Request My Appointment</button> -->
-                    </form>
-
+                        <button class="btn btn-primary"
+                        onclick="submitAppointment()">
+                        Request an appointment</button>
                 </div>
             </div>
         </div>

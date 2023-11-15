@@ -336,8 +336,60 @@ function submitappmt() {
 //visible to all functions on this page
 //event handler
 
-document.getElementById("submitApmnt").addEventListener("click", submitform())
+function displayAppointmentInfo() {
+    let params = new URL(window.location.href);
+    console.log("params is = ", params)
+    let aptID = params.searchParams.get("docID");
+    console.log(aptID);
 
-function submitform() {(
-    location.replace("thanks.html")
-)}
+
+    db.collection("user-info")
+        .doc("user-info-details")
+        .get()
+        .then(doc => {
+            userAppointment = doc.data();
+            userFirstNameAppmt= userAppointment.userFirstName;
+            userMiddletNameAppmt = userAppointment.userMiddle;
+            userLasttNameAppmt = userAppointment.userLastName;
+            userEmailAppmt = userAppointment.userEmail;
+            userPhoneAppmt = userAppointment.userPhone;
+            userDOBAppmt = userAppointment.userDOB;
+            userGenderFemaleAppmt = userAppointment.userGender["Female"];
+            userGenderMaleAppmt = userAppointment.userGender["Male"];
+            userGenderOtherAppmt = userAppointment.userGender["Others"];
+            userContactMethodEmailAppmt = userAppointment.userContactMethod["Email"];
+            userContactMethodPhoneAppmt = userAppointment.userContactMethod["Phone"];
+            userDateAppmt = userAppointment.userAppmnt["Date"];
+            userTimeAppmt = userAppointment.userAppmnt["Time"];
+            userSpecialRequestAppmt = userAppointment.userAppmnt["userVisitReason"];
+            
+
+
+            document.getElementById("user-firstname").innerHTML = userFirstNameAppmt;
+            // document.getElementById("user-middlename").innerHTML = "Address: " + clinicAddress;
+            // document.getElementById("clinic-hours").innerHTML = clinicHours
+            // document.getElementById("clinic-waittime").innerHTML = "Wait Time: " + clinicWaitTime + "min"
+            // document.getElementById("clinic-walkin").innerHTML = "Walkin Availibility: " + clinicWalkin
+            // document.getElementById("clinic-rating").innerHTML = "Rating: " + clinicRating
+            let imgEvent = document.querySelector(".clinic-img");
+        });
+}
+displayAppointmentInfo();
+
+// function displayAppointmentInfo() {
+//     let params = new URL(window.location.href);
+//     let aptID = params.searchParams.get("docID");
+
+//     localStorage.setItem('clinicID', aptID)
+//     window.location.href = 'add_review.html';
+// }
+
+
+function submitAppointment() {
+    // let params = new URL(window.location.href);
+    // let submitID = params.searchParams.get("docID");
+    
+    // localStorage.setItem('clinicID', submitID)
+    window.location.href = 'main.html';
+    }
+
