@@ -13,6 +13,8 @@ function writeClinics() {
         walkin_availibility: "yes",
         wait_time_minutes: 15,          //number value
         distance_metres: 120,       //number value
+        lat: 49.2467097082573,
+        lng: -122.9187029619698,
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
     clinicsRef.add({
@@ -25,6 +27,8 @@ function writeClinics() {
         walkin_availibility: "yes",
         wait_time_minutes: 10,          //number value
         distance_metres: 210,       //number value
+        lat: 49.3399431028579,
+        lng: -122.85908496766939,
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
     clinicsRef.add({
@@ -37,6 +41,8 @@ function writeClinics() {
         walkin_availibility: "yes",
         wait_time_minutes: 7,          //number value
         distance_metres: 536,       //number value
+        lat: 49.38847101455571,
+        lng: -122.94092543551031,
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("January 1, 2023"))
     });
 }
