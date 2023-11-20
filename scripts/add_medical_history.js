@@ -52,12 +52,12 @@ function submitMedicalHistory() {
         console.log(userID)
 
         // Get the document for the current user.
-        db.collection("reviews").add({
+        db.collection("user-info").add({
             respitoryHistoryFB: historyRespi,
             cardioHistoryFB: historyCardio,
             infectionHIstoryFB: historyInfection,
         }).then(() => {
-            window.location.href = "thanks.html"; // Redirect to the thanks page
+            window.location.href = "thanks_medical_history.html"; // Redirect to the thanks page
         });
     } else {
         console.log("No user is signed in");
