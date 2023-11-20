@@ -91,7 +91,7 @@ function readuserGenderMale(userGender) {
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         // document.getElementById("user-gender-male").innerHTML = whatgoeshere.data().userGender["Male"];
-        document.getElementById("user-gender-male").checked = maleRadio;
+        document.getElementById("user-gender-male").checked = whatgoeshere.data().userGender["Male"];
 
 
 
@@ -107,7 +107,7 @@ function readUserGenderFemale(userGender) {
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         // document.getElementById("user-gender-female").innerHTML = whatgoeshere.data().userGender["Female"];
-        document.getElementById("user-gender-female").checked = femaleRadio;
+        document.getElementById("user-gender-female").checked = whatgoeshere.data().userGender["Female"];
     }
     )
 }
@@ -119,7 +119,7 @@ function readUserGenderOthers(userGender) {
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         // document.getElementById("user-gender-others").innerHTML = whatgoeshere.data().userGender["Others"];
-        document.getElementById("user-gender-others").checked = othersRadio;
+        document.getElementById("user-gender-others").checked = whatgoeshere.data().userGender["Others"];
     }
     )
 }
@@ -132,7 +132,7 @@ function readContactMethodPhone(userContactmethodPhone) {
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         // document.getElementById("user-contact-phone").innerHTML = whatgoeshere.data().userContactMethod["Phone"];
-        document.getElementById("user-contact-phone").checked = phoneRadio;
+        document.getElementById("user-contact-phone").checked = whatgoeshere.data().userContactMethod["Phone"];
     }
     )
 }
@@ -144,7 +144,7 @@ function readContactMethodEmail(userContactmethodEmail) {
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         // document.getElementById("user-contact-email").innerHTML = whatgoeshere.data().userContactMethod["Email"];
-        document.getElementById("user-contact-email").checked = emailRadio;
+        document.getElementById("user-contact-email").checked = whatgoeshere.data().userContactMethod["Email"];
     }
     )
 }
@@ -362,35 +362,81 @@ function displayAppointmentInfo() {
             userContactMethodPhoneAppmt = userAppointment.userContactMethod["Phone"];
             userDateAppmt = userAppointment.userAppmnt["Date"];
             userTimeAppmt = userAppointment.userAppmnt["Time"];
-            userSpecialRequestAppmt = userAppointment.userAppmnt["userVisitReason"];
+            userSpecialRequestAppmt = userAppointment.userAppmnt["userAppmtDetail"];
             
 
 
-            document.getElementById("user-firstname").innerHTML = userFirstNameAppmt;
+            // document.getElementById("user-firstname").innerHTML = userFirstNameAppmt;
             // document.getElementById("user-middlename").innerHTML = "Address: " + clinicAddress;
             // document.getElementById("clinic-hours").innerHTML = clinicHours
             // document.getElementById("clinic-waittime").innerHTML = "Wait Time: " + clinicWaitTime + "min"
             // document.getElementById("clinic-walkin").innerHTML = "Walkin Availibility: " + clinicWalkin
             // document.getElementById("clinic-rating").innerHTML = "Rating: " + clinicRating
-            let imgEvent = document.querySelector(".clinic-img");
+            // let imgEvent = document.querySelector(".clinic-img");
         });
 }
 displayAppointmentInfo();
 
-// function displayAppointmentInfo() {
-//     let params = new URL(window.location.href);
-//     let aptID = params.searchParams.get("docID");
 
-//     localStorage.setItem('clinicID', aptID)
-//     window.location.href = 'add_review.html';
-// }
+function clickSubmitAppointment() {
+    console.log("click submit button");
+   
+    let userFirstNameAppmt= document.getElementById("user-firstname").value;
+    let userMiddletNameAppmt = document.getElementById("user-middlename").value;
+    let userLasttNameAppmt = document.getElementById("user-lastname").value;
+    let userEmailAppmt = document.getElementById("user-email").value;
+    let userPhoneAppmt = document.getElementById("user-phone").value;
+    let userDOBAppmt = document.getElementById("user-DOB").value;
+    let userGenderFemaleAppmt = document.getElementById("user-gender-male").value;
+    let userGenderMaleAppmt = document.getElementById("user-gender-female").value;
+    let userGenderOtherAppmt = document.getElementById("user-gender-others").value;
+    let userContactMethodEmailAppmt = document.getElementById("user-contact-email").value;
+    let userContactMethodPhoneAppmt = document.getElementById("user-contact-phone").value;
+    let userDateAppmt = document.getElementById("user-appmtDate").value;
+    let userTimeAppmt = document.getElementById("user-appmtTime").value;
+    let userSpecialRequestAppmt = document.getElementById("user-appmtDetail").value;
 
 
-function submitAppointment() {
-    // let params = new URL(window.location.href);
-    // let submitID = params.searchParams.get("docID");
+    console.log(userFirstNameAppmt, userMiddletNameAppmt, userDateAppmt);
+
+    var user = firebase.auth().currentUser;
+    if (user) {
+        var currentUser = db.collection("users").doc(user.uid);
+        var userID = user.uid;
+        console.log(userID)
     
-    // localStorage.setItem('clinicID', submitID)
-    window.location.href = 'confirm_appointment.html';
+        // Get the document for the current user.
+        db.collection("user-info").add({
+            
+            userFirstName : user-firstname,
+            userMiddleName : user-middlename,
+            userLastName : user-lastname,
+            userEmail : user-email,
+            userPhone : user-phone,
+            userDOB : user-DOB,
+            userGender,Female : user-gender-female,
+            userGender,Male : user-gender-male,
+            userGender,Others : user-gender-others,
+            userContactMethod,Email : user-contact-email,
+            userContactMethod,Phone : user-contact-phone,
+            userAppmnt,Date : user-appmtDate,
+            userAppmnt,Time : user-appmtTime,
+            userAppmnt,userAppmtDetail : user-appmtDetail,
+
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(() => {
+            window.location.href = "confirm_appointment.html"; // Redirect to the thanks page
+        });
+    } else {
+        console.log("User is not validated");
     }
+}
+clickSubmitAppointment();
+
+
+// function submitAppointment() {
+
+//     window.location.href = 'confirm_appointment.html';
+//     }
+
 
