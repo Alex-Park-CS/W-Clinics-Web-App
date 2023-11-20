@@ -90,7 +90,10 @@ function readuserGenderMale(userGender) {
     db.collection("user-info").doc(userGender) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
-        document.getElementById("user-gender-male").innerHTML = whatgoeshere.data().userGender["Male"];
+        // document.getElementById("user-gender-male").innerHTML = whatgoeshere.data().userGender["Male"];
+        document.getElementById("user-gender-male").checked = maleRadio;
+
+
 
     }
     )
@@ -103,8 +106,8 @@ function readUserGenderFemale(userGender) {
     db.collection("user-info").doc(userGender) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
-        document.getElementById("user-gender-female").innerHTML = whatgoeshere.data().userGender["Female"];
-
+        // document.getElementById("user-gender-female").innerHTML = whatgoeshere.data().userGender["Female"];
+        document.getElementById("user-gender-female").checked = femaleRadio;
     }
     )
 }
@@ -115,8 +118,8 @@ function readUserGenderOthers(userGender) {
     db.collection("user-info").doc(userGender) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
-        document.getElementById("user-gender-others").innerHTML = whatgoeshere.data().userGender["Others"];
-
+        // document.getElementById("user-gender-others").innerHTML = whatgoeshere.data().userGender["Others"];
+        document.getElementById("user-gender-others").checked = othersRadio;
     }
     )
 }
@@ -128,8 +131,8 @@ function readContactMethodPhone(userContactmethodPhone) {
     db.collection("user-info").doc(userContactmethodPhone) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
-        document.getElementById("user-contact-phone").innerHTML = whatgoeshere.data().userContactMethod["Phone"];
-
+        // document.getElementById("user-contact-phone").innerHTML = whatgoeshere.data().userContactMethod["Phone"];
+        document.getElementById("user-contact-phone").checked = phoneRadio;
     }
     )
 }
@@ -140,8 +143,8 @@ function readContactMethodEmail(userContactmethodEmail) {
     db.collection("user-info").doc(userContactmethodEmail) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
-        document.getElementById("user-contact-email").innerHTML = whatgoeshere.data().userContactMethod["Email"];
-
+        // document.getElementById("user-contact-email").innerHTML = whatgoeshere.data().userContactMethod["Email"];
+        document.getElementById("user-contact-email").checked = emailRadio;
     }
     )
 }
@@ -318,9 +321,7 @@ readUserApppointmentDetail("user-info-details");
 // readUserVisitOthers("user-info-details");
 
 
-function submitappmt() {
-    document.getElementById("appmtsubmit").innerHTML = "thanks.html";
-  }
+
 
 // cdp
 
