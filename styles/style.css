@@ -571,6 +571,31 @@ body {
     margin-right: 15px;
 }
 
+/* Map CSS */
+
+.entire-map-box {
+    padding: 20px;
+}
+
+.view-clinic-button {
+    display: flex;
+    justify-content: center;
+    background-color: green;
+    color: white;
+}
+
+.map-title {
+    font-size: 25px;
+    text-align: center;
+    padding: 12px;
+    color: black;
+    font-weight: 700;
+
+}
+
+
+/* ------------ */
+
 .rating-star {
     display: flex;
     padding-top: 20px;
