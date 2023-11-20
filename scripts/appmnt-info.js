@@ -390,6 +390,6 @@ function submitAppointment() {
     // let submitID = params.searchParams.get("docID");
     
     // localStorage.setItem('clinicID', submitID)
-    window.location.href = 'main.html';
+    window.location.href = 'confirm_appointment.html';
     }
 
