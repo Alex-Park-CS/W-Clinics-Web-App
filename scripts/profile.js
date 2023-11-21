@@ -65,6 +65,20 @@ function saveUserInfo() {
     userEmail = document.getElementById("emailInput").value;
     userPhone = document.getElementById("phoneInput").value;
 
+    console.log("medical history form");
+    let historyRespi = document.getElementById("history-respi").value;
+    let historyCardio = document.getElementById("history-cardio").value;
+    let historyVision = document.getElementById("history-vision").value;
+    let historyEar = document.getElementById("history-ear").value;
+    let historyInfection = document.getElementById("history-infection").value;
+    let historyMental = document.getElementById("history-mental").value;
+    let historyJoint = document.getElementById("history-joint").value;
+
+
+    console.log(historyRespi, historyCardio, historyVision, historyInfection, historyMental, historyJoint);
+
+
+
     // update the user document in firestore
     currentUser.update({
         FirstName: userFirstName,
@@ -74,7 +88,14 @@ function saveUserInfo() {
         Gender: userGender,
         email: userEmail,
         Phone: userPhone,
-        ContactMethod: userContactMethod
+        ContactMethod: userContactMethod,
+        respitoryHistoryFB: historyRespi,
+        cardioHistoryFB: historyCardio,
+        visionHistoryFB: historyVision,
+        earHistoryFB: historyEar,
+        infectHistoryFB: historyInfection,
+        mentalHistoryFB: historyMental,
+        infectionHIstoryFB: historyInfection,
     })
     .then(() => {
         console.log("Document successfully updated!");
@@ -83,7 +104,7 @@ function saveUserInfo() {
 }
 
 //add medical history page
-function addMedHistory(){
-    console.log("add medical history")
-    window.location.href = "medical_history.html";
+function saveUserInfo(){
+    console.log("save user information")
+    window.location.href = "thanks_medical_history.html";
 }

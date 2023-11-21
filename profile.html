@@ -73,15 +73,73 @@
                         <label >Phone Number</label>
                         <input type="text" id="phoneInput" class="form-control" placeholder="Enter your phone number">
                     </div>   
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label >Medical History</label>
                         <br>
                         <button type="button" class="btn btn-secondary" onclick="addMedHistory()">Edit</button>
-                    </div>   
+                    </div>    -->
+                    
+                    <h6>  Please indicate conditions you are experiencing, or have experienced: </h6>
+                        <div class="history-respitory-question">
+                            <label for="history-question-1">Respiratory issue</label>
+                            <select class="form-control" id="history-respi">
+                                <option> Yes </option>
+                                <option> No </option>
+                            </select>
+        
+                        <div class="history-cardio-question">
+                            <label for="history-question-1">Cardiovascular issue</label>
+                            <select class="form-control" id="history-cardio">
+                                <option> Yes </option>
+                                <option> No </option>
+                            </select>
+                        </div>
+        
+                        <div class="history-infection-question">
+                            <label for="history-question-1">Vision issue</label>
+                            <select class="form-control" id="history-vision">
+                                <option> Yes </option>
+                                <option> No </option>
+                            </select>
+                        </div>
+        
+                        <div class="history-infection-question">
+                            <label for="history-question-1">Ear issue </label>
+                            <select class="form-control" id="history-ear">
+                                <option> Yes </option>
+                                <option> No </option>
+                            </select>
+                        </div>
+        
+                        <div class="history-infection-question">
+                            <label for="history-question-1">Infection</label>
+                            <select class="form-control" id="history-infection">
+                                <option> Yes </option>
+                                <option> No </option>
+                            </select>
+                        </div>
+        
+                        <div class="history-infection-question">
+                            <label for="history-question-1">Mental health issue</label>
+                            <select class="form-control" id="history-mental">
+                                <option> Yes </option>
+                                <option> No </option>
+                            </select>
+                        </div>
+        
+                        <div class="history-infection-question">
+                            <label for="history-question-1">Soft Tissue/Joint Discomfort </label>
+                            <select class="form-control" id="history-joint">
+                                <option> Yes </option>
+                                <option> No </option>
+                            </select>
+                        </div>
+        
+                    
                     
                 </fieldset>
                 <div class="d-flex justify-content-end mt-5">
-                    <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                    <!-- <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button> -->
                     <span style="width: 10px"></span>
                     <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
                 </div>
