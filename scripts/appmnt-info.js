@@ -345,12 +345,12 @@ async function clickSubmitAppointment() {
 
     var user = firebase.auth().currentUser;
     if (user) {
-        var currentUser = db.collection("user-info").doc(user.uid);
+        var currentUser = db.collection("users").doc(user.uid);
         var userID = user.uid;
         console.log(userID)
     
         // Get the document for the current user.
-        await db.collection("user-info").add({
+        await db.collection("users").add({
             
             userFirstName : user-firstname,
             userMiddleName : user-middlename,
