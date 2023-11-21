@@ -56,41 +56,46 @@
         <!-- body -->
 
         <div class="card-body">
-            <p id="clinic-name">User Rating:</p>
-            <div class="form-group">
-                <label for="exampleFormControlInput1">Add a title</label>
-                <input type="text" class="form-control" id="title" placeholder="Title">
-            </div>
-            <p>Rate your overall experience:</p>
-            <span class="material-icons star" id="star1">star_outline</span>
-            <span class="material-icons star" id="star2">star_outline</span>
-            <span class="material-icons star" id="star3">star_outline</span>
-            <span class="material-icons star" id="star4">star_outline</span>
-            <span class="material-icons star" id="star5">star_outline</span>
-
             <form>
-                <div class="review-treated-on-time">
-                    <label for="exampleFormControlSelect1">Were you treated within the displayed waiting time?</label>
-                    <select class="form-control" id="treated-on-time">
+                <h3>  Please indicate conditions you are experiencing, or have experienced: </h3>
+                <div class="history-respitory-question">
+                    <label for="history-question-1">Respiratory issue</label>
+                    <select class="form-control" id="history-respi">
+                        <option> Yes </option>
+                        <option> No </option>
+                    </select>
+
+                <div class="history-cardio-question">
+                    <label for="history-question-1">Cardiovascular issue</label>
+                    <select class="form-control" id="history-cardio">
                         <option> Yes </option>
                         <option> No </option>
                     </select>
                 </div>
-                <div class="review_comment">
+
+                <div class="history-infection-question">
+                    <label for="history-question-1">Infection issue</label>
+                    <select class="form-control" id="history-infection">
+                        <option> Yes </option>
+                        <option> No </option>
+                    </select>
+                </div>
+
+                <!-- <div class="review_comment">
                     <label for="exampleFormControlTextarea1">Comment</label>
                     <textarea class="form-control" id="review-comment" rows="6"></textarea>
-                </div>
+                </div> -->
             </form>
         </div>
         <div id="submit_cancel_buttons">
-            <button type="submit" class="btn btn-success" onclick="submitReview()">Submit</button>
+            <button type="submit" class="btn btn-success" onclick="submitMedicalHistory()">Submit</button>
             <button type="submit" class="btn btn-secondary">Cancel</button>
         </div>
     </div>
     <!-- footer -->
     <nav id="footerPlaceholder"></nav>
 
-    <script src="./scripts/add_review.js"></script>
+    <script src="./scripts/add_medical_history.js"></script>
 
 </body>
 

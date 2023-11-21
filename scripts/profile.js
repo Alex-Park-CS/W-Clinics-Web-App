@@ -90,3 +90,9 @@ function saveUserInfo() {
     })
 
 }
+
+//add medical history page
+function addMedHistory(){
+    console.log("add medical history")
+    window.location.href = "medical_history.html";
+}

@@ -47,7 +47,7 @@ function submitReview() {
 
     var user = firebase.auth().currentUser;
     if (user) {
-        var currentUser = db.collection("users").doc(user.uid);
+        var currentUser = db.collection("user-info").doc(user.uid);
         var userID = user.uid;
         console.log(userID)
 
