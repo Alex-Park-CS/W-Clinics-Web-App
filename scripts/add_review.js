@@ -47,7 +47,7 @@ function submitReview() {
 
     var user = firebase.auth().currentUser;
     if (user) {
-        var currentUser = db.collection("users").doc(user.uid);
+        var currentUser = db.collection("user-info").doc(user.uid);
         var userID = user.uid;
         console.log(userID)
 
@@ -55,7 +55,7 @@ function submitReview() {
         db.collection("reviews").add({
             clinicID: clinicID,
             userID: userID,
-            title: reviewTitle, //
+            title: reviewTitle,
             comment: reviewComment,
             treatedOnTime: treated_On_Time,
             rating: clinicRating, // Include the rating in the review

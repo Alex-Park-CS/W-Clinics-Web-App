@@ -5,7 +5,7 @@ function populateUserInfo() {
                 if (user) {
 
                     //go to the correct user document by referencing to the user uid
-                    currentUser = db.collection("users").doc(user.uid)
+                    currentUser = db.collection("user-info").doc(user.uid)
                     //get the document for current user.
                     currentUser.get()
                         .then(userInfo => {  
@@ -80,4 +80,10 @@ function saveUserInfo() {
         console.log("Document successfully updated!");
     })
 
+}
+
+//add medical history page
+function addMedHistory(){
+    console.log("add medical history")
+    window.location.href = "medical_history.html";
 }
