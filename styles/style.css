@@ -67,8 +67,17 @@ a:link {
 
 .middle-align {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+}
+
+.view-map {
+    margin: 5px;
+}
+
+.view-list {
+    margin: 5px;
 }
 
 .card-body {
