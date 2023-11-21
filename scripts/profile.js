@@ -17,7 +17,6 @@ function populateUserInfo() {
                             var userGender = userInfo.data().Gender;
                             var userEmail = userInfo.data().email;
                             var userPhone = userInfo.data().Phone;
-                            var userContactMethod = userInfo.data().ContactMethod;
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userFirstName != null) {
@@ -40,11 +39,6 @@ function populateUserInfo() {
                             }
                             if (userPhone != null) {
                                 document.getElementById("phoneInput").value = userPhone;
-                            }
-                            if (userContactMethod != null) {
-                                document.getElementById("blank").value = userContactMethod;
-                                document.getElementById("email").value = userContactMethod;
-                                document.getElementById("PhoneNumber").value = userContactMethod;
                             }
                         })
                 } else {
@@ -70,9 +64,6 @@ function saveUserInfo() {
     userGender = document.getElementById("genderInput").value;
     userEmail = document.getElementById("emailInput").value;
     userPhone = document.getElementById("phoneInput").value;
-    userContactMethod = document.getElementById("blank").id;
-    userContactMethod = document.getElementById("email").id;
-    userContactMethod = document.getElementById("PhoneNumber").id;
 
     // update the user document in firestore
     currentUser.update({
