@@ -1,5 +1,4 @@
 /*-----------  Richard's Stuff except a button----------------------*/
-
 /* History Page */
 .welcome-banner a {
     color: #303030;
@@ -107,6 +106,40 @@ a:link {
     padding-right:30px;
     padding-top:40px;
 }
+
+/* Save page, clinic cards */
+
+#saved-clinic-card #clinicName {
+    color: #333; 
+}
+
+#saved-clinic-card #clinicName {
+    font-size: 20px;
+}
+
+
+#saved-clinic-card p{
+    font-size: 20px;
+}
+
+
+.saved-p{
+    font-size: 20px;
+}
+
+#saved-image{
+    width:250px;
+    height:250px;
+}
+
+
+#ClinicCardTemplate2 .clinic-img {
+    /* Styles for the clinic-img img element within #ClinicCardTemplate */
+    width: 200px; /* Example: Make the image fill its container */
+    height: 200px; /* Maintain aspect ratio */
+    border: 2px solid #ccc; /* Example: Add a border around the image */
+}
+
 
 
 /* Inez */

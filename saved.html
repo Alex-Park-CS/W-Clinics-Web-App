@@ -50,18 +50,23 @@
             </div>
     </div>
     
-    <!-- Templates for general use, not displayed -->
-    <template id="savedCardTemplate">
-            <div class="card py-2 mx-2 bg-light" style="width: 10rem;">
-                <img class="card-image card-img-top" src=" ..." alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-length">placeholder</p>
-                    <br>
-                    <a class="btn btn-secondary card-href" id="read-more">Read more ...</a>
-                </div>
-            </div>
-     </template>
+    <!-- Templates -->
+<template id="ClinicCardTemplate2">
+    <div class="clinic-card" id="saved-clinic-card">
+        <p><div class="profile-title"><span id="clinicName" class="clinic-card-title"></span></div></p>
+        <p id="clinicAddress" class="clinic-card-distance-time">address</p>
+        <p id="clinic-rating" class="clinic-card-distance-time"></p>
+        <div class="relative-button-position" >
+            <img class="clinic-img responsive" id = "saved-image" src="">
+        </div>
+        <div class="clinic-info" id="saved-clinic-info">
+            <p id="clinic-hours" class="saved-p"></p>
+            <p id="clinic-walkin" class="saved-p"></p>
+            <p id="clinic-waittime" class="saved-p"></p>
+        </div>
+    </div>
+</template>
+
     
 <!-- footer -->
 <nav id="footerPlaceholder"></nav>
