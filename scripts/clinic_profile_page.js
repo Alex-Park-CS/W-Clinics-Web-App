@@ -1,7 +1,7 @@
 function displayClinicInfo() {
     let params = new URL(window.location.href);
     console.log("params is = ", params)
-    let ID = params.searchParams.get("docID");
+    var ID = params.searchParams.get("docID");
     console.log(ID);
 
 
@@ -13,24 +13,39 @@ function displayClinicInfo() {
             clinicCode = thisClinic.code;
             clinicName = doc.data().clinicName;
             clinicAddress = doc.data().address;
-            clinicHours = doc.data().hours
-            clinicRating = doc.data().rating
-            clinicWaitTime = doc.data().wait_time_minutes
-            clinicWalkin = doc.data().walkin_availibility
-            clinicCode = doc.data().code
+            clinicHours = doc.data().hours;
+            clinicRating = doc.data().rating;
+            clinicWaitTime = doc.data().wait_time_minutes;
+            clinicWalkin = doc.data().walkin_availibility;
+            clinicCode = doc.data().code;
 
 
             document.getElementById("clinicName").innerHTML = clinicName;
             document.getElementById("clinicAddress").innerHTML = "Address: " + clinicAddress;
-            document.getElementById("clinic-hours").innerHTML = clinicHours
+            document.getElementById("clinic-hours").innerHTML = clinicHours;
             document.getElementById("clinic-waittime").innerHTML = "Wait Time: " + clinicWaitTime + "min"
-            document.getElementById("clinic-walkin").innerHTML = "Walkin Availibility: " + clinicWalkin
-            document.getElementById("clinic-rating").innerHTML = "Rating: " + clinicRating
+            document.getElementById("clinic-walkin").innerHTML = "Walkin Availibility: " + clinicWalkin;
+            document.getElementById("clinic-rating").innerHTML = "Rating: " + clinicRating;
             let imgEvent = document.querySelector(".clinic-img");
             imgEvent.src = "../images/" + clinicCode + ".jpg";
+            document.querySelector('i').id = 'save-'+ ID; // for assigning unique id to each element
+            document.querySelector('i').onclick = ()=> updateBookmark(ID); 
+            // document.querySelector('i').onclick = ()=> clickHeart(); 
+
+            currentUser.get().then(userDoc => {
+                //get the user name
+                let bookmarks = userDoc.data().bookmarks || [];
+                if (bookmarks.includes(ID)) {
+                   document.getElementById('save-' + ID).innerText = 'favorite';
+                }
+          })
         });
 }
 displayClinicInfo();
+
+function clickHeart() {
+    console.log("test")
+}
 
 function saveClinicIDAndRedirect() {
     let params = new URL(window.location.href);
@@ -103,4 +118,49 @@ function makeAnAppointment() {
 
     localStorage.setItem('clinicID', ID)
     window.location.href = 'appointment.html';
+}
+
+//Global variable pointing to the current user's Firestore document
+var currentUser;   
+
+//Function that checks if a user is logged in in clinics
+function doAll() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = db.collection("users").doc(user.uid); //global
+            console.log(currentUser);
+            // displayCardsDynamically("clinics");
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+            window.location.href = "login.html";
+        }
+    });
+}
+doAll();
+
+function updateBookmark(bookmark_clinicID) {
+    currentUser.get().then(userDoc => {
+        let bookmarks = userDoc.data().bookmarks || [];
+        let iconID = 'save-' + bookmark_clinicID;
+        let isBookmarked = bookmarks.includes(bookmark_clinicID);
+
+        if (isBookmarked) {
+            // Remove the bookmark if it already exists
+            currentUser.update({
+                bookmarks: firebase.firestore.FieldValue.arrayRemove(bookmark_clinicID)
+            }).then(() => {
+                console.log("Item was removed: " + bookmark_clinicID);
+                document.getElementById(iconID).innerText = 'favorite_border'; // Change to unfilled heart icon
+            });
+        } else {
+            // Add the bookmark if it doesn't exist
+            currentUser.update({
+                bookmarks: firebase.firestore.FieldValue.arrayUnion(bookmark_clinicID)
+            }).then(() => {
+                console.log("Item added to bookmarks: " + bookmark_clinicID);
+                document.getElementById(iconID).innerText = 'favorite'; // Change to filled heart icon
+            });
+        }
+    });
 }
