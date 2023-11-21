@@ -62,12 +62,7 @@
             <div id="clinic-rating"></div>
             <div class="relative-button-position">
                 <img class="clinic-img responsive" src="">
-                
-                
-                <button class="btn btn-primary position-absolute bottom-0 end-0 m-3"
-                    onclick="saveClinicIDAndRedirect()">Write Review</button>  
-                
-                
+                <br>
                 <button class="btn btn-primary" 
                 onclick="makeAnAppointment()">
                 Make an appointment</button>  
@@ -81,7 +76,9 @@
         </div>
 
         <!-- Review container to add to -->
-        <div class="container">
+        <div class="container reponsive">
+            <button class="btn btn-primary"
+                    onclick="saveClinicIDAndRedirect()">Write Review</button> 
             <p class="profile-title">Reviews:</p>
             <div id="details-go-here"></div>
             <!-- Here is the container for cards with horizontal scrolling -->
