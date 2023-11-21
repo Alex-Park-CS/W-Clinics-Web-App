@@ -50,15 +50,11 @@
         <nav id="navbarPlaceholder"></nav>
         <!-- Sort by dropdown -->
         <div class="card-body form-group dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Sort by
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><button class="dropdown-item" type="button" id="location">Location</button></li>
-                <li><button class="dropdown-item" type="button" id="rating">Rating</button></li>
-                <li><button class="dropdown-item" type="button" id="wait-time">Wait time</button></li>
-            </ul>
+            <select id="sort-select">
+                <option value="distance_metres">Distance</option>
+                <option value="rating">Rating</option>
+                <option value="wait_time_minutes">Wait Time</option>
+            </select>
         </div>
 
 
@@ -75,6 +71,8 @@
                     <a href="clinic_profile_page.html" class="clinic-name clinic-card-title ">Clinic 1</a>
                     <p class="clinic-distance clinic-card-distance-time">102m</p>
                     <p class="clinic-address clinic-card-distance-time">1234 Robson St</p>
+                    <p class="clinic-rating clinic-card-distance-time">1234 Robson St</p>
+                    <p class="clinic-wait-time clinic-card-distance-time">1234 Robson St</p>
                 </div>
             </div>
         </template>
