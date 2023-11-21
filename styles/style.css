@@ -102,6 +102,12 @@ a:link {
     border-radius: 30px;
     font-weight: bold;
 }
+/* favourite button */
+#favourite {
+    padding-right:30px;
+    padding-top:40px;
+}
+
 
 /* Inez */
 /* appointmnet */
