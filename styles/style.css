@@ -135,10 +135,21 @@ a:link {
 
 #ClinicCardTemplate2 .clinic-img {
     /* Styles for the clinic-img img element within #ClinicCardTemplate */
-    width: 200px; /* Example: Make the image fill its container */
-    height: 200px; /* Maintain aspect ratio */
+    /* width: 200px; Example: Make the image fill its container */
+    /* height: 200px; Maintain aspect ratio */
     border: 2px solid #ccc; /* Example: Add a border around the image */
+    max-width: 100%;
+    height: auto;
+    
+
 }
+
+.responsive{
+    max-width: 100%;
+    height: auto;
+}
+
+
 
 
 
