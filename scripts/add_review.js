@@ -55,7 +55,7 @@ function submitReview() {
         db.collection("reviews").add({
             clinicID: clinicID,
             userID: userID,
-            title: reviewTitle, //
+            title: reviewTitle,
             comment: reviewComment,
             treatedOnTime: treated_On_Time,
             rating: clinicRating, // Include the rating in the review

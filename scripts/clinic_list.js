@@ -1,9 +1,39 @@
 // display clinic lists dynamically
 
-function displayClinicsDynamically(collection) {
-    let clinicTemplate = document.getElementById("clinicCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
+// function displayClinicsDynamically(collection) {
+//     let clinicTemplate = document.getElementById("clinicCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
 
-    db.collection(collection).get()
+//     db.collection(collection).get()
+//         .then(allClinics => {
+//             allClinics.forEach(doc => {
+//                 var clinicName = doc.data().clinicName;
+//                 var distance = doc.data().distance_metres;
+//                 var address = doc.data().address;
+//                 var clinicCode = doc.data().clinicID;
+//                 var docID = doc.id;
+
+//                 let newcard = clinicTemplate.content.cloneNode(true); 
+
+//                 //update title and text and image
+//                 newcard.querySelector('.clinic-name').innerHTML = clinicName;
+//                 newcard.querySelector('.clinic-distance').innerHTML = distance + "m";
+//                 newcard.querySelector('.clinic-address').innerHTML = address;
+//                 newcard.querySelector('a').href = "clinic_profile_page.html?docID="+docID;
+//                 let imgEvent = document.querySelector(".clinic-image");
+//                 // imgEvent.src = "../images/" + clinicCode + ".jpg";
+
+//                 document.getElementById(collection + "-go-here").appendChild(newcard);
+
+//             })
+//         })
+// }
+
+function displayClinicsDynamically(collection) {
+    let clinicTemplate = document.getElementById("clinicCardTemplate");
+
+    db.collection(collection)
+        .orderBy("distance_metres") // Order the clinics by distance
+        .get()
         .then(allClinics => {
             allClinics.forEach(doc => {
                 var clinicName = doc.data().clinicName;
@@ -12,31 +42,38 @@ function displayClinicsDynamically(collection) {
                 var clinicCode = doc.data().clinicID;
                 var docID = doc.id;
 
-                let newcard = clinicTemplate.content.cloneNode(true); 
+                let newcard = clinicTemplate.content.cloneNode(true);
 
-                //update title and text and image
                 newcard.querySelector('.clinic-name').innerHTML = clinicName;
                 newcard.querySelector('.clinic-distance').innerHTML = distance + "m";
                 newcard.querySelector('.clinic-address').innerHTML = address;
-                newcard.querySelector('a').href = "clinic_profile_page.html?docID="+docID;
-                let imgEvent = document.querySelector(".clinic-image");
+                newcard.querySelector('a').href = "clinic_profile_page.html?docID=" + docID;
+
+                // Assuming the clinic image URL is based on the clinic code
+                // let imgEvent = newcard.querySelector(".clinic-image");
                 // imgEvent.src = "../images/" + clinicCode + ".jpg";
 
                 document.getElementById(collection + "-go-here").appendChild(newcard);
-
-            })
+            });
         })
+        .catch(error => {
+            console.error("Error getting clinics: ", error);
+        });
 }
+
+
 
 displayClinicsDynamically("clinics");  //input param is the name of the collection
 
 
 //calling appointment html
-function saveAppmntDocumentIDAndRedirect(){
+function saveAppmntDocumentIDAndRedirect() {
     let params = new URL(window.location.href) //get the url from the search bar
     let appointmentdoc = params.searchParams.get("docID");
-    
+
     localStorage.setItem('appointmentID', appointmentdoc);
     window.location.href = 'appointment.html';
 }
+
+
 
