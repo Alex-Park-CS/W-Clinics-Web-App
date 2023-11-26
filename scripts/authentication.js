@@ -11,7 +11,7 @@ var uiConfig = {
         //Inez
         var user = authResult.user;
         if (authResult.additionalUserInfo.isNewUser) {
-          db.collection("user-info").doc(user.uid).set({
+          db.collection("users").doc(user.uid).set({
             name: user.displayName,
             email: user.email,
 

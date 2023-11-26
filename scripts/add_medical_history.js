@@ -13,12 +13,12 @@ function submitMedicalHistory() {
 
     var user = firebase.auth().currentUser;
     if (user) {
-        var currentUser = db.collection("user-info").doc(user.uid);
+        var currentUser = db.collection("users").doc(user.uid);
         var userID = user.uid;
         console.log(userID)
 
         // Get the document for the current user.
-        db.collection("user-info").add({
+        db.collection("users").add({
             respitoryHistoryFB: historyRespi,
             cardioHistoryFB: historyCardio,
             visionHistoryFB: historyVision,

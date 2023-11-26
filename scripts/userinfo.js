@@ -1,6 +1,6 @@
 // function for reading userinfo 
 function readUserfirstname(username) {
-    db.collection("user-info").doc(username) 
+    db.collection("users").doc(username) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-firstname").innerHTML = whatgoeshere.data().userFirstName;
@@ -12,7 +12,7 @@ readUserfirstname("user-info-details");
 
 
 function readUsermiddlename(usermiddlename) {
-    db.collection("user-info").doc(usermiddlename) 
+    db.collection("users").doc(usermiddlename) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-middlename").innerHTML = whatgoeshere.data().userMiddleName;
@@ -23,7 +23,7 @@ function readUsermiddlename(usermiddlename) {
 readUsermiddlename("user-info-details");
 
 function readUserLastName(userlastname) {
-    db.collection("user-info").doc(userlastname) 
+    db.collection("users").doc(userlastname) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-lastname").innerHTML = whatgoeshere.data().userLastName;
@@ -34,7 +34,7 @@ function readUserLastName(userlastname) {
 readUserLastName("user-info-details");
 
 function readUserDOB(userbirth) {
-    db.collection("user-info").doc(userbirth) 
+    db.collection("users").doc(userbirth) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-DOB").innerHTML = whatgoeshere.data().userDOB;
@@ -45,7 +45,7 @@ function readUserDOB(userbirth) {
 readUserDOB("user-info-details");
 
 function readUserGender(usergender) {
-    db.collection("user-info").doc(usergender) 
+    db.collection("users").doc(usergender) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-gender").innerHTML = whatgoeshere.data().userGender;
@@ -56,7 +56,7 @@ function readUserGender(usergender) {
 readUserGender("user-info-details");
 
 function readUserPhone(userphone) {
-    db.collection("user-info").doc(userphone) 
+    db.collection("users").doc(userphone) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-phone").innerHTML = whatgoeshere.data().userPhone;
@@ -67,7 +67,7 @@ function readUserPhone(userphone) {
 readUserPhone("user-info-details");
 
 function readUserEmail(useremail) {
-    db.collection("user-info").doc(useremail) 
+    db.collection("users").doc(useremail) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-email").innerHTML = whatgoeshere.data().userEmail;
@@ -78,7 +78,7 @@ function readUserEmail(useremail) {
 readUserEmail("user-info-details");
 
 function readUserContactMethod(usercontactmethod) {
-    db.collection("user-info").doc(usercontactmethod) 
+    db.collection("users").doc(usercontactmethod) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-contactmethod").innerHTML = whatgoeshere.data().userContactMethod;
@@ -90,7 +90,7 @@ readUserContactMethod("user-info-details");
 
 //appointment history
 function readUserClinicName(userclinicname) {
-    db.collection("user-info").doc(userclinicname) 
+    db.collection("users").doc(userclinicname) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-clinicname").innerHTML = whatgoeshere.data().userAppointmentHistory["clinicName"];
@@ -101,7 +101,7 @@ function readUserClinicName(userclinicname) {
 readUserClinicName("user-info-details");
 
 function readUserClinicLocation(usercliniclocation) {
-    db.collection("user-info").doc(usercliniclocation) 
+    db.collection("users").doc(usercliniclocation) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-cliniclocation").innerHTML = whatgoeshere.data().userAppointmentHistory["clinicLocation"];
@@ -112,7 +112,7 @@ function readUserClinicLocation(usercliniclocation) {
 readUserClinicLocation("user-info-details");
 
 function readUserVisitingDate(uservisitingdate) {
-    db.collection("user-info").doc(uservisitingdate) 
+    db.collection("users").doc(uservisitingdate) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-visitingdate").innerHTML = whatgoeshere.data().userAppointmentHistory["clinicVisitingDate"];
@@ -124,7 +124,7 @@ readUserVisitingDate("user-info-details");
 
 
 function readUserMyRatings(usermyratings) {
-    db.collection("user-info").doc(usermyratings) 
+    db.collection("users").doc(usermyratings) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-myratings").innerHTML = whatgoeshere.data().userAppointmentHistory["clinicMyRatings"];
@@ -136,7 +136,7 @@ readUserMyRatings("user-info-details");
 
 
 function readUserFavourite(userfavourite) {
-    db.collection("user-info").doc(userfavourite) 
+    db.collection("users").doc(userfavourite) 
     .onSnapshot(whatgoeshere => {
         console.log(whatgoeshere.data());
         document.getElementById("user-favourite").innerHTML = whatgoeshere.data().userAppointmentHistory["clinicFavourite"];

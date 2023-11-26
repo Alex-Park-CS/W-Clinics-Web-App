@@ -47,7 +47,7 @@
                 <fieldset class="mb-3" id="personalInfoFields" disabled>
                     <div class="form-group">
                         <label >First Name</label>
-                        <input type="text" id="FirstNameInput" class="form-control" placeholder="Enter your first name">
+                        <input type="text" id="FirstNameInput" class="form-control" placeholder="Enter your first name" required>
                     </div>
                     <div class="form-group">
                         <label >Middle name</label>
@@ -55,31 +55,36 @@
                     </div>
                     <div class="form-group">
                         <label >Last name</label>
-                        <input type="text" id="LastNameInput" class="form-control" placeholder="Enter your last name">
+                        <input type="text" id="LastNameInput" class="form-control" placeholder="Enter your last name" required>
                     </div>
                     <div class="form-group">
                         <label >Date of Birth</label>
-                        <input type="text" id="DateOfBirthInput" class="form-control" placeholder="Enter your date of birth">
+                        <input type="date" class="form-control" id="DateOfBirthInput" placeholder="Enter your date of birth" required>
                     </div>
                     <div class="form-group">
                         <label >Gender</label>
-                        <input type="text" id="genderInput" class="form-control" placeholder="Enter your gender">
+                        <select class="form-control" id="genderInput" placeholder="Enter your gender" required>
+                            <option> Male </option>
+                            <option> Female </option>
+                            <option> Others </option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label >Email</label>
-                        <input type="text" id="emailInput" class="form-control" placeholder="Enter your email">
+                        <input type="text" id="emailInput" class="form-control" placeholder="Enter your email" required>
                     </div>
                     <div class="form-group">
                         <label >Phone Number</label>
-                        <input type="text" id="phoneInput" class="form-control" placeholder="Enter your phone number">
+                        <input type="tel" class="form-control" id="phoneInput" placeholder="Enter your phone number" required>
+                    
                     </div>   
                     <!-- <div class="form-group">
                         <label >Medical History</label>
                         <br>
                         <button type="button" class="btn btn-secondary" onclick="addMedHistory()">Edit</button>
                     </div>    -->
-                    
-                    <h6>  Please indicate conditions you are experiencing, or have experienced: </h6>
+                    <br>
+                    <h5>  Please indicate conditions you are experiencing, or have experienced: </h5>
                         <div class="history-respitory-question">
                             <label for="history-question-1">Respiratory issue</label>
                             <select class="form-control" id="history-respi">
@@ -139,7 +144,7 @@
                     
                 </fieldset>
                 <div class="d-flex justify-content-end mt-5">
-                    <!-- <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button> -->
+                    <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
                     <span style="width: 10px"></span>
                     <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
                 </div>
