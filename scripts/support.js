@@ -1,4 +1,5 @@
 function supportTicket() {
+
     console.log("inside support ticket");
     let username = document.getElementById("name").value;
     let userEmail = document.getElementById("email").value;
@@ -11,9 +12,10 @@ function supportTicket() {
 
     var user = firebase.auth().currentUser;
     if (user) {
-        var currentUser = db.collection("user-info").doc(user.uid);
-        var userID = user.uid;
-        console.log(userID)
+        // var currentUser = db.collection("users").doc(user.uid);
+        // var userID = user.uid;
+        // let userName = currentUser.data().name;
+        // console.log(userID)
 
         // Get the document for the current user.
         db.collection("supportTicket").add({
@@ -24,7 +26,7 @@ function supportTicket() {
             message: userMessage,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
-            window.location.href = "thanks.html"; // Redirect to the thanks page
+            window.location.href = "thanks_support.html"; // Redirect to the thanks page
         });
     } else {
         console.log("No user is signed in");
