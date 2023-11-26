@@ -1,6 +1,5 @@
 //Inez
 
-//event handler
 
 function displayAppointmentInfo() {
     let params = new URL(window.location.href);
@@ -14,10 +13,7 @@ function displayAppointmentInfo() {
         var userID = user.uid;
         console.log(userID)
 
-        db.collection("users").add(
-            // .doc("users")
-            // .get()
-            // .then(doc => 
+        db.collection("users").update( //add or update
                 {
                 userAppointment : doc.data(),
                 userFirstNameAppmt : userAppointment.userFirstName,
@@ -27,10 +23,7 @@ function displayAppointmentInfo() {
                 userPhoneAppmt : userAppointment.userPhone,
                 userDOBAppmt : userAppointment.userDOB,
                 userGenderAppmt : userAppointment.userGender,
-                // userGenderMaleAppmt = userAppointment.userGender["Male"];
-                // userGenderOtherAppmt = userAppointment.userGender["Others"];
                 userContactMethodAppmt : userAppointment.userContactMethod,
-                // userContactMethodPhoneAppmt = userAppointment.userContactMethod["Phone"];
                 userDateAppmt : userAppointment.userAppmntDate,
                 userVisitReasonCold :userAppointment.userCold,
                 userVisitReasonAllergies : userAppointment.userAllergies,
@@ -59,13 +52,9 @@ async function clickSubmitAppointment() {
     let userPhoneAppmt = document.getElementById("user-phone").value;
     let userDOBAppmt = document.getElementById("user-DOB").value;
     let userGender = document.getElementById("user-gender").value;
-    // let userGenderMaleAppmt = document.getElementById("user-gender-female").value;
-    // let userGenderOtherAppmt = document.getElementById("user-gender-others").value;
     let userContactMethodAppmt = document.getElementById("user-contact").value;
-    // let userContactMethodPhoneAppmt = document.getElementById("user-contact-phone").value;
     let userDateAppmt = document.getElementById("user-appmtDate").value;
     let userTimeAppmt = document.getElementById("user-appmtTime").value;
-    // let userSpecialRequestAppmt = document.getElementById("user-appmtDetail").value;
     let userVisitReasonCold = document.getElementById("visit-coldflue").value;
     let userVisitReasonAllergies = document.getElementById("visit-allergies").value;
     let userVisitReasonSkin = document.getElementById("visit-skin").value;
@@ -87,7 +76,7 @@ async function clickSubmitAppointment() {
         console.log(userID);
     
         // Get the document for the current user.
-        await db.collection("users").add({
+        await db.collection("users").add({ // add or update?
             
             userFirstName : userFirstNameAppmt,
             userMiddleName : userMiddletNameAppmt,
@@ -122,14 +111,17 @@ async function clickSubmitAppointment() {
     }
 }
 
-// clickSubmitAppointment();
-
 var user = firebase.auth().currentUser;
 
 // Call functions with the defined user
 if (user) {
     displayAppointmentInfo();
+} else {
+    console.log("User is not authenticated."); // error messges?
+}
+
+if (user) {
     clickSubmitAppointment();
 } else {
-    console.log("User is not authenticated.");
+    console.log("Subission failed."); // error messages?
 }
