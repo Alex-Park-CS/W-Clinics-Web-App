@@ -1,44 +1,40 @@
 // display clinic lists dynamically
-
-function displayClinicsDynamically(collection, sortBy = "distance_metres") {
-    document.getElementById("clinics-go-here").innerHTML = ""
+async function displayClinicsDynamically(collection, sortBy = "distance_metres") {
+    document.getElementById("clinics-go-here").innerHTML = "";
     let clinicTemplate = document.getElementById("clinicCardTemplate");
 
-    db.collection(collection)
-        .orderBy(sortBy) // Order the clinics by distance
-        .get()
-        .then(allClinics => {
-            allClinics.forEach(doc => {
-                var clinicName = doc.data().clinicName;
-                var distance = doc.data().distance_metres;
-                var address = doc.data().address;
-                var waitTime = doc.data().wait_time_minutes
-                var clinicCode = doc.data().clinicID;
-                var docID = doc.id;
-                var rating = ratingAverage(docID);
-                console.log(rating)
-                console.log(typeof rating)
+    try {
+        const allClinics = await db.collection(collection).orderBy(sortBy).get();
 
-                let newcard = clinicTemplate.content.cloneNode(true);
+        allClinics.docs.forEach(async (doc) => {
+            const docID = doc.id;
+            console.log(docID)
+            // Call ratingAverage for each clinic individually
+            const rating = await ratingAverage(docID);
+            console.log(rating)
 
-                newcard.querySelector('.clinic-name').innerHTML = clinicName;
-                newcard.querySelector('.clinic-distance').innerHTML = distance + "m";
-                newcard.querySelector('.clinic-address').innerHTML = address;
-                newcard.querySelector('.clinic-rating').innerHTML = "Rating: " + rating + "/5";
-                newcard.querySelector('.clinic-wait-time').innerHTML = "Wait Time: " + waitTime + " min";
-                newcard.querySelector('a').href = "clinic_profile_page.html?docID=" + docID;
+            const clinicName = doc.data().clinicName;
+            const distance = doc.data().distance_metres;
+            const address = doc.data().address;
+            const waitTime = doc.data().wait_time_minutes;
+            const clinicCode = doc.data().clinicID;
 
-                // Assuming the clinic image URL is based on the clinic code
-                // let imgEvent = newcard.querySelector(".clinic-image");
-                // imgEvent.src = "../images/" + clinicCode + ".jpg";
+            let newcard = clinicTemplate.content.cloneNode(true);
 
-                document.getElementById(collection + "-go-here").appendChild(newcard);
-            });
-        })
-        .catch(error => {
-            console.error("Error getting clinics: ", error);
+            newcard.querySelector('.clinic-name').innerHTML = clinicName;
+            newcard.querySelector('.clinic-distance').innerHTML = distance + "m";
+            newcard.querySelector('.clinic-address').innerHTML = address;
+            newcard.querySelector('.clinic-rating').innerHTML = "Rating: " + rating + "/5";
+            newcard.querySelector('.clinic-wait-time').innerHTML = "Wait Time: " + waitTime + " min";
+            newcard.querySelector('a').href = "clinic_profile_page.html?docID=" + docID;
+
+            document.getElementById(collection + "-go-here").appendChild(newcard);
         });
+    } catch (error) {
+        console.error("Error getting clinics: ", error);
+    }
 }
+// Call the function
 displayClinicsDynamically("clinics");  //input param is the name of the collection
 
 
@@ -75,28 +71,24 @@ function doAll() {
 doAll();
 
 
-function ratingAverage(clinicID) {
-    sumOfReviews = 0;
-    countOfReviews = 0;
+async function ratingAverage(clinicID) {
+    try {
+        const allReviews = await db.collection("reviews").where("clinicID", "==", clinicID).get();
+        const reviews = allReviews.docs;
 
-    db.collection("reviews")
-        .where("clinicID", "==", clinicID)
-        .get()
-        .then((allReviews) => {
-            const reviews = allReviews.docs;
-            // console.log(reviews);
-            reviews.forEach((doc) => {
-                sumOfReviews += doc.data().rating;
-                // console.log(sumOfReviews);
-                countOfReviews++;
-                // console.log(countOfReviews);
-            });
+        let sumOfReviews = 0;
+        let countOfReviews = reviews.length;
 
-            const averageRating = (countOfReviews > 0 ? sumOfReviews / countOfReviews : 0);
-            sumOfReviews = 0;
-            countOfReviews = 0;
-            console.log(averageRating);
-            console.log(typeof averageRating)
-            return averageRating;
+        reviews.forEach((doc) => {
+            sumOfReviews += doc.data().rating;
         });
+
+        const averageRating = countOfReviews > 0 ? sumOfReviews / countOfReviews : 0;
+        console.log(typeof averageRating);
+        console.log(averageRating);
+        return averageRating;
+    } catch (error) {
+        console.error("Error fetching reviews:", error);
+        return 0; // or handle the error in an appropriate way
+    }
 }
