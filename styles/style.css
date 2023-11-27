@@ -62,7 +62,6 @@ a:link {
     margin-top: 150px;
     margin-bottom: 74.84px;
     padding: 10px
-    
 }
 
 .middle-align {
@@ -112,10 +111,11 @@ a:link {
     border-radius: 30px;
     font-weight: bold;
 }
+
 /* favourite button */
 #favourite {
-    padding-right:30px;
-    padding-top:40px;
+    padding-right: 30px;
+    padding-top: 40px;
 }
 
 /* Save page, clinic cards */
@@ -128,13 +128,13 @@ a:link {
     font-size: 20px;
 } */
 
-#saved-clinic-card{
-     
+#saved-clinic-card {
+
     padding: 0px;
-    
+
 }
 
-#clinicName{
+#clinicName {
     text-align: center;
     display: flex;
     /* width: 80%; */
@@ -147,35 +147,35 @@ a:link {
 
 }
 
-#saved-clinic-card p{
+#saved-clinic-card p {
     font-size: 20px;
 }
 
 
-.saved-p{
+.saved-p {
     font-size: 20px;
 }
 
-#saved-image{
-    width:250px;
-    height:250px;
+#saved-image {
+    width: 250px;
+    height: 250px;
 }
 
 
 /* #ClinicCardTemplate2 .clinic-img { */
-    /* Styles for the clinic-img img element within #ClinicCardTemplate */
-    /* width: 200px; Example: Make the image fill its container */
-    /* height: 200px; Maintain aspect ratio */
-    /* border: 2px solid #ccc;  */
-    /* max-width: 100%;
+/* Styles for the clinic-img img element within #ClinicCardTemplate */
+/* width: 200px; Example: Make the image fill its container */
+/* height: 200px; Maintain aspect ratio */
+/* border: 2px solid #ccc;  */
+/* max-width: 100%;
     height: auto; 
 }*/
 
 
-    
 
 
-.responsive{
+
+.responsive {
     max-width: 100%;
     height: auto;
 }
@@ -575,18 +575,29 @@ button {
     border: solid grey 2px;
     border-radius: 30px;
     margin: 20px auto;
+    background-color: #6EC071;
+    color: white;
 
 }
 
 .text-clinic-card {
-    width: 50%;
-    margin: 0 auto;
+    /* width: 100%; */
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .clinic-card-title {
-    font-size: 20px;
-    padding-top: 30px;
+    width: 50%;
+    font-size: 15px;
+    padding-top: 20px;
+    color: black;
+    display: block;
+    background-color: #C9EFC7;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 30px;
 }
 
 
@@ -595,12 +606,7 @@ button {
     font-size: 14px;
 }
 
-.clinic-card-icons {
-    size: 50%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+
 
 
 /* -----------Clinic Profile/Review (Alex) ------------*/
@@ -620,10 +626,10 @@ button {
     margin-bottom: 10px;
 }
 
-#clinic-name {
-    font-size: 18px;
+/* #clinic-name {
+    font-size: 10px;
     font-weight: 700;
-}
+} */
 
 .clinic-profile {
     font-size: 14px;
