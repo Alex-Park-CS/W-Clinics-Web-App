@@ -139,10 +139,12 @@ a:link {
     display: flex;
     /* width: 80%; */
     height: 100%;
-    border: solid grey 2px;
-    border-radius: 30px;
+    /* border: solid grey 2px; */
+    /* border-radius: 30px; */
     /* margin: 20px auto; */
     padding-top: 5px;
+    font-weight: 700;
+
 }
 
 #saved-clinic-card p{
