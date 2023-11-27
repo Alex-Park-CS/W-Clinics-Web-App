@@ -66,7 +66,7 @@ function populateReviews() {
 
     // Double-check: is your collection called "Reviews" or "reviews"?
     db.collection("reviews")
-        // .where("clinicID", "==", clinicID)
+        .where("clinicID", "==", clinicID)
         .orderBy("timestamp", "desc")
         .get()
         .then((allReviews) => {
