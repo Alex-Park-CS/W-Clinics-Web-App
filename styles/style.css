@@ -120,14 +120,30 @@ a:link {
 
 /* Save page, clinic cards */
 
-#saved-clinic-card #clinicName {
+/* #saved-clinic-card #clinicName {
     color: #333; 
 }
 
 #saved-clinic-card #clinicName {
     font-size: 20px;
+} */
+
+#saved-clinic-card{
+     
+    padding: 0px;
+    
 }
 
+#clinicName{
+    text-align: center;
+    display: flex;
+    /* width: 80%; */
+    height: 100%;
+    border: solid grey 2px;
+    border-radius: 30px;
+    /* margin: 20px auto; */
+    padding-top: 5px;
+}
 
 #saved-clinic-card p{
     font-size: 20px;
@@ -144,16 +160,18 @@ a:link {
 }
 
 
-#ClinicCardTemplate2 .clinic-img {
+/* #ClinicCardTemplate2 .clinic-img { */
     /* Styles for the clinic-img img element within #ClinicCardTemplate */
     /* width: 200px; Example: Make the image fill its container */
     /* height: 200px; Maintain aspect ratio */
-    border: 2px solid #ccc; /* Example: Add a border around the image */
-    max-width: 100%;
-    height: auto;
+    /* border: 2px solid #ccc;  */
+    /* max-width: 100%;
+    height: auto; 
+}*/
+
+
     
 
-}
 
 .responsive{
     max-width: 100%;
@@ -569,6 +587,8 @@ button {
     padding-top: 30px;
 }
 
+
+
 .clinic-card-distance-time {
     font-size: 14px;
 }
@@ -611,10 +631,10 @@ button {
     width: 100%;
 }
 
-.profile-title {
+/* .profile-title {
     font-size: 20px;
     font-weight: 700;
-}
+} */
 
 .clinic-info {
     margin-top: 10px;

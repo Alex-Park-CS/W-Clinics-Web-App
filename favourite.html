@@ -40,32 +40,38 @@
     <!-- The Navbar -->
     <nav id="navbarPlaceholder"></nav>
     <!-- body-->
+    <!-- dropdown -->
+    <div class="card-body form-group dropdown">
+        <select id="sort-select">
+            <option value="distance_metres">Distance</option>
+            <option value="rating">Rating</option>
+            <option value="wait_time_minutes">Wait Time</option>
+        </select>
+    </div>
+
+
     <div id = "body_container">
         <div class="container">
-            <h1>Favourite Clinics <span id=name-goes-here></span></h1>
-            <!-- Here is container for cards  -->
-            <div class="container">
-                <div id="ClinicCardGroup" class="row row-cols-auto">
+            <h1 style="text-align:center;">Favourite Clinics <span id=name-goes-here></span></h1>
+
+            <div class="container" style="">
+                <div id="ClinicCardGroup">
                 </div>
             </div>
+
+            <template id="ClinicCardTemplate2">
+                <!--  no class="clinic-card"  -->
+                <div id="saved-clinic-card"> 
+                    <span id="clinicName" style="text-align:center;" ></span>
+                </div>
+            </template>
+
+            <!-- add button for unsave -->
     </div>
-    
-    <!-- Templates -->
-<template id="ClinicCardTemplate2">
-    <div class="clinic-card" id="saved-clinic-card">
-        <p><div class="profile-title"><span id="clinicName" class="clinic-card-title"></span></div></p>
-        <p id="clinicAddress" class="clinic-card-distance-time">address</p>
-        <p id="clinic-rating" class="clinic-card-distance-time"></p>
-        <div class="relative-button-position" >
-            <img class="clinic-img responsive" id = "saved-image" src="">
-        </div>
-        <div class="clinic-info" id="saved-clinic-info">
-            <p id="clinic-hours" class="saved-p"></p>
-            <p id="clinic-walkin" class="saved-p"></p>
-            <p id="clinic-waittime" class="saved-p"></p>
-        </div>
-    </div>
-</template>
+
+
+
+
 
     
 <!-- footer -->
