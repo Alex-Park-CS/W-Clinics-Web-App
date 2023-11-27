@@ -27,12 +27,17 @@
     font-weight: bold;
 }
 
+
 a {
     color: black;
     text-decoration: none !important;
     padding: 12px;
     text-align: center;
 }
+button a.footer_icons{
+    padding-left: 0px;
+}
+
 
 /* a:hover {
     text-shadow: 2px 2px;
@@ -42,7 +47,7 @@ a {
 a:link {
     text-decoration: none;
     color: grey;
-    font-size: 22px;
+    /* font-size: 22px; */
 }
 
 .navbar {
@@ -51,18 +56,18 @@ a:link {
     font-weight: bold;
     margin: 0;
     width: 100%;
-    position: fixed;
     top: 0px;
+    padding-bottom: 0px;
     z-index: 1;
 }
 
-/* body  */
+.nav_container a{
+    padding: 0px;
+}
 
+/* body  */
 #body_container {
-    margin-top: 150px;
-    margin-bottom: 74.84px;
-    padding: 10px
-    
+    margin-bottom: 86.44px;
 }
 
 .middle-align {
@@ -112,38 +117,17 @@ a:link {
     border-radius: 30px;
     font-weight: bold;
 }
-/* favourite button */
-#favourite {
-    padding-right:30px;
-    padding-top:40px;
-}
+
 
 /* Save page, clinic cards */
-
-/* #saved-clinic-card #clinicName {
+#saved-clinic-card #clinicName {
     color: #333; 
 }
 
 #saved-clinic-card #clinicName {
     font-size: 20px;
-} */
-
-#saved-clinic-card{
-     
-    padding: 0px;
-    
 }
 
-#clinicName{
-    text-align: center;
-    display: flex;
-    /* width: 80%; */
-    height: 100%;
-    border: solid grey 2px;
-    border-radius: 30px;
-    /* margin: 20px auto; */
-    padding-top: 5px;
-}
 
 #saved-clinic-card p{
     font-size: 20px;
@@ -508,14 +492,16 @@ fieldset {
 
 /* footer */
 .material-symbols-outlined {
-    /* Home button */
-    font-variation-settings: 'FILL' 0,
-        'wght' 200,
-        'GRAD' 0,
+    /* Home button */ /*Favourite button */ /* History button */ 
+    font-variation-settings: 
+        'FILL' 30,
+        'wght' 400,
+        'GRAD' 50,
         'opsz' 24;
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
     display: block;
+    padding-left: 0px;
 }
 
 footer {
@@ -531,14 +517,6 @@ button {
     background-color: transparent;
 }
 
-/* Star */
-.material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
-}
 
 .welcome-banner {
     width: 70%;
