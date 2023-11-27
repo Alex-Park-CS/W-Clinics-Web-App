@@ -31,12 +31,12 @@ function getBookmarks(user) {
 						// Get pointer the new card template
             let newcardTemplate = document.getElementById("ClinicCardTemplate2");
 						// Iterate through the ARRAY of bookmarked favourites (document ID's)
-            bookmarks.forEach(thisHikeID => {
-                console.log(thisHikeID);
-                db.collection("clinics").doc(thisHikeID).get().then(doc => {
+            bookmarks.forEach(savedClinics => {
+                console.log(savedClinics);
+                db.collection("clinics").doc(savedClinics).get().then(doc => {
                     var clinicName = doc.data().clinicName;
                     var clinicAddress = doc.data().address;
-                    var clinicHours = doc.data().hours;
+                    // var clinicHours = doc.data().hours;
                     // var rating = doc.data().rating; 
                     // var clinicWaitTime = doc.data().wait_time_minutes;
                     // var clinicWalkin = doc.data().walkin_availibility;
@@ -59,10 +59,11 @@ function getBookmarks(user) {
                     //update to display clinicName, address, rating, hours, walkin_availibility, wait_time_minutes, last_updated
                     newcard.querySelector('#clinicName').innerHTML =
                         doc.data().clinicName + "<br>" +
-                        doc.data().address + "<br>" +
+                        doc.data().address + "<br>" 
+                        newcard.querySelector('a').href = "clinic_profile_page.html?docID=" + docID;
                         // doc.data().rating + "<br>" +
-                        doc.data().hours + "<br>" +
-                        "<br>"
+                        // doc.data().hours + "<br>" +
+                    
                         // "walkin_availability: " + doc.data().walkin_availability + "<br>" +
                         // "wait_time_minutes: " + doc.data().wait_time_minutes +
 
