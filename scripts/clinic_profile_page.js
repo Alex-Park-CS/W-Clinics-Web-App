@@ -25,7 +25,7 @@ function displayClinicInfo() {
             document.getElementById("clinic-hours").innerHTML = clinicHours;
             document.getElementById("clinic-waittime").innerHTML = "Wait Time: " + clinicWaitTime + "min"
             document.getElementById("clinic-walkin").innerHTML = "Walkin Availibility: " + clinicWalkin;
-            document.getElementById("clinic-rating").innerHTML = "Rating: " + clinicRating;
+            document.getElementById("clinic-rating").innerHTML = "Rating: " + clinicRating + "/5";
             let imgEvent = document.querySelector(".clinic-img");
             imgEvent.src = "../images/" + clinicCode + ".jpg";
             document.querySelector('i').id = 'save-'+ ID; // for assigning unique id to each element
