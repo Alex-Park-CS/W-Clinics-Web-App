@@ -12,10 +12,12 @@ function displayClinicsDynamically(collection, sortBy = "distance_metres") {
                 var clinicName = doc.data().clinicName;
                 var distance = doc.data().distance_metres;
                 var address = doc.data().address;
-                var rating = doc.data().rating;
                 var waitTime = doc.data().wait_time_minutes
                 var clinicCode = doc.data().clinicID;
                 var docID = doc.id;
+                var rating = ratingAverage(docID);
+                console.log(rating)
+                console.log(typeof rating)
 
                 let newcard = clinicTemplate.content.cloneNode(true);
 
@@ -37,8 +39,8 @@ function displayClinicsDynamically(collection, sortBy = "distance_metres") {
             console.error("Error getting clinics: ", error);
         });
 }
-
 displayClinicsDynamically("clinics");  //input param is the name of the collection
+
 
 document.getElementById('sort-select').addEventListener('change', function () {
     displayClinicsDynamically("clinics", this.value)
@@ -55,7 +57,7 @@ function saveAppmntDocumentIDAndRedirect() {
 }
 
 //Global variable pointing to the current user's Firestore document
-var currentUser;   
+var currentUser;
 
 //Function that checks if a user is logged in in clinics
 function doAll() {
@@ -73,3 +75,28 @@ function doAll() {
 doAll();
 
 
+function ratingAverage(clinicID) {
+    sumOfReviews = 0;
+    countOfReviews = 0;
+
+    db.collection("reviews")
+        .where("clinicID", "==", clinicID)
+        .get()
+        .then((allReviews) => {
+            const reviews = allReviews.docs;
+            // console.log(reviews);
+            reviews.forEach((doc) => {
+                sumOfReviews += doc.data().rating;
+                // console.log(sumOfReviews);
+                countOfReviews++;
+                // console.log(countOfReviews);
+            });
+
+            const averageRating = (countOfReviews > 0 ? sumOfReviews / countOfReviews : 0);
+            sumOfReviews = 0;
+            countOfReviews = 0;
+            console.log(averageRating);
+            console.log(typeof averageRating)
+            return averageRating;
+        });
+}
