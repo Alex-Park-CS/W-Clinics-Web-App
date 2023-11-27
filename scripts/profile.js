@@ -22,7 +22,13 @@ function populateUserInfo() {
                         var userGender = data.userGender;
                         var userEmail = data.userEmail;
                         var userPhone = data.userPhone;
-
+                        var historysRespi = data.userHistoryRespi;
+                        var historyCardio = data.userHistoryCardio;
+                        var historyVision = data.userHistoryVision;
+                        var historyEar = data.userHistoryEar;
+                        var historyInfection = data.userHistoryInfect;
+                        var historyMental = data.userHistoryMental;
+                        var historyJoint = data.userHistoryJont;
                         // Update form fields with user data
                         if (userFirstName != null) {
                             document.getElementById("FirstNameInput").value = userFirstName;
@@ -45,7 +51,29 @@ function populateUserInfo() {
                         if (userPhone != null) {
                             document.getElementById("phoneInput").value = userPhone;
                         }
-
+                        // Update medical history fields with user data
+                        // why it works with s
+                        if (historysRespi != null) { 
+                            document.getElementById("history-respi").value = historysRespi;
+                        }
+                        if (historyCardio != null) {
+                            document.getElementById("history-cardio").value = historyCardio;
+                        }
+                        if (historyVision != null) {
+                            document.getElementById("history-vision").value = historyVision;
+                        }
+                        if (historyEar != null) {
+                            document.getElementById("history-ear").value = historyEar;
+                        }
+                        if (historyInfection != null) {
+                            document.getElementById("history-infection").value = historyInfection;
+                        }
+                        if (historyMental != null) {
+                            document.getElementById("history-mental").value = historyMental;
+                        }
+                        if (historyJoint != null) {
+                            document.getElementById("history-joint").value = historyJoint;
+                        }
                         
                     } else {
                         console.log("New user!");
@@ -59,14 +87,6 @@ function populateUserInfo() {
                                     var data = userInfo.data();
                                     db.collection("users").add({
 
-                                    // Get the data fields of the user
-                                    // var userFirstName = data.userFirstName;
-                                    // var userMiddleName = data.userMiddleName;
-                                    // var userLastName = data.userLastName;
-                                    // var userDOB = data.userDOB;
-                                    // var userGender = data.userGender;
-                                    // var userEmail = data.userEmail;
-                                    // var userPhone = data.userPhone;
                                     userFirstName : FirstNameInput,
                                     userMiddleName : MiddleNameInput,
                                     userLastName : LastNameInput,
@@ -74,6 +94,13 @@ function populateUserInfo() {
                                     userGender : genderInput,
                                     userEmail :emailInput,
                                     userPhone : phoneInput,
+                                    userHistoryRespi : history-respi,
+                                    userHistoryCardio : history-cardio,
+                                    userHistoryVision : history-vision,
+                                    userHistoryEar : history-ear,
+                                    userHistoryInfect : history-infection,
+                                    userHistoryMental : history-mental,
+                                    userHistoryJont : history-joint
 
 
                                     })
@@ -98,7 +125,6 @@ function editUserInfo() {
     document.getElementById('personalInfoFields').disabled = false;
 }
 
-// Function to save user information
 // Function to save user information
 function saveUserInfo() {
     // Get entered information by the user
@@ -134,13 +160,13 @@ function saveUserInfo() {
                     userGender: userGender,
                     userEmail: userEmail,
                     userPhone: userPhone,
-                    respitoryHistoryFB: historyRespi,
-                    cardioHistoryFB: historyCardio,
-                    visionHistoryFB: historyVision,
-                    earHistoryFB: historyEar,
-                    infectHistoryFB: historyInfection,
-                    mentalHistoryFB: historyMental,
-                    infectionHistoryFB: historyInfection,
+                    userHistoryRespi: historyRespi,
+                    userHistoryCardio: historyCardio,
+                    userHistoryVision: historyVision,
+                    userHistoryEar: historyEar,
+                    userHistoryInfect: historyInfection,
+                    userHistoryMental: historyMental,
+                    userHistoryJont: historyJoint,
                 })
                 .then(() => {
                     console.log("Document successfully updated!");
@@ -161,13 +187,13 @@ function saveUserInfo() {
                     userGender: userGender,
                     userEmail: userEmail,
                     userPhone: userPhone,
-                    respitoryHistoryFB: historyRespi,
-                    cardioHistoryFB: historyCardio,
-                    visionHistoryFB: historyVision,
-                    earHistoryFB: historyEar,
-                    infectHistoryFB: historyInfection,
-                    mentalHistoryFB: historyMental,
-                    infectionHistoryFB: historyInfection,
+                    userHistoryRespi: historyRespi,
+                    userHistoryCardio: historyCardio,
+                    userHistoryVision: historyVision,
+                    userHistoryEar: historyEar,
+                    userHistoryInfect: historyInfection,
+                    userHistoryMental: historyMental,
+                    userHistoryJont: historyJoint,
                 })
                 .then(() => {
                     console.log("New user document created!");
