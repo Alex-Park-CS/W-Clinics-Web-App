@@ -47,39 +47,36 @@
     </head>
 
     <body>
-        <div id="body_container">
-            <!-- The Navbar -->
-            <nav id="navbarPlaceholder"></nav>
-            <!-- Sort by dropdown -->
-            <div class="card-body form-group dropdown">
-                <select id="sort-select">
-                    <option value="distance_metres">Distance</option>
-                    <option value="rating">Rating</option>
-                    <option value="wait_time_minutes">Wait Time</option>
-                </select>
+        <!-- The Navbar -->
+        <nav id="navbarPlaceholder"></nav>
+        <!-- body-->
+        <!-- dropdown -->
+        <div class="card-body form-group dropdown">
+            <select id="sort-select">
+                <option value="distance_metres">Distance</option>
+                <option value="rating">Rating</option>
+                <option value="wait_time_minutes">Wait Time</option>
+            </select>
+        </div>
+    
+    
+        <div id = "body_container">
+            <div class="favourite_container">
+                <div id = "favourite_title"> <p>Your Appointment History</p></div>
             </div>
-
-
-            <!-- Clinics container for all clinics  -->
-            <div class="clinic-list">
-                <div id="clinics-go-here"></div>
-            </div>
-
-            <!-- Clinic template -->
-            <template id="clinicCardTemplate">
-                <div class="clinic-card">
-                    <div class="text-clinic-card">
-                        <a href="clinic_profile_page.html" class="clinic-name clinic-card-title ">Clinic 1</a>
-                        <div class="split-title-content">
-                            <p class="clinic-distance clinic-card-distance-time">102m</p>
-                            <p class="clinic-address clinic-card-distance-time">1234 Robson St</p>
-                            <!-- <p class="clinic-rating clinic-card-distance-time">4</p>
-                            <p class="clinic-wait-time clinic-card-distance-time">15min</p> -->
-                        </div>
-                    </div>
+                <div class="container">
+                    <div id="ClinicCardGroup">
                 </div>
-            </template>
-
+    
+                <template id="ClinicCardTemplate2">
+                     <!-- no class="clinic-card"  -->
+                    <div id="saved-clinic-card"> 
+                        <a href="clinic_profile_page.html?docID=" id="appointmentDetail" ></a>
+                    </div>
+                </template>
+                <!-- add button for unsave -->
+        </div>
+    
 
             <nav id="footerPlaceholder"></nav>
         </div>
