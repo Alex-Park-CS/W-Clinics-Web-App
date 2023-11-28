@@ -12,8 +12,8 @@ var uiConfig = {
         var user = authResult.user;
         if (authResult.additionalUserInfo.isNewUser) {
           db.collection("users").doc(user.uid).set({
-            name: user.displayName,
-            email: user.email,
+            userFIrstName: user.displayName,
+            userEmail: user.email,
 
           }).then(function(){
             console.log("New user added to firestore");
