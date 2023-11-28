@@ -39,6 +39,7 @@ function displayClinicInfo() {
                 let bookmarks = (userDoc.data() && userDoc.data().bookmarks) || [];
                 if (bookmarks.includes(ID)) {
                     document.getElementById('save-' + ID).innerText = 'favorite';
+                    $('#save-' + ID).css('color', 'red');
                 }
             })
         });
@@ -155,6 +156,7 @@ function updateBookmark(bookmark_clinicID) {
             }).then(() => {
                 console.log("Item was removed: " + bookmark_clinicID);
                 document.getElementById(iconID).innerText = 'favorite_border'; // Change to unfilled heart icon
+                $('#' + iconID).css('color', 'gray');
             });
         } else {
             // Add the bookmark if it doesn't exist
@@ -162,7 +164,8 @@ function updateBookmark(bookmark_clinicID) {
                 bookmarks: firebase.firestore.FieldValue.arrayUnion(bookmark_clinicID)
             }).then(() => {
                 console.log("Item added to bookmarks: " + bookmark_clinicID);
-                document.getElementById(iconID).innerText = 'favorite'; // Change to filled heart icon
+                document.getElementById(iconID).innerText = 'favorite'; // Change to filled heart icon 
+                $('#' + iconID).text('favorite').css('color', 'red');
             });
         }
     });
