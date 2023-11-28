@@ -1,3 +1,5 @@
+var currentUser;
+
 function displayClinicInfo() {
     let params = new URL(window.location.href);
     console.log("params is = ", params)
@@ -25,20 +27,20 @@ function displayClinicInfo() {
             document.getElementById("clinic-hours").innerHTML = clinicHours;
             document.getElementById("clinic-waittime").innerHTML = "Wait Time: " + clinicWaitTime + "min"
             document.getElementById("clinic-walkin").innerHTML = "Walkin Availibility: " + clinicWalkin;
-            document.getElementById("clinic-rating").innerHTML = "Rating: " + clinicRating;
+            document.getElementById("clinic-rating").innerHTML = "Rating: " + clinicRating + "/5";
             let imgEvent = document.querySelector(".clinic-img");
             imgEvent.src = "../images/" + clinicCode + ".jpg";
-            document.querySelector('i').id = 'save-'+ ID; // for assigning unique id to each element
-            document.querySelector('i').onclick = ()=> updateBookmark(ID); 
+            document.querySelector('i').id = 'save-' + ID; // for assigning unique id to each element
+            document.querySelector('i').onclick = () => updateBookmark(ID);
             // document.querySelector('i').onclick = ()=> clickHeart(); 
 
             currentUser.get().then(userDoc => {
                 //get the user name
-                let bookmarks = userDoc.data().bookmarks || [];
+                let bookmarks = (userDoc.data() && userDoc.data().bookmarks) || [];
                 if (bookmarks.includes(ID)) {
-                   document.getElementById('save-' + ID).innerText = 'favorite';
+                    document.getElementById('save-' + ID).innerText = 'favorite';
                 }
-          })
+            })
         });
 }
 displayClinicInfo();
@@ -67,6 +69,7 @@ function populateReviews() {
     // Double-check: is your collection called "Reviews" or "reviews"?
     db.collection("reviews")
         .where("clinicID", "==", clinicID)
+        .orderBy("timestamp", "desc")
         .get()
         .then((allReviews) => {
             reviews = allReviews.docs;
@@ -121,7 +124,7 @@ function makeAnAppointment() {
 }
 
 //Global variable pointing to the current user's Firestore document
-var currentUser;   
+var currentUser;
 
 //Function that checks if a user is logged in in clinics
 function doAll() {
@@ -141,7 +144,7 @@ doAll();
 
 function updateBookmark(bookmark_clinicID) {
     currentUser.get().then(userDoc => {
-        let bookmarks = userDoc.data().bookmarks || [];
+        let bookmarks = (userDoc.data() && userDoc.data().bookmarks) || [];
         let iconID = 'save-' + bookmark_clinicID;
         let isBookmarked = bookmarks.includes(bookmark_clinicID);
 
