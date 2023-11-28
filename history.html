@@ -53,45 +53,38 @@
     <nav id="navbarPlaceholder"></nav>
     <!-- welcoming message -->
 <div id = "body_container">
-    <div>
-        <div class="welcome-banner">
-            <h1> History </h1>
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title"> 2023-10-30 </h5>
-                  <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero laborum laudantium commodi autem aut, vero neque quia, iusto quae cum doloremque reiciendis similique deleniti dignissimos numquam iste. Id, placeat iste?</p>
-                  <a href="#" class="btn btn-primary"> Go </a>
-                </div>
-              </div>
-        </div>
+    <div class="card-body form-group dropdown">
+        <select id="sort-select">
+            <option value="distance_metres">Distance</option>
+            <option value="rating">Rating</option>
+            <option value="wait_time_minutes">Wait Time</option>
+        </select>
     </div>
-    <div>
-        <div class="welcome-banner">
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title"> 2023-10-31 </h5>
-                  <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero laborum laudantium commodi autem aut, vero neque quia, iusto quae cum doloremque reiciendis similique deleniti dignissimos numquam iste. Id, placeat iste?</p>
-                  <a href="#" class="btn btn-primary"> Go </a>
-                </div>
-              </div>
-        </div>
-    </div>
-    <div>
-        <div class="welcome-banner">
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title"> 2023-11-01 </h5>
-                  <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero laborum laudantium commodi autem aut, vero neque quia, iusto quae cum doloremque reiciendis similique deleniti dignissimos numquam iste. Id, placeat iste?</p>
-                  <a href="#" class="btn btn-primary"> Go </a>
-                </div>
-              </div>
-        </div>
-    </div>
-</div>
-<!-- footer -->
-<nav id="footerPlaceholder"></nav>
 
- 
+
+    <!-- Clinics container for all clinics  -->
+    <div class="clinic-list">
+        <div id="clinics-go-here"></div>
+    </div>
+
+    <!-- Clinic template -->
+    <template id="clinicCardTemplate">
+        <div class="clinic-card">
+            <div class="text-clinic-card">
+                <a href="clinic_profile_page.html" class="clinic-name clinic-card-title ">Clinic 1</a>
+                <p class="clinic-distance clinic-card-distance-time">102m</p>
+                <p class="clinic-address clinic-card-distance-time">1234 Robson St</p>
+                <p class="clinic-rating clinic-card-distance-time">4</p>
+                <p class="clinic-wait-time clinic-card-distance-time">15min</p>
+            </div>
+            
+        </div>
+    </template>
+
+
+    <nav id="footerPlaceholder"></nav>
+</div>
+<script src="./scripts/history.js"></script>
 
 </body>
 
