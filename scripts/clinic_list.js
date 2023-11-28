@@ -11,7 +11,7 @@ async function displayClinicsDynamically(collection, sortBy = "distance_metres")
             console.log(docID)
             // Call ratingAverage for each clinic individually
             const rating = await ratingAverage(docID);
-            console.log(rating)
+            updateClinicRating(docID)
 
             const clinicName = doc.data().clinicName;
             const distance = doc.data().distance_metres;
@@ -22,7 +22,7 @@ async function displayClinicsDynamically(collection, sortBy = "distance_metres")
             let newcard = clinicTemplate.content.cloneNode(true);
 
             newcard.querySelector('.clinic-name').innerHTML = clinicName;
-            newcard.querySelector('.clinic-distance').innerHTML = distance + "m";
+            newcard.querySelector('.clinic-distance').innerHTML = "Distance: " + distance + "m";
             newcard.querySelector('.clinic-address').innerHTML = address;
             newcard.querySelector('.clinic-rating').innerHTML = "Rating: " + rating + "/5";
             newcard.querySelector('.clinic-wait-time').innerHTML = "Wait Time: " + waitTime + " min";
@@ -84,11 +84,24 @@ async function ratingAverage(clinicID) {
         });
 
         const averageRating = countOfReviews > 0 ? sumOfReviews / countOfReviews : 0;
-        console.log(typeof averageRating);
-        console.log(averageRating);
         return averageRating;
     } catch (error) {
         console.error("Error fetching reviews:", error);
         return 0; // or handle the error in an appropriate way
+    }
+}
+
+async function updateClinicRating(clinicID) {
+    const averageRating = await ratingAverage(clinicID);
+
+    const clinicRef = db.collection("clinics").doc(clinicID);
+
+    try {
+        await clinicRef.update({
+            rating: averageRating,
+        });
+        console.log("Clinic rating updated successfully.");
+    } catch (error) {
+        console.error("Error updating clinic rating:", error);
     }
 }

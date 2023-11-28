@@ -1,3 +1,6 @@
+/* body{
+    background-color: lightgreen;
+} */
 /*-----------  Richard's Stuff except a button----------------------*/
 /* History Page */
 .welcome-banner a {
@@ -584,7 +587,7 @@ button {
 
 .clinic-card-title {
     width: 50%;
-    font-size: 15px;
+    font-size: 20px;
     padding-top: 20px;
     color: black;
     display: block;
@@ -627,7 +630,10 @@ button {
 
 .clinic-profile {
     font-size: 14px;
+    margin: 20px;
+    color: black;
 }
+
 
 .clinic-profile img {
     width: 100%;
