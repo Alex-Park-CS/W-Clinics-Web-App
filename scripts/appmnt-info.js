@@ -84,6 +84,12 @@ async function clickSubmitAppointment() {
         var currentUser = db.collection("users").doc(user.uid);
         var userID = user.uid;
         console.log(userID);
+
+        // Get the clinic information
+        var clinicID = localStorage.getItem("clinicID");
+        var clinicRef = db.collection("clinics").doc(clinicID);
+        var clinicData = await clinicRef.get();
+        console.log(clinicID);
     
         // Get the document for the current user.
         await db.collection("users").add({ // add or update?
@@ -110,6 +116,7 @@ async function clickSubmitAppointment() {
             userVisitOthers: userVisitReasonOthers,
             // userAppmnt,userAppmtDetail : user-appmtDetail,
 
+            // save appointment time
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
             window.location.href = "confirm_appointment.html"; // Redirect to the thanks page
