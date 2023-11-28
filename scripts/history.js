@@ -1,14 +1,14 @@
-var clinicID = localStorage.getItem("clinicID")
-console.log(clinicID)
+// var clinicID = localStorage.getItem("clinicID")
+// console.log(clinicID)
 
-function writeClinicName() {
-    db.collection("clinics").doc(clinicID).get().then((thisClinic) => {
-        clinicName = thisClinic.data().clinicName;
-        document.getElementById("clinic-name").innerHTML = "Making an appointment with " + "<br>" + clinicName;
-    })
-}
+// function writeClinicName() {
+//     db.collection("users").doc(userID).get().then((thisUser) => {
+//         appDate = thisUser.data().userAppmntDate;
+//         document.getElementById("date").innerHTML = appDate;
+//     })
+// }
 
-writeClinicName()
+// writeClinicName()
 
 // display clinic lists dynamically
 
@@ -22,21 +22,19 @@ function displayClinicsDynamically(collection, sortBy = "distance_metres") {
         .then(allClinics => {
             allClinics.forEach(doc => {
                 var clinicName = doc.data().clinicName;
-                var distance = doc.data().distance_metres;
                 var address = doc.data().address;
-                var rating = doc.data().rating;
-                var waitTime = doc.data().wait_time_minutes
+                // var rating = doc.data().rating;
+                // var waitTime = doc.data().wait_time_minutes
                 var clinicCode = doc.data().clinicID;
                 var docID = doc.id;
 
                 let newcard = clinicTemplate.content.cloneNode(true);
 
                 newcard.querySelector('.clinic-name').innerHTML = clinicName;
-                newcard.querySelector('.clinic-distance').innerHTML = distance + "m";
                 newcard.querySelector('.clinic-address').innerHTML = address;
-                newcard.querySelector('.clinic-rating').innerHTML = "Rating: " + rating;
-                newcard.querySelector('.clinic-wait-time').innerHTML = "Wait Time: " + waitTime + " min";
-                newcard.querySelector('a').href = "clinic_profile_page.html?docID=" + docID;
+                // newcard.querySelector('.clinic-rating').innerHTML = "Rating: " + rating;
+                // newcard.querySelector('.clinic-wait-time').innerHTML = "Wait Time: " + waitTime + " min";
+                // newcard.querySelector('a').href = "clinic_profile_page.html?docID=" + docID;
 
                 // Assuming the clinic image URL is based on the clinic code
                 // let imgEvent = newcard.querySelector(".clinic-image");
@@ -52,10 +50,13 @@ function displayClinicsDynamically(collection, sortBy = "distance_metres") {
 
 displayClinicsDynamically("clinics");  //input param is the name of the collection
 
+// Event listener for sort select dropdown
 document.getElementById('sort-select').addEventListener('change', function () {
-    displayClinicsDynamically("clinics", this.value)
-})
-
+    displayClinicsDynamically("clinics", this.value);
+});
+// document.getElementById('sort-select-users').addEventListener('change', function () {
+//     displayClinicsDynamically("users", this.value)
+// })
 
 //calling appointment html
 function saveAppmntDocumentIDAndRedirect() {
