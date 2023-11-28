@@ -50,7 +50,10 @@ function showMap() {
                             console.log(coordinates);
                             // Coordinates
                             event_name = doc.data().clinicName; // Event Name
-                            preview = doc.data().hours + "<br><br>" + doc.data().distance_metres + "m away"; // Text Preview
+                            hoursPreview = doc.data().hours + "<br><br>"; // Text Preview
+                            distancePreview = Number((distanceFromCurrent(userLocation[0], userLocation[1], lng, lat)).toFixed(2))
+                            console.log(typeof distancePreview)
+                            // doc.data().distance_metres = distancePreview
                             // img = doc.data().posterurl; // Image
                             // url = doc.data().link; // URL
 
@@ -59,7 +62,9 @@ function showMap() {
                             features.push({
                                 'type': 'Feature',
                                 'properties': {
-                                    'description': `<strong>${event_name}</strong><p>${preview}</p> <br> <a href="/clinic_profile_page.html?docID=${doc.id}" class="view-clinic-button" target="_blank" title="Opens in a new window">View Clinic</a>`
+                                    'description': `<strong>${event_name}</strong><p> <br> ${hoursPreview}</p>
+                                                    <p>${distancePreview} km away</p>
+                                                    <a href="/clinic_profile_page.html?docID=${doc.id}" class="view-clinic-button" target="_blank" title="Opens in a new window">View Clinic</a>`
                                 },
                                 'geometry': {
                                     'type': 'Point',
@@ -206,3 +211,10 @@ function saveAppmntDocumentIDAndRedirect() {
 
 // Call the function to display the map with the user's location and event pins
 showMap();
+
+function distanceFromCurrent(current_x, current_y, clinicLng, clinicLat){
+    distance =(((111.320 * 0.555 * (current_x - clinicLng)) ** 2 + (110.574 * (current_y - clinicLat)) ** 2) ** 0.5)
+    console.log(typeof distance)
+    console.log(distance)
+    return distance
+}

@@ -64,7 +64,7 @@
       <div class="middle-align">
         <!-- Support -->
         <div class="container">
-          <form id="contact" action="" method="post">
+          <form id="contact" action="" method="post" onsubmit="submitForm(event)">
             <h3>Contact Us</h3>
             <h4>Contact us for custom quote</h4>
             <fieldset>
@@ -84,7 +84,7 @@
               <textarea placeholder="Type your message here...." id="message" tabindex="5" required></textarea>
             </fieldset>
             <p class="copyright">DTC02 </p>
-            <button id="contact-submit" onclick="supportTicket()">Submit</button>
+            <button id="contact-submit" type="submit">Submit</button>
           </form>
 
         </div>
