@@ -1,7 +1,7 @@
 function doAll() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            getappointmentHistory(user)
+            getAppointmentsInfo()
         } else {
             console.log("No user is signed in");
         }
@@ -9,40 +9,66 @@ function doAll() {
 }
 doAll();
 
-function getappointmentHistory(user) {
-    db.collection("users").doc(user.uid).get()
-        .then(userDoc => {
-            var appointments = userDoc.data().appointments;
-            console.log(appointments);
+// Function to get user appointments and display clinic information
+// Assuming you have an array of appointments within a specific user document
+// Function to get user appointments and display clinic information
+// Function to get user appointments and display clinic information
+function getAppointmentsInfo() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            var userID = user.uid;
 
-            let newcardTemplate = document.getElementById("ClinicCardTemplate2");
-            
-            // Iterate through the ARRAY of appointments
-            appointments.forEach(appointment => {
-                console.log(appointment);
-                var clinicDocumentID = appointment.clinicID; // Assuming you have clinicID in your appointment data
-                db.collection("clinics").doc(clinicDocumentID).get().then(doc => {
-                    var clinicName = appointment.clinicName;
-                    var visitDate = appointment.userAppmntDate;
-                    var visitTime = appointment.userAppmntTime;
-                    var docID = clinicDocumentID;  // Clinic document ID
-                    
-                    //clone the new card
-                    let clinicCard = newcardTemplate.content.cloneNode(true);
-    
-                    //update to display clinicName, address, rating, hours, walkin_availibility, wait_time_minutes, last_updated
-                    clinicCard.querySelector('.clinic-name').innerHTML = clinicName;
-                    console.log(clinicCard.querySelector('.clinic-name')); 
-                    clinicCard.querySelector('.clinic-address').innerHTML = "Date: " + visitDate + "<br>Time: " + visitTime;
-                    console.log(clinicCard.querySelector('.clinic-address')); 
-                    clinicCard.querySelector('.clinic-card-title').href = "clinic_profile_page.html?docID=" + docID;
+            db.collection("users").doc(userID).get().then(userDoc => {
+                var appointments = userDoc.data().appointments;
 
-                    // Append the clinic card to the container
-                    document.getElementById("clinics-go-here").appendChild(clinicCard);
+                console.log("Appointments:", appointments);
+
+                // Select the container where you want to append appointments
+                var appointmentsContainer = document.getElementById("appointments-container");
+
+                if (!appointmentsContainer) {
+                    console.error("Appointments container not found");
+                    return;
+                }
+
+                appointments.forEach(appointment => {
+                    var clinicID = appointment.clinicID;
+
+                    db.collection("clinics").doc(clinicID).get().then(clinicDoc => {
+                        var clinicName = clinicDoc.data().clinicName;
+                        var clinicAddress = clinicDoc.data().clinicAddress;
+                        var userAppmntDate = appointment.userAppmntDate;
+                        var userAppmntTime = appointment.userAppmntTime;
+                        var docID = clinicDoc.id;
+
+                        // Create HTML elements for each appointment
+                        var appointmentDiv = document.createElement("div");
+                        appointmentDiv.innerHTML = `
+                            <p>Clinic Name: ${clinicName}</p>
+                            <p>Clinic Address: ${clinicAddress}</p>
+                            <p>Appointment Date: ${userAppmntDate}</p>
+                            <p>Appointment Time: ${userAppmntTime}</p>
+                            <p>Clinic Document ID: ${docID}</p>
+                            <hr>
+                        `;
+
+                        // Append the appointment information to the container
+                        appointmentsContainer.appendChild(appointmentDiv);
+                    }).catch(error => {
+                        console.error("Error getting clinic document: ", error);
+                    });
                 });
+            }).catch(error => {
+                console.error("Error getting user document: ", error);
             });
-        })
-        .catch(error => {
-            console.error("Error getting user document: ", error);
-        });
+        } else {
+            console.log("No user is signed in");
+        }
+    });
 }
+
+// Call the function when the page is loaded
+window.onload = function () {
+    doAll();
+};
+
