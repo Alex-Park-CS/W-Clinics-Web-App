@@ -119,47 +119,54 @@ a:link {
 }
 
 
-/* Save page, clinic cards */
-#saved-clinic-card #clinicName {
-    color: #333; 
+/* favourite page, clinic cards */
+#favourite_title p{
+    font-size: 22px;
+    font-weight: bold;
+    color: #303030;
+    display: flex;
+    justify-content: center;
 }
 
+#saved-clinic-card{
+    justify-content: center;
+    display: flex;
+}
 #saved-clinic-card #clinicName {
+    color: #333; 
     font-size: 20px;
-} */
-
-#saved-clinic-card {
-
-    padding: 0px;
-
 }
 
 #clinicName {
     text-align: center;
     display: flex;
-    /* width: 80%; */
+    width: 80%;
     height: 100%;
-    /* border: solid grey 2px; */
-    /* border-radius: 30px; */
-    /* margin: 20px auto; */
-    padding-top: 5px;
+    border: solid  green 1px;
+    margin: 5px auto;
     font-weight: 700;
 
 }
 
-#saved-clinic-card p {
-    font-size: 20px;
+#saved-clinic-card a#clinicName {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
 }
 
-
-.saved-p {
+/* #saved-clinic-card p {
     font-size: 20px;
-}
+    display: flex;
+} */
 
-#saved-image {
+/* .saved-p {
+    font-size: 20px;
+} */
+
+/* #saved-image {
     width: 250px;
     height: 250px;
-}
+} */
 
 
 /* #ClinicCardTemplate2 .clinic-img { */
