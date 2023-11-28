@@ -24,7 +24,7 @@ async function displayClinicsDynamically(collection, sortBy = "distance_metres")
             newcard.querySelector('.clinic-name').innerHTML = clinicName;
             newcard.querySelector('.clinic-distance').innerHTML = "Distance: " + distance + "m";
             newcard.querySelector('.clinic-address').innerHTML = address;
-            newcard.querySelector('.clinic-rating').innerHTML = "Rating: " + rating + "/5";
+            newcard.querySelector('.clinic-rating').innerHTML = "Rating: " + rating + " / 5";
             newcard.querySelector('.clinic-wait-time').innerHTML = "Wait Time: " + waitTime + " min";
             newcard.querySelector('a').href = "clinic_profile_page.html?docID=" + docID;
 
