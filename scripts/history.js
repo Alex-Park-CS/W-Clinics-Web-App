@@ -1,18 +1,3 @@
-function doAll() {
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            getAppointmentsInfo()
-        } else {
-            console.log("No user is signed in");
-        }
-    });
-}
-doAll();
-
-// Function to get user appointments and display clinic information
-// Assuming you have an array of appointments within a specific user document
-// Function to get user appointments and display clinic information
-// Function to get user appointments and display clinic information
 function getAppointmentsInfo() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -36,20 +21,23 @@ function getAppointmentsInfo() {
 
                     db.collection("clinics").doc(clinicID).get().then(clinicDoc => {
                         var clinicName = clinicDoc.data().clinicName;
-                        var clinicAddress = clinicDoc.data().clinicAddress;
+                        var clinicAddress = clinicDoc.data().address;
                         var userAppmntDate = appointment.userAppmntDate;
                         var userAppmntTime = appointment.userAppmntTime;
                         var docID = clinicDoc.id;
 
                         // Create HTML elements for each appointment
                         var appointmentDiv = document.createElement("div");
+                        appointmentDiv.className = "card text-center";
+                        appointmentDiv.style.width = "18rem";
                         appointmentDiv.innerHTML = `
-                            <p>Clinic Name: ${clinicName}</p>
-                            <p>Clinic Address: ${clinicAddress}</p>
-                            <p>Appointment Date: ${userAppmntDate}</p>
-                            <p>Appointment Time: ${userAppmntTime}</p>
-                            <p>Clinic Document ID: ${docID}</p>
-                            <hr>
+                            <div class="card-body">
+                                <div class="card-title">${clinicName}</div>
+                                <div class="card-text">${clinicAddress}</div>
+                                <p>Appointment Date: ${userAppmntDate}</p>
+                                <p>Appointment Time: ${userAppmntTime}</p>
+                                <a href="#" class="btn btn-primary">To clinic page</a>
+                            </div>
                         `;
 
                         // Append the appointment information to the container
@@ -69,6 +57,5 @@ function getAppointmentsInfo() {
 
 // Call the function when the page is loaded
 window.onload = function () {
-    doAll();
+    getAppointmentsInfo();
 };
-
