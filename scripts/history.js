@@ -20,6 +20,10 @@ function getAppointmentsInfo() {
                     var clinicID = appointment.clinicID;
 
                     db.collection("clinics").doc(clinicID).get().then(clinicDoc => {
+                        // For debugging
+                        console.log("Clinic Data:", clinicDoc.data()); 
+
+                        // Actual code
                         var clinicName = clinicDoc.data().clinicName;
                         var clinicAddress = clinicDoc.data().address;
                         var userAppmntDate = appointment.userAppmntDate;
@@ -36,12 +40,14 @@ function getAppointmentsInfo() {
                                 <div class="card-text">${clinicAddress}</div>
                                 <p>Appointment Date: ${userAppmntDate}</p>
                                 <p>Appointment Time: ${userAppmntTime}</p>
-                                <a href="#" class="btn btn-primary">To clinic page</a>
+                                <a href="clinic_profile_page.html?docID=${docID}" class="btn btn-success">To clinic page</a>
                             </div>
                         `;
 
                         // Append the appointment information to the container
                         appointmentsContainer.appendChild(appointmentDiv);
+
+
                     }).catch(error => {
                         console.error("Error getting clinic document: ", error);
                     });
