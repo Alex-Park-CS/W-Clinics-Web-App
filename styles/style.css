@@ -210,6 +210,13 @@ a:link {
 
 
 /* Inez */
+
+.youtube-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* appointmnet */
 .form {
 
