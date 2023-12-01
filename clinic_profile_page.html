@@ -52,35 +52,55 @@
         <nav id="navbarPlaceholder"></nav>
 
         <!-- Profile template -->
-        <div id="container clinic-profile">
-            <!--bookmark-->    
-            <div>
-                <!-- <i id="clinic-favourite" class="material-icons" >favorite</i>  -->
-                <i id="clinic-favourite" class="material-icons unfilled">favorite_border</i>
+
+        <div class="container responsive">
+            <br>
+
+            <div class="profile-title d-flex flex-row">
+                <span id="clinicName"> Clinic 1 </span>
+                <i id="clinic-favourite" class="material-icons unfilled align-self-end">favorite_border</i>
+            
             </div>
-            <div class="profile-title"><span id="clinicName"> Clinic 1</span></div>
+
+    
+
+
             <div id="clinicAddress">address</div>
-            <div id="clinic-rating"></div>
+            <div id="clinic-rating">rating</div>
             <div class="relative-button-position">
                 <img class="clinic-img responsive" src="">
-                <br>
-                <button class="btn btn-primary" 
-                onclick="makeAnAppointment()">
-                Make an appointment</button>  
+         
             </div>
             <div class="clinic-info">
+                <h5 style="text-align:center">Business Hours </h5>
                 <div id="clinic-hours"></div>
+                <h5 style="text-align:center">Walk-in Availability </h5>
                 <div id="clinic-walkin"></div>
+                <!-- maybe add time stamp -->
+                <h5 style="text-align:center">Current Wait-time </h5>
                 <div id="clinic-waittime"></div>
+                <!-- nmaybe add time stamp, close and open -->
             </div>
-       
+
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success btn-block" 
+                onclick="makeAnAppointment()">
+                Make an appointment</button>
+            </div>
         </div>
 
         <!-- Review container to add to -->
         <div class="container reponsive">
-            <button class="btn btn-primary"
-                    onclick="saveClinicIDAndRedirect()">Write Review</button> 
-            <p class="profile-title">Reviews:</p>
+            <p class="profile-title">
+                <h4 style="text-align:center">Reviews</h4></p>
+
+            <div class="text-center">
+            <button class="btn btn-success btn-block"
+            onclick="saveClinicIDAndRedirect()">Write a review</button> 
+            </div>
+            <br>
+
             <div id="details-go-here"></div>
             <!-- Here is the container for cards with horizontal scrolling -->
             <div class="card-container">
@@ -93,10 +113,10 @@
 
         <!-- Review Template -->
         <template id="reviewCardTemplate">
-            <div class="card bg-secondary">
+            <div class="card border-success mb-3">
                 <img class="card-img-top">
-                <div class="card-body bg-light">
-                    <p class="review-title">Title</p>
+                <div class="card-body bg-white text-center">
+                    <h4 class="card-title review-title"> Title </h4>
                     <p class="star-rating"></p>
                     <p class="time">Time Written</p>
                     <p class="treated-on-time">True/False</p>

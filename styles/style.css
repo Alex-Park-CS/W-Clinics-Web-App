@@ -155,9 +155,10 @@ a:link {
     display: flex;
     width: 80%;
     height: 100%;
-    border: solid  green 1px;
-    margin: 5px auto;
+    /* border: solid  green 1px; */
+    margin-left: 40px;
     font-weight: 700;
+    font-size: xx-large;
 
 }
 
@@ -165,6 +166,10 @@ a:link {
     display: flex;
     justify-content: center;
     font-size: 18px;
+}
+
+#clinicAddress, #clinic-rating{
+    text-align: center;
 }
 
 /* #saved-clinic-card p {
@@ -409,6 +414,7 @@ body {
     width: 100%;
     margin: 0 auto;
     position: relative;
+    padding: 5px;
 }
 
 #contact input[type="text"],
@@ -629,6 +635,7 @@ button {
     max-height: 350px;
     /* Adjust the maximum height as needed */
     overflow-y: auto;
+
 }
 
 /* Style the individual cards as needed */
@@ -665,6 +672,7 @@ button {
     margin-top: 10px;
     background-color: lightgrey;
     padding: 10px;
+    text-align: center;
 }
 
 body {
