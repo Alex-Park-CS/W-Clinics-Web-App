@@ -17,6 +17,12 @@ function getAppointmentsInfo() {
                 }
 
                 appointments.forEach(appointment => {
+
+                    if (!appointment || !appointment.clinicID) {
+                        // Skip empty or invalid appointments
+                        return;
+                    }
+                
                     var clinicID = appointment.clinicID;
 
                     db.collection("clinics").doc(clinicID).get().then(clinicDoc => {
@@ -36,10 +42,10 @@ function getAppointmentsInfo() {
                         appointmentDiv.style.width = "18rem";
                         appointmentDiv.innerHTML = `
                             <div class="card-body">
-                                <div class="card-title">${clinicName}</div>
+                                <div class="card-title"><h4>${clinicName}</h4></div>
                                 <div class="card-text">${clinicAddress}</div>
-                                <p>Appointment Date: ${userAppmntDate}</p>
-                                <p>Appointment Time: ${userAppmntTime}</p>
+                                <p>Appointment Date: <br>${userAppmntDate}</p>
+                                <p>Appointment Time: <br>${userAppmntTime}</p>
                                 <a href="clinic_profile_page.html?docID=${docID}" class="btn btn-success">To clinic page</a>
                             </div>
                         `;
