@@ -38,7 +38,7 @@ function getBookmarks(user) {
                             <div class="card-title"><h4>${clinicName}</h4></div>
                             <div class="card-text">${clinicAddress}</div>
                             <a href="clinic_profile_page.html?docID=${docID}" class="btn btn-success">To clinic page</a>
-                            <br>
+                            <br><br>
                             <i id="save-${docID}" class="material-icons unfilled align-self-end">favorite</i>
                         </div>
                     `;
