@@ -539,7 +539,7 @@ fieldset {
     font-size: 40px;
     text-align: center;
     display: block;
-    padding-left: 0px;
+    /* padding-left: 0px; */
 }
 
 footer {
