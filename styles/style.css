@@ -669,8 +669,9 @@ button {
 }
 
 
-.clinic-profile img {
-    width: 100%;
+.split-title-content{
+    text-align: left;
+    padding-left: 20px;
 }
 
 /* .profile-title {
