@@ -11,6 +11,12 @@
 
     <!-- Bootstrap Library CSS CDN go here -->
     <link rel="stylesheet" href="./styles/style.css">
+    <!-- body - font-family: Rubik, sans-serif -->
+    <!-- head - font-family: Rubik Mono One, sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@300&display=swap" rel="stylesheet">
+    
 
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -53,20 +59,12 @@
 
 
     <div id = "body_container">
-        <div class="favourite_container">
-            <div id = "favourite_title"> <p>Your Favourite Clinics</p></div>
+        <div class="favourite_container text-center">
+            <div id="favourite_title"> <p>Your Favourite Clinics</p></div>
         </div>
-            <div class="container">
-                <div id="ClinicCardGroup">
-            </div>
 
-            <template id="ClinicCardTemplate2">
-                 <!-- no class="clinic-card"  -->
-                <div id="saved-clinic-card"> 
-                    <a href="clinic_profile_page.html?docID=" id="clinicName" ></a>
-                </div>
-            </template>
-            <!-- add button for unsave -->
+        <div id="ClinicCardGroup">
+        </div>
     </div>
 
 

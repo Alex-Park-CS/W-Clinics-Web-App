@@ -171,3 +171,85 @@ async function clickSubmitAppointment() {
         }
     });
 }
+
+var currentUser;
+
+function populateUserInfo() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            // Go to the correct user document by referencing the user uid
+            currentUser = db.collection("users").doc(user.uid);
+
+            // Get the document for the current user
+            currentUser.get()
+                .then(userInfo => {
+                    if (userInfo.exists) {
+                        // Check if the user document exists
+                        var data = userInfo.data();
+
+                        // Get the data fields of the user
+                        var userFirstName = data.userFirstName;
+                        var userMiddleName = data.userMiddleName;
+                        var userLastName = data.userLastName;
+                        var userDOB = data.userDOB;
+                        var userGender = data.userGender;
+                        var userEmail = data.userEmail;
+                        var userPhone = data.userPhone;
+
+                        if (userFirstName != null) {
+                            document.getElementById("user-firstname").value = userFirstName;
+                        }
+                        if (userMiddleName != null) {
+                            document.getElementById("user-middlename").value = userMiddleName;
+                        }
+                        if (userLastName != null) {
+                            document.getElementById("user-lastname").value = userLastName;
+                        }
+                        if (userDOB != null) {
+                            document.getElementById("user-DOB").value = userDOB;
+                        }
+                        if (userGender != null) {
+                            document.getElementById("user-gender").value = userGender;
+                        }
+                        if (userEmail != null) {
+                            document.getElementById("user-email").value = userEmail;
+                        }
+                        if (userPhone != null) {
+                            document.getElementById("user-phone").value = userPhone;
+                        }
+                        
+                    } else {
+                        console.log("New user!");
+                        currentUser = db.collection("users").doc(user.uid);
+
+                        // Additional logic for new user...
+                        currentUser.get()
+                            .then(userInfo => {
+                                if (userInfo.exists) {
+                                    // Check if the user document exists
+                                    var data = userInfo.data();
+                                    db.collection("users").add({
+
+                                    userFirstName : user-firstname,
+                                    userMiddleName : user-middlename,
+                                    userLastName : user-lastname,
+                                    userDOB : user-DOB,
+                                    userGender : user-gender,
+                                    userEmail :user-email,
+                                    userPhone : user-phone,
+                                    })
+                                }
+                            })
+                            .catch(error => {
+                                console.error("Error getting user document:", error);
+                            });
+                    }
+                });
+        } else {
+            console.log("No user is signed in");
+        }
+    });
+}
+
+// Call the function to run it
+populateUserInfo();

@@ -1,6 +1,7 @@
-/* body{
-    background-color: lightgreen;
-} */
+
+*{
+font-family: Rubik, sans-serif;
+}
 /*-----------  Richard's Stuff except a button----------------------*/
 /* History Page */
 .welcome-banner a {
@@ -78,6 +79,8 @@ a:link {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding:0px;
+    
 }
 
 .view-map {
@@ -133,7 +136,7 @@ a:link {
     
 }
 #favourite_title p{
-    font-size: 20px;
+    font-size: xx-large;
     font-weight: bold;
     color: darkgreen;
     display: flex;
@@ -155,9 +158,10 @@ a:link {
     display: flex;
     width: 80%;
     height: 100%;
-    border: solid  green 1px;
-    margin: 5px auto;
+    /* border: solid  green 1px; */
+    margin-left: 40px;
     font-weight: 700;
+    font-size: xx-large;
 
 }
 
@@ -165,6 +169,10 @@ a:link {
     display: flex;
     justify-content: center;
     font-size: 18px;
+}
+
+#clinicAddress, #clinic-rating{
+    text-align: center;
 }
 
 /* #saved-clinic-card p {
@@ -205,6 +213,13 @@ a:link {
 
 
 /* Inez */
+
+.youtube-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* appointmnet */
 .form {
 
@@ -409,6 +424,7 @@ body {
     width: 100%;
     margin: 0 auto;
     position: relative;
+    padding: 5px;
 }
 
 #contact input[type="text"],
@@ -423,7 +439,7 @@ body {
 #contact {
     background: #F9F9F9;
     padding: 25px;
-    margin: 150px 0;
+    margin-bottom: 200px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
@@ -629,6 +645,7 @@ button {
     max-height: 350px;
     /* Adjust the maximum height as needed */
     overflow-y: auto;
+
 }
 
 /* Style the individual cards as needed */
@@ -665,6 +682,7 @@ button {
     margin-top: 10px;
     background-color: lightgrey;
     padding: 10px;
+    text-align: center;
 }
 
 body {
