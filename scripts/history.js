@@ -42,7 +42,7 @@ function getAppointmentsInfo(currentUser) {
                                 <p>Appointment Time: <br>${userAppmntTime}</p>
                                 <a href="clinic_profile_page.html?docID=${docID}" class="btn btn-success">To clinic page</a>
                                 <br><br>
-                            <i id="save-${docID}" class="material-icons unfilled align-self-end">favorite</i>
+
                             </div>
                         `;
 
@@ -76,38 +76,3 @@ window.onload = function () {
     });
 };
 
-// favourites
-
-function updateBookmark(currentUser, bookmark_clinicID) {
-    // Ensure currentUser is defined before proceeding
-    if (!currentUser) {
-        console.error("currentUser is not defined");
-        return;
-    }
-
-    currentUser.get().then(userDoc => {
-        let favourites = (userDoc.data() && userDoc.data().favourites) || [];
-        let iconID = `save-${bookmark_clinicID}`;
-        let isBookmarked = favourites.includes(bookmark_clinicID);
-
-        if (isBookmarked) {
-            // Remove the bookmark if it already exists
-            currentUser.update({
-                favourites: firebase.firestore.FieldValue.arrayRemove(bookmark_clinicID)
-            }).then(() => {
-                console.log("Item was removed: " + bookmark_clinicID);
-                document.getElementById(iconID).innerText = 'favorite_border'; // Change to unfilled heart icon
-                $('#' + iconID).css('color', 'gray');
-            });
-        } else {
-            // Add the bookmark if it doesn't exist
-            currentUser.update({
-                favourites: firebase.firestore.FieldValue.arrayUnion(bookmark_clinicID)
-            }).then(() => {
-                console.log("Item added to favourites: " + bookmark_clinicID);
-                document.getElementById(iconID).innerText = 'favorite'; // Change to filled heart icon 
-                $('#' + iconID).text('favorite').css('color', 'red');
-            });
-        }
-    });
-}
