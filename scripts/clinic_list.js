@@ -1,4 +1,3 @@
-// import { distanceFromCurrent } from "./map";
 // Declare a global variable to store the user's location
 let userLocation = [];
 //Global variable pointing to the current user's Firestore document

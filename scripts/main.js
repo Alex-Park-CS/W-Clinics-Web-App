@@ -4,7 +4,7 @@ function writeClinics() {
     var clinicsRef = db.collection("clinics");
 
     clinicsRef.add({
-        clinicName: "City Centre Urgent Primary Care Centre", //replace with your own city?
+        clinicName: "City Centre Urgent Primary Care Centre",
         address: "1290 Hornby St",
         contact: "604-416-1811",
         website: "seymourhealth.ca",
@@ -18,7 +18,7 @@ function writeClinics() {
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
     clinicsRef.add({
-        clinicName: "Keefer Walk-In and Medical Clinic", //replace with your own city?
+        clinicName: "Keefer Walk-In and Medical Clinic", 
         address: "118 Keefer St",
         contact: "604-674-7403",
         website: "keefermed.ca",
@@ -32,7 +32,7 @@ function writeClinics() {
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
     clinicsRef.add({
-        clinicName: "TELUS Health Care Centres", //replace with your own city?
+        clinicName: "TELUS Health Care Centres", 
         address: "808 Nelson St #101",
         contact: "604-681-2400",
         website: "https://www.telus.com/en/health/care-centres/locations/vancouver-hastings?utm_source=google&utm_medium=local&utm_campaign=google-local",
@@ -47,7 +47,7 @@ function writeClinics() {
     });
 }
 
-// Entering in reviews into the database
+// Entering in hard-coded reviews into the database (not used anymore)
 function writeReviews() {
     //define a variable for the collection you want to create in Firestore to populate data
     var reviewsRef = db.collection("reviews");
@@ -77,14 +77,3 @@ function writeReviews() {
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
 }
-
-// pulling info from clinics database
-
-// function readClinicName(clinicName) {
-//     db.collection("clinics").doc(clinicName).onSnapshot(clinicData => {
-//         console.log(clinicData.data());
-//         nameOfClinic = clinicData.data().name;
-//         document.getElementById("clinicName").innerHTML = nameOfClinic;
-//     })
-// }
-// readClinicName("clinic-name");
