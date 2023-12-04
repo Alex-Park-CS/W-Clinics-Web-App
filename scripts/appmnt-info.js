@@ -5,7 +5,7 @@ console.log(clinicID);
 function writeClinicName() {
     db.collection("clinics").doc(clinicID).get().then((thisClinic) => {
         clinicName = thisClinic.data().clinicName;
-        document.getElementById("clinic-name").innerHTML = "Making an appointment with " + "<br>" + clinicName;
+        document.getElementById("clinic-name").innerHTML = clinicName;
     });
 }
 

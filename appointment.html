@@ -53,7 +53,8 @@
         
         
         <div class="card-body">
-            <p id="clinic-name">Please fill up the form below to make an appointment: </p>
+            <p style="font-size: large; text-align:center;">Please fill up the form <br>to make an appointment with </p>
+            <p id="clinic-name" style="font-size: x-large; text-align:center;"></p>
             <form>
                 <!-- First name -->
                 <div class="appointment-user-firsttname">
@@ -102,6 +103,21 @@
                         
                     </select>
                 </div>
+                
+                <!-- MSP -->
+                <div class="appointment-user-public-insurance">
+                    <label for="history-question-1"> Are you covered by MSP (Medial Service Plan)? </label>
+                    <select class="form-control" id="user-insurance" placeholder="required" required>
+                        <option> Yes </option>
+                        <option>  No </option>
+                </div>
+
+                <!-- healthcare number -->
+                <div class="appointment-user-healthcare">
+                    <label for="history-question-1">Healthcare Number (9-digits)</label>
+                    <input type="date" class="form-control" id="user-healthcare" placeholder="required" required>
+                </div>
+
                 <!-- User Contact -->
                 <div class="appointment-user-contact">
                     <label for="history-question-1">Preferred Contact Method </label>
@@ -173,7 +189,7 @@
         </div>
     </div>  
 
-
+    <br><br><br><br><br><br><br><br>
     <!-- footer -->
     <nav id="footerPlaceholder"></nav>
 
