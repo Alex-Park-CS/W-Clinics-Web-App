@@ -608,6 +608,8 @@ button {
     margin: 20px auto;
     background-color: #6EC071;
     color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 }
 
