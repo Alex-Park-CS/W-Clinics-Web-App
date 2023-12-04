@@ -35,8 +35,8 @@ function displayClinicInfo() {
 
             currentUser.get().then(userDoc => {
                 //get the user name
-                let bookmarks = (userDoc.data() && userDoc.data().bookmarks) || [];
-                if (bookmarks.includes(ID)) {
+                let favourites = (userDoc.data() && userDoc.data().favourites) || [];
+                if (favourites.includes(ID)) {
                     document.getElementById('save-' + ID).innerText = 'favorite';
                     $('#save-' + ID).css('color', 'red');
                 }
@@ -142,14 +142,14 @@ doAll();
 
 function updateBookmark(bookmark_clinicID) {
     currentUser.get().then(userDoc => {
-        let bookmarks = (userDoc.data() && userDoc.data().bookmarks) || [];
+        let favourites = (userDoc.data() && userDoc.data().favourites) || [];
         let iconID = 'save-' + bookmark_clinicID;
-        let isBookmarked = bookmarks.includes(bookmark_clinicID);
+        let isBookmarked = favourites.includes(bookmark_clinicID);
 
         if (isBookmarked) {
             // Remove the bookmark if it already exists
             currentUser.update({
-                bookmarks: firebase.firestore.FieldValue.arrayRemove(bookmark_clinicID)
+                favourites: firebase.firestore.FieldValue.arrayRemove(bookmark_clinicID)
             }).then(() => {
                 console.log("Item was removed: " + bookmark_clinicID);
                 document.getElementById(iconID).innerText = 'favorite_border'; // Change to unfilled heart icon
@@ -158,9 +158,9 @@ function updateBookmark(bookmark_clinicID) {
         } else {
             // Add the bookmark if it doesn't exist
             currentUser.update({
-                bookmarks: firebase.firestore.FieldValue.arrayUnion(bookmark_clinicID)
+                favourites: firebase.firestore.FieldValue.arrayUnion(bookmark_clinicID)
             }).then(() => {
-                console.log("Item added to bookmarks: " + bookmark_clinicID);
+                console.log("Item added to favourites: " + bookmark_clinicID);
                 document.getElementById(iconID).innerText = 'favorite'; // Change to filled heart icon 
                 $('#' + iconID).text('favorite').css('color', 'red');
             });

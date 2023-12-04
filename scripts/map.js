@@ -1,4 +1,4 @@
-
+favourites
 const userLocation = [-122.964274, 49.236082]
 
 function showMap() {
