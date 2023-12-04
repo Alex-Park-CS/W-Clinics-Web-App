@@ -22,10 +22,9 @@ doAll();
 async function getUserLocation() {
     return new Promise((resolve, reject) => {
         if ("geolocation" in navigator) {
-            // Get the current position
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    // Extract latitude and longitude coordinates
+                    // Get latitude and longitude coordinates
                     userLocation = [position.coords.longitude, position.coords.latitude];
                     console.log("User's Location:", userLocation);
 
@@ -49,6 +48,7 @@ async function getUserLocation() {
 
 
 // display clinic lists dynamically
+// sort by distance by default
 async function displayClinicsDynamically(collection, sortBy = "distance_metres") {
     document.getElementById("clinics-go-here").innerHTML = "";
     let clinicTemplate = document.getElementById("clinicCardTemplate");
@@ -86,10 +86,8 @@ async function displayClinicsDynamically(collection, sortBy = "distance_metres")
         console.error("Error getting clinics: ", error);
     }
 }
-// Call the function
-// displayClinicsDynamically("clinics");  //input param is the name of the collection
 
-
+// Eventhandler to choose sort type (rating, distance, wait time)
 document.getElementById('sort-select').addEventListener('change', function () {
     displayClinicsDynamically("clinics", this.value)
 })
@@ -105,7 +103,7 @@ function saveAppmntDocumentIDAndRedirect() {
 }
 
 
-
+// Get average rating of a clinic
 async function ratingAverage(clinicID) {
     try {
         const allReviews = await db.collection("reviews").where("clinicID", "==", clinicID).get();
@@ -122,10 +120,11 @@ async function ratingAverage(clinicID) {
         return averageRating;
     } catch (error) {
         console.error("Error fetching reviews:", error);
-        return 0; // or handle the error in an appropriate way
+        return 0;
     }
 }
 
+// update the average rating to firebase
 async function updateClinicRating(clinicID) {
     const averageRating = await ratingAverage(clinicID);
 
@@ -141,6 +140,7 @@ async function updateClinicRating(clinicID) {
     }
 }
 
+// Calculate distance to clinic from current location
 function distanceFromCurrent(current_x, current_y, clinicLng, clinicLat) {
     distance = (((111.320 * 0.555 * (current_x - clinicLng)) ** 2 + (110.574 * (current_y - clinicLat)) ** 2) ** 0.5)
     console.log(typeof distance)
@@ -148,6 +148,7 @@ function distanceFromCurrent(current_x, current_y, clinicLng, clinicLat) {
     return distance
 }
 
+// Update distance to firebase
 async function updateDistance(clinicID, distance) {
 
     const clinicRef = db.collection("clinics").doc(clinicID);
@@ -162,6 +163,7 @@ async function updateDistance(clinicID, distance) {
     }
 }
 
+// Call main function to start the script
 async function main() {
     try {
         // Wait for getUserLocation to complete before proceeding
