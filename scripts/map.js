@@ -64,7 +64,7 @@ function showMap() {
                                 'properties': {
                                     'description': `<strong>${event_name}</strong><p> <br> ${hoursPreview}</p>
                                                     <p>${distancePreview} km away</p>
-                                                    <a href="/clinic_profile_page.html?docID=${doc.id}" class="view-clinic-button" target="_blank" title="Opens in a new window">View Clinic</a>`
+                                                    <a href="/clinic_profile_page.html?docID=${doc.id}" class="view-clinic-button" title="Opens in a same window">View Clinic</a>`
                                 },
                                 'geometry': {
                                     'type': 'Point',

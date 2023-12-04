@@ -142,8 +142,8 @@ async function updateClinicRating(clinicID) {
     }
 }
 
-function distanceFromCurrent(current_x, current_y, clinicLng, clinicLat){
-    distance =(((111.320 * 0.555 * (current_x - clinicLng)) ** 2 + (110.574 * (current_y - clinicLat)) ** 2) ** 0.5)
+function distanceFromCurrent(current_x, current_y, clinicLng, clinicLat) {
+    distance = (((111.320 * 0.555 * (current_x - clinicLng)) ** 2 + (110.574 * (current_y - clinicLat)) ** 2) ** 0.5)
     console.log(typeof distance)
     console.log(distance)
     return distance
