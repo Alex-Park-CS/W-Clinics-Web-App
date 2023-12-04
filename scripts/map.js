@@ -1,12 +1,6 @@
 
 const userLocation = [-122.964274, 49.236082]
 
-// navigator.geolocation.getCurrentPosition(position => {
-//     userLocation= [position.coords.longitude, position.coords.latitude];
-//     console.log(userLocation)
-
-//     showMap()
-// })
 function showMap() {
     navigator.geolocation.getCurrentPosition(position => {
         const userLocation = [position.coords.longitude, position.coords.latitude];
@@ -53,12 +47,8 @@ function showMap() {
                             hoursPreview = doc.data().hours + "<br><br>"; // Text Preview
                             distancePreview = Number((distanceFromCurrent(userLocation[0], userLocation[1], lng, lat)).toFixed(2))
                             console.log(typeof distancePreview)
-                            // doc.data().distance_metres = distancePreview
-                            // img = doc.data().posterurl; // Image
-                            // url = doc.data().link; // URL
-
+                            
                             // Pushes information into the features array
-                            // in our application, we have a string description of the hike
                             features.push({
                                 'type': 'Feature',
                                 'properties': {
@@ -98,7 +88,7 @@ function showMap() {
 
                         //-----------------------------------------------------------------------
                         // Add Click event listener, and handler function that creates a popup
-                        // that displays info from "hikes" collection in Firestore
+                        // that displays info from "clinic" collection in Firestore
                         //-----------------------------------------------------------------------
                         map.on('click', 'places', (e) => {
                             // Extract coordinates array.

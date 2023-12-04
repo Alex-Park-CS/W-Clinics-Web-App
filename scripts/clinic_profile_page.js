@@ -27,12 +27,11 @@ function displayClinicInfo() {
             document.getElementById("clinic-hours").innerHTML = clinicHours;
             document.getElementById("clinic-waittime").innerHTML = "Wait Time: " + clinicWaitTime + "min"
             document.getElementById("clinic-walkin").innerHTML = "Walkin Availibility: " + clinicWalkin;
-            document.getElementById("clinic-rating").innerHTML = "Rating: " + clinicRating + "/5";
+            document.getElementById("clinic-rating").innerHTML = "Rating: " + clinicRating.toFixed(1) + "/5";
             let imgEvent = document.querySelector(".clinic-img");
             imgEvent.src = "../images/" + clinicCode + ".jpg";
             document.querySelector('i').id = 'save-' + ID; // for assigning unique id to each element
             document.querySelector('i').onclick = () => updateBookmark(ID);
-            // document.querySelector('i').onclick = ()=> clickHeart(); 
 
             currentUser.get().then(userDoc => {
                 //get the user name
@@ -67,7 +66,6 @@ function populateReviews() {
     let clinicID = params.searchParams.get("docID");
     console.log(clinicID)
 
-    // Double-check: is your collection called "Reviews" or "reviews"?
     db.collection("reviews")
         .where("clinicID", "==", clinicID)
         .orderBy("timestamp", "desc")
@@ -95,7 +93,6 @@ function populateReviews() {
 
                 // Populate the star rating based on the rating value
 
-                // Initialize an empty string to store the star rating HTML
                 let starRating = "";
                 // This loop runs from i=0 to i<rating, where 'rating' is a variable holding the rating value.
                 for (let i = 0; i < rating; i++) {
