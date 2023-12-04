@@ -63,78 +63,86 @@
             <br>
 
             <div class="profile-title d-flex flex-row">
-                <span id="clinicName" style="font-family: Rubik Mono One, sans-serif"> Clinic 1 </span>
-                <i id="clinic-favourite" class="material-icons unfilled align-self-end">favorite_border</i>
-            
+                <span id="clinicName" style="font-family: Rubik Mono One, sans-serif; font-size: x-large;"> Clinic 1 </span>
+                <i id="clinic-favourite" class="material-icons unfilled align-self-end"">favorite_border</i>
             </div>
 
-    
-
-
-            <div id="clinicAddress">address</div>
-            <div id="clinic-rating">rating</div>
+            <div id="clinicAddress" style="font-size: large";>address</div>
+            <div id="clinic-contact" style="font-size: large";>contact</div>
+            <div id="clinic-rating" style="font-size: large";>rating</div>
+            <hr class="my-4">
+   
+         
             <div class="relative-button-position">
                 <img class="clinic-img responsive" src="">
          
             </div>
-            <div class="clinic-info">
-                <h5 style="text-align:center">Business Hours </h5>
-                <div id="clinic-hours"></div>
-                <h5 style="text-align:center">Walk-in Availability </h5>
-                <div id="clinic-walkin"></div>
-                <!-- maybe add time stamp -->
-                <h5 style="text-align:center">Current Wait-time </h5>
-                <div id="clinic-waittime"></div>
-                <!-- nmaybe add time stamp, close and open -->
-            </div>
 
-            <br>
-            <div class="text-center">
-                <button class="btn btn-success btn-block" 
-                onclick="makeAnAppointment()">
-                Make an appointment</button>
-            </div>
-        </div>
+            <hr class="my-4">
+                <p class="lead clinic-info">
+                    <!-- clinic info -->
+                    <h5 style="text-align:center">Business Hours </h5>
+                    <div id="clinic-hours" style="font-size: large; text-align:center"></div> 
+                    <br>
+                    <h5 style="text-align:center">Walk-in Availability </h5>
+                    <div id="clinic-walkin" style="font-size: large; text-align:center"></div>
+                    <br>
+                    <!-- maybe add time stamp -->
+                    <h5 style="text-align:center">Current Wait-time </h5>
+                    <div id="clinic-waittime" style="font-size: large; text-align:center"></div>
+                </p>
 
-        <!-- Review container to add to -->
-        <div class="container reponsive">
-            <p class="profile-title">
-                <h4 style="text-align:center">Reviews</h4></p>
+                <hr class="my-4">
+                    <h4 style="text-align:center">Appointments</h4></p>
+                    <div class="text-center">
+                        <button class="btn btn-success btn-block" 
+                        onclick="makeAnAppointment()">
+                        Make an appointment</button>
+                    </div>
 
-            <div class="text-center">
-            <button class="btn btn-success btn-block"
-            onclick="saveClinicIDAndRedirect()">Write a review</button> 
-            </div>
-            <br>
 
-            <div id="details-go-here"></div>
-            <!-- Here is the container for cards with horizontal scrolling -->
-            <div class="card-container">
-                <div id="reviewCardGroup" class="row row-cols-auto">
-                    <!-- Add your card templates here -->
-                </div>
-            </div>
-        </div>
+                <hr class="my-4">
+                <div class="reponsive">
+                    <p class="profile-title">
+                        <h4 style="text-align:center">Reviews</h4></p>
         
-
-        <!-- Review Template -->
-        <template id="reviewCardTemplate">
-            <div class="card border-success mb-3">
-                <img class="card-img-top">
-                <div class="card-body bg-white text-center">
-                    <h4 class="card-title review-title"> Title </h4>
-                    <p class="star-rating"></p>
-                    <p class="time">Time Written</p>
-                    <p class="treated-on-time">True/False</p>
-                    <p class="description">Comments</p>
+                    <div class="text-center">
+                    <button class="btn btn-success btn-block"
+                    onclick="saveClinicIDAndRedirect()">Write a review</button> 
+                    </div>
+                    <br>
+        
+                    <div id="details-go-here"></div>
+                    <!-- Here is the container for cards with horizontal scrolling -->
+                    <div class="card-container">
+                        <div id="reviewCardGroup" class="row row-cols-auto">
+                            <!-- Add your card templates here -->
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </template>
-
-
-        <nav id="footerPlaceholder"></nav>
-    </div>
-
+                
+        
+                <!-- Review Template -->
+                <template id="reviewCardTemplate">
+                    <div class="card border-success mb-3">
+                        <img class="card-img-top">
+                        <div class="card-body bg-white text-center">
+                            <h4 class="card-title review-title"> Title </h4>
+                            <p class="star-rating"></p>
+                            <p class="time">Time Written</p>
+                            <p class="treated-on-time">True/False</p>
+                            <p class="description">Comments</p>
+                        </div>
+                    </div>
+                </template>
+        </div>
+        <br>
+        <br>  <br>
+        <br>  <br>
+        <br>  <br>
+        <br>
+</div>
+    <nav id="footerPlaceholder"></nav>
     <script src="./scripts/clinic_profile_page.js"></script>
 
 </body>

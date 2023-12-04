@@ -172,7 +172,7 @@ a:link {
     font-size: 18px;
 }
 
-#clinicAddress, #clinic-rating{
+#clinicAddress, #clinic-rating, #clinic-contact{
     text-align: center;
 }
 
@@ -683,8 +683,6 @@ button {
 } */
 
 .clinic-info {
-    margin-top: 10px;
-    background-color: lightgrey;
     padding: 10px;
     text-align: center;
 }

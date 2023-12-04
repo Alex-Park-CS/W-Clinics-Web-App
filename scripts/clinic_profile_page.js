@@ -15,6 +15,7 @@ function displayClinicInfo() {
             clinicCode = thisClinic.code;
             clinicName = doc.data().clinicName;
             clinicAddress = doc.data().address;
+            clinicContact = doc.data().contact;
             clinicHours = doc.data().hours;
             clinicRating = doc.data().rating;
             clinicWaitTime = doc.data().wait_time_minutes;
@@ -23,11 +24,12 @@ function displayClinicInfo() {
 
 
             document.getElementById("clinicName").innerHTML = clinicName;
-            document.getElementById("clinicAddress").innerHTML = "Address: " + clinicAddress;
+            document.getElementById("clinicAddress").innerHTML = clinicAddress;
             document.getElementById("clinic-hours").innerHTML = clinicHours;
-            document.getElementById("clinic-waittime").innerHTML = "Wait Time: " + clinicWaitTime + "min"
-            document.getElementById("clinic-walkin").innerHTML = "Walkin Availibility: " + clinicWalkin;
-            document.getElementById("clinic-rating").innerHTML = "Rating: " + clinicRating.toFixed(1) + "/5";
+            document.getElementById("clinic-contact").innerHTML = clinicContact;
+            document.getElementById("clinic-waittime").innerHTML = clinicWaitTime + " min"
+            document.getElementById("clinic-walkin").innerHTML = clinicWalkin;
+            document.getElementById("clinic-rating").innerHTML = clinicRating.toFixed(1) + " / 5 ⭐";
             let imgEvent = document.querySelector(".clinic-img");
             imgEvent.src = "../images/" + clinicCode + ".jpg";
             document.querySelector('i').id = 'save-' + ID; // for assigning unique id to each element
