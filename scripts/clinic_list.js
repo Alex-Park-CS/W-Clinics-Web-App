@@ -54,7 +54,17 @@ async function displayClinicsDynamically(collection, sortBy = "distance_metres")
     let clinicTemplate = document.getElementById("clinicCardTemplate");
 
     try {
-        const allClinics = await db.collection(collection).orderBy(sortBy).get();
+        let query = db.collection(collection);
+
+        if (sortBy === "rating") {
+            // If sorting by rating, order in reverse
+            query = query.orderBy(sortBy, "desc");
+        } else {
+            // Otherwise, use the standard sorting parameter
+            query = query.orderBy(sortBy);
+        }
+
+        const allClinics = await query.get();
 
         allClinics.docs.forEach(async (doc) => {
             const docID = doc.id;
