@@ -122,7 +122,7 @@ async function clickSubmitAppointment() {
                         userPublicInsuranceNum: userPublicInsuranceNum,
                         userPrivateInsurance: userPrivateInsurance,
                         uateInsuranceNum: userPrivateInsuranceNum,
-                        userContactMethod: userContactMethodAppmt,
+                        // userContactMethod: userContactMethodAppmt,
                         userAppmntDate: userDateAppmt,
                         userAppmntTime: userTimeAppmt,
                         userCold: userVisitReasonCold,
@@ -223,18 +223,18 @@ function populateUserInfo() {
                         if (userDOB != null) {
                             document.getElementById("user-DOB").value = userDOB;
                         }
-                        if (userGender != null) {
-                            document.getElementById("user-public-insurance").value = userPublicInsurance;
-                        }
-                        if (userGender != null) {
-                            document.getElementById("user-public-healthcare-num").value = userPublicInsuranceNum;
-                        }
-                        if (userGender != null) {
-                            document.getElementById("user-private-insurance").value = userPrivateInsurance;
-                        }
-                        if (userGender != null) {
-                            document.getElementById("user-private-healthcare-num").value = userPrivateInsuranceNum;
-                        }
+                        // if (userGender != null) {
+                        //     document.getElementById("user-public-insurance").value = userPublicInsurance;
+                        // }
+                        // if (userGender != null) {
+                        //     document.getElementById("user-public-healthcare-num").value = userPublicInsuranceNum;
+                        // }
+                        // if (userGender != null) {
+                        //     document.getElementById("user-private-insurance").value = userPrivateInsurance;
+                        // }
+                        // if (userGender != null) {
+                        //     document.getElementById("user-private-healthcare-num").value = userPrivateInsuranceNum;
+                        // }
                         if (userGender != null) {
                             document.getElementById("user-gender").value = userGender;
                         }
