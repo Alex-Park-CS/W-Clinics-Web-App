@@ -37,6 +37,10 @@ function displayAppointmentInfo() {
                     userPhoneAppmt: userAppointment.userPhone,
                     userDOBAppmt: userAppointment.userDOB,
                     userGenderAppmt: userAppointment.userGender,
+                    userPublicInsurance: userAppointment.userPublicInsurance,
+                    userPublicInsuranceNum: userAppointment.userPublicInsuranceNum,
+                    userPrivateInsurance: userAppointment.userPrivateInsurance,
+                    userPrivateInsuranceNum: userAppointment.userPrivateInsuranceNum,
                     userContactMethodAppmt: userAppointment.userContactMethod,
                     userAppmntTime: userAppointment.userAppmntTime,
                     userDateAppmt: userAppointment.userAppmntDate,
@@ -74,7 +78,10 @@ async function clickSubmitAppointment() {
             let userPhoneAppmt = document.getElementById("user-phone").value;
             let userDOBAppmt = document.getElementById("user-DOB").value;
             let userGender = document.getElementById("user-gender").value;
-            let userContactMethodAppmt = document.getElementById("user-contact").value;
+            let userPublicInsurance = document.getElementById("user-public-insurance").value;
+            let userPublicInsuranceNum = document.getElementById("user-public-healthcare-num").value;
+            let userPrivateInsurance = document.getElementById("user-private-insurance").value;
+            let userPrivateInsuranceNum = document.getElementById("user-private-healthcare-num").value;
             let userDateAppmt = document.getElementById("user-appmtDate").value;
             let userTimeAppmt = document.getElementById("user-appmtTime").value;
             let userVisitReasonCold = document.getElementById("visit-coldflue").value;
@@ -111,6 +118,10 @@ async function clickSubmitAppointment() {
                         userPhone: userPhoneAppmt,
                         userDOB: userDOBAppmt,
                         userGender: userGender,
+                        userPublicInsurance: userPublicInsurance,
+                        userPublicInsuranceNum: userPublicInsuranceNum,
+                        userPrivateInsurance: userPrivateInsurance,
+                        uateInsuranceNum: userPrivateInsuranceNum,
                         userContactMethod: userContactMethodAppmt,
                         userAppmntDate: userDateAppmt,
                         userAppmntTime: userTimeAppmt,
@@ -140,6 +151,10 @@ async function clickSubmitAppointment() {
                     userPhone: userPhoneAppmt,
                     userDOB: userDOBAppmt,
                     userGender: userGender,
+                    userPublicInsurance: userPublicInsurance,
+                    userPublicInsuranceNum: userPublicInsuranceNum,
+                    userPrivateInsurance: userPrivateInsurance,
+                    uateInsuranceNum: userPrivateInsuranceNum,
                     userContactMethod: userContactMethodAppmt,
                     appointments: [
                         {
@@ -207,6 +222,18 @@ function populateUserInfo() {
                         }
                         if (userDOB != null) {
                             document.getElementById("user-DOB").value = userDOB;
+                        }
+                        if (userGender != null) {
+                            document.getElementById("user-public-insurance").value = userPublicInsurance;
+                        }
+                        if (userGender != null) {
+                            document.getElementById("user-public-healthcare-num").value = userPublicInsuranceNum;
+                        }
+                        if (userGender != null) {
+                            document.getElementById("user-private-insurance").value = userPrivateInsurance;
+                        }
+                        if (userGender != null) {
+                            document.getElementById("user-private-healthcare-num").value = userPrivateInsuranceNum;
                         }
                         if (userGender != null) {
                             document.getElementById("user-gender").value = userGender;

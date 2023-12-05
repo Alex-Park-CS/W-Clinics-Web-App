@@ -20,6 +20,10 @@ function populateUserInfo() {
                         var userLastName = data.userLastName;
                         var userDOB = data.userDOB;
                         var userGender = data.userGender;
+                        var userPublicInsurance = data.userPublicInsurance;
+                        var userPublicInsuranceNum = data.userPublicInsuranceNum;
+                        var userPrivateInsurance = data.userPrivateInsurance;
+                        var userPrivateInsuranceNum = data.userPrivateInsuranceNum;
                         var userEmail = data.userEmail;
                         var userPhone = data.userPhone;
                         var historysRespi = data.userHistoryRespi;
@@ -44,6 +48,18 @@ function populateUserInfo() {
                         }
                         if (userGender != null) {
                             document.getElementById("genderInput").value = userGender;
+                        }
+                        if (userGender != null) {
+                            document.getElementById("user-public-insurance").value = userPublicInsurance;
+                        }
+                        if (userGender != null) {
+                            document.getElementById("user-public-healthcare-num").value = userPublicInsuranceNum;
+                        }
+                        if (userGender != null) {
+                            document.getElementById("user-private-insurance").value = userPrivateInsurance;
+                        }
+                        if (userGender != null) {
+                            document.getElementById("user-private-healthcare-num").value = userPrivateInsuranceNum;
                         }
                         if (userEmail != null) {
                             document.getElementById("emailInput").value = userEmail;
@@ -92,6 +108,10 @@ function populateUserInfo() {
                                     userLastName : LastNameInput,
                                     userDOB : DateOfBirthInput,
                                     userGender : genderInput,
+                                    userPublicInsurance: userPublicInsurance,
+                                    userPublicInsuranceNum: userPublicInsuranceNum,
+                                    userPrivateInsurance: userPrivateInsurance,
+                                    uateInsuranceNum: userPrivateInsuranceNum,
                                     userEmail :emailInput,
                                     userPhone : phoneInput,
                                     userHistoryRespi : history-respi,
@@ -135,6 +155,10 @@ function saveUserInfo() {
     var userGender = document.getElementById("genderInput").value;
     var userEmail = document.getElementById("emailInput").value;
     var userPhone = document.getElementById("phoneInput").value;
+    var userPublicInsurance = document.getElementById("user-public-insurance").value;
+    var userPublicInsuranceNum = document.getElementById("user-public-healthcare-num").value;
+    var userPrivateInsurance = document.getElementById("user-private-insurance").value;
+    var userPrivateInsuranceNum = document.getElementById("user-private-healthcare-num").value;
 
     // Get medical history information
     var historyRespi = document.getElementById("history-respi").value;
@@ -158,6 +182,10 @@ function saveUserInfo() {
                     userLastName: userLastName,
                     userDOB: userDOB,
                     userGender: userGender,
+                    userPublicInsurance: userPublicInsurance,
+                    userPublicInsuranceNum: userPublicInsuranceNum,
+                    userPrivateInsurance: userPrivateInsurance,
+                    uateInsuranceNum: userPrivateInsuranceNum,
                     userEmail: userEmail,
                     userPhone: userPhone,
                     userHistoryRespi: historyRespi,
@@ -184,6 +212,10 @@ function saveUserInfo() {
                     userMiddleName: userMiddleName,
                     userLastName: userLastName,
                     userDOB: userDOB,
+                    userPublicInsurance: userPublicInsurance,
+                    userPublicInsuranceNum: userPublicInsuranceNum,
+                    userPrivateInsurance: userPrivateInsurance,
+                    uateInsuranceNum: userPrivateInsuranceNum,
                     userGender: userGender,
                     userEmail: userEmail,
                     userPhone: userPhone,

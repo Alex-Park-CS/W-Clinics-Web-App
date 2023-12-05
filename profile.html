@@ -76,6 +76,35 @@
                             <option> Others </option>
                         </select>
                     </div>
+                    <!-- MSP -->
+                    <div class="appointment-user-public-insurance">
+                        <label for="history-question-1"> Are you covered by MSP (Medial Service Plan)? </label>
+                        <select class="form-control" id="user-public-insurance" placeholder="required" required>
+                            <option> Yes </option>
+                            <option> No </option>
+                            </select>
+                    </div>
+
+                    <!-- healthcare number -->
+                    <div class="appointment-user-public-healthcare-num">
+                        <label for="history-question-1">MSP number (9-digits)</label>
+                        <input type="tel" class="form-control" id="user-public-healthcare-num" placeholder="required " required>
+                    </div>
+
+                    <!-- private insurance -->
+                    <div class="appointment-user-private-insurance">
+                        <label for="history-question-1"> Are you covered by private insurance plan? </label>
+                        <select class="form-control" id="user-private-insurance" placeholder="required" required>
+                            <option> Yes </option>
+                            <option> No </option>
+                        </select>
+                    </div>
+
+                    <!-- private insurance number -->
+                    <div class="appointment-user-private-insurance-num">
+                        <label for="history-question-1"> Private insurance account number </label>
+                        <input type="tel" class="form-control" id="user-private-healthcare-num" placeholder="required " required>
+                    </div>
                     <div class="form-group">
                         <label >Email</label>
                         <input type="text" id="emailInput" class="form-control" placeholder="Enter your email" required>
@@ -147,9 +176,9 @@
                     
                 </fieldset>
                 <div class="d-flex justify-content-end mt-5">
-                    <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                    <button type="button" class="btn btn-outline-success" onclick="editUserInfo()">Edit</button>
                     <span style="width: 10px"></span>
-                    <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+                    <button type="button" class="btn btn-success" onclick="saveUserInfo()">Save</button>
                  
                 </div>
             </form>
