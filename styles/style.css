@@ -3,11 +3,6 @@
 font-family: Rubik, sans-serif;
 color: black;
 }
-
-.btn-success{
-    background-color: #C9EFC7;
-    color:#333
-}
 /*-----------  Richard's Stuff except a button----------------------*/
 /* History Page */
 .welcome-banner a {
@@ -46,6 +41,7 @@ a {
 }
 button a.footer_icons{
     padding-left: 0px;
+    padding-right: 0px;
 }
 
 
