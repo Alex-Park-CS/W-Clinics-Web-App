@@ -107,15 +107,30 @@
                 <!-- MSP -->
                 <div class="appointment-user-public-insurance">
                     <label for="history-question-1"> Are you covered by MSP (Medial Service Plan)? </label>
-                    <select class="form-control" id="user-insurance" placeholder="required" required>
+                    <select class="form-control" id="user-public-insurance" placeholder="required" required>
                         <option> Yes </option>
-                        <option>  No </option>
+                        <option> No </option>
+                        </select>
                 </div>
 
                 <!-- healthcare number -->
-                <div class="appointment-user-healthcare">
-                    <label for="history-question-1">Healthcare Number (9-digits)</label>
-                    <input type="date" class="form-control" id="user-healthcare" placeholder="required" required>
+                <div class="appointment-user-public-healthcare-num">
+                    <label for="history-question-1">MSP number (9-digits)</label>
+                    <input type="tel" class="form-control" id="user-public-healthcare-num" placeholder="required " required>
+                </div>
+
+                 <!-- private insurance -->
+                 <div class="appointment-user-private-insurance">
+                    <label for="history-question-1"> Are you covered by private insurance plan? </label>
+                    <select class="form-control" id="user-private-insurance" placeholder="required" required>
+                        <option> Yes </option>
+                        <option> No </option>
+                </div>
+
+                <!-- private insurance number -->
+                <div class="appointment-user-private-insurance-num">
+                    <label for="history-question-1"> Private insurance account number </label>
+                    <input type="tel" class="form-control" id="user-private-healthcare-num" placeholder="required " required>
                 </div>
 
                 <!-- User Contact -->
