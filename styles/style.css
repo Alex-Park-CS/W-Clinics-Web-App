@@ -3,7 +3,7 @@
 font-family: Rubik, sans-serif;
 color: black;
 }
-/*-----------  Richard's Stuff except a button----------------------*/
+/*-----------  Richard's code except a button----------------------*/
 /* History Page */
 .welcome-banner a {
     color: #303030;
@@ -15,7 +15,7 @@ color: black;
     margin: auto 0;
 }
 
-/* it's required to put at the top, because the button below overrides it */
+/* History page and welcome banner is required to put at the top, because the button below overrides it */
 
 /* header */
 .button {
@@ -44,16 +44,9 @@ button a.footer_icons{
     padding-right: 0px;
 }
 
-
-/* a:hover {
-    text-shadow: 2px 2px;
-    box-shadow: 10px 10px lightblue;
-} */
-
 a:link {
     text-decoration: none;
     color: grey;
-    /* font-size: 22px; */
 }
 
 .navbar {
@@ -176,34 +169,6 @@ a:link {
 #clinicAddress, #clinic-rating, #clinic-contact{
     text-align: center;
 }
-
-/* #saved-clinic-card p {
-    font-size: 20px;
-    display: flex;
-} */
-
-/* .saved-p {
-    font-size: 20px;
-} */
-
-/* #saved-image {
-    width: 250px;
-    height: 250px;
-} */
-
-
-/* #ClinicCardTemplate2 .clinic-img { */
-/* Styles for the clinic-img img element within #ClinicCardTemplate */
-/* width: 200px; Example: Make the image fill its container */
-/* height: 200px; Maintain aspect ratio */
-/* border: 2px solid #ccc;  */
-/* max-width: 100%;
-    height: auto; 
-}*/
-
-
-
-
 
 .responsive {
     max-width: 100%;
