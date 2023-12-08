@@ -3,7 +3,7 @@
 font-family: Rubik, sans-serif;
 color: black;
 }
-/*-----------  Richard's Stuff except a button----------------------*/
+/*-----------  Richard's code except a button----------------------*/
 /* History Page */
 .welcome-banner a {
     color: #303030;
@@ -15,7 +15,7 @@ color: black;
     margin: auto 0;
 }
 
-/* it's required to put at the top, because the button below overrides it */
+/* History page and welcome banner is required to put at the top, because the button below overrides it */
 
 /* header */
 .button {
@@ -47,7 +47,6 @@ button a.footer_icons{
 a:link {
     text-decoration: none;
     color: grey;
-    /* font-size: 22px; */
 }
 
 .navbar {

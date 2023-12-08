@@ -35,7 +35,7 @@ function displayClinicInfo() {
             let imgEvent = document.querySelector(".clinic-img");
             imgEvent.src = "../images/" + clinicCode + ".jpg";
             document.querySelector('i').id = 'save-' + ID; // for assigning unique id to each element
-            document.querySelector('i').onclick = () => updateBookmark(ID);
+            document.querySelector('i').onclick = () => updateBookmark(ID); // for assigning unique onclick function to each element
 
             currentUser.get().then(userDoc => {
                 //get the user name
@@ -139,7 +139,7 @@ function doAll() {
         } else {
             // No user is signed in.
             console.log("No user is signed in");
-            window.location.href = "login.html";
+            window.location.href = "login.html"; // if no one is signed in, go to login_page
         }
     });
 }
@@ -159,7 +159,7 @@ function updateBookmark(bookmark_clinicID) {
             }).then(() => {
                 console.log("Item was removed: " + bookmark_clinicID);
                 document.getElementById(iconID).innerText = 'favorite_border'; // Change to unfilled heart icon
-                $('#' + iconID).css('color', 'gray');
+                $('#' + iconID).css('color', 'gray'); // Change unfilled heart icon to gray 
             });
         } else {
             // Add the bookmark if it doesn't exist
@@ -168,7 +168,7 @@ function updateBookmark(bookmark_clinicID) {
             }).then(() => {
                 console.log("Item added to favourites: " + bookmark_clinicID);
                 document.getElementById(iconID).innerText = 'favorite'; // Change to filled heart icon 
-                $('#' + iconID).text('favorite').css('color', 'red');
+                $('#' + iconID).text('favorite').css('color', 'red'); // Change filled heart icon to red 
             });
         }
     });

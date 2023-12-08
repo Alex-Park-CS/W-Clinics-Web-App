@@ -18,7 +18,7 @@ function populateUserInfo() {
                         var userFirstName = data.userFirstName;
                         var userMiddleName = data.userMiddleName;
                         var userLastName = data.userLastName;
-                        var userDOB = data.userDOB;
+                        var userDOB = data.userDOB; 
                         var userGender = data.userGender;
                         var userPublicInsurance = data.userPublicInsurance;
                         var userPublicInsuranceNum = data.userPublicInsuranceNum;
