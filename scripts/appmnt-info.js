@@ -107,6 +107,31 @@ async function clickSubmitAppointment() {
             var userRef = db.collection("users").doc(userID);
             var userDoc = await userRef.get();
 
+            // Validate certain arrayscontains only numbers
+            if (!/^\d+$/.test(userPublicInsuranceNum)) {
+                alert("Please enter only numeric values for the public insurance number.");
+                return; // Stop further execution
+            }
+            if (!/^\d+$/.test(userPhoneAppmt)) {
+                alert("Please enter only numeric values for the phone number.");
+                return; // Stop further execution
+            }
+            // Validate that names contain only letters
+            if (userFirstNameAppmt.trim() === "") {
+                alert("Please enter the first name.");
+                return; // Stop further execution
+            }
+        
+            if (userMiddletNameAppmt.trim() !== "" && !/^[A-Za-z]+$/.test(userMiddletNameAppmt)) {
+                alert("Please enter only alphabetic characters for the middle name.");
+                return; // Stop further execution
+            }
+        
+            if (userLasttNameAppmt.trim() === "") {
+                alert("Please enter the last name.");
+                return; // Stop further execution
+            }
+
             if (userDoc.exists) {
                 // Update existing user document with appointment information
                 await userRef.update({
@@ -122,7 +147,7 @@ async function clickSubmitAppointment() {
                         userPublicInsuranceNum: userPublicInsuranceNum,
                         userPrivateInsurance: userPrivateInsurance,
                         uateInsuranceNum: userPrivateInsuranceNum,
-                        // userContactMethod: userContactMethodAppmt,
+                        userContactMethod: userContactMethodAppmt,
                         userAppmntDate: userDateAppmt,
                         userAppmntTime: userTimeAppmt,
                         userCold: userVisitReasonCold,
@@ -210,6 +235,11 @@ function populateUserInfo() {
                         var userGender = data.userGender;
                         var userEmail = data.userEmail;
                         var userPhone = data.userPhone;
+                        var userPublicInsurance = data.userPublicInsurance; 
+                        var userPublicInsuranceNum = data.userPublicInsuranceNum;  
+                        var userPrivateInsurance = data.userPrivateInsurance;  
+                        var userPrivateInsuranceNum = data.userPrivateInsuranceNum;  
+                        var userContactMethodAppmt = data.userContactMethodAppmt;  
 
                         if (userFirstName != null) {
                             document.getElementById("user-firstname").value = userFirstName;
@@ -223,18 +253,18 @@ function populateUserInfo() {
                         if (userDOB != null) {
                             document.getElementById("user-DOB").value = userDOB;
                         }
-                        // if (userGender != null) {
-                        //     document.getElementById("user-public-insurance").value = userPublicInsurance;
-                        // }
-                        // if (userGender != null) {
-                        //     document.getElementById("user-public-healthcare-num").value = userPublicInsuranceNum;
-                        // }
-                        // if (userGender != null) {
-                        //     document.getElementById("user-private-insurance").value = userPrivateInsurance;
-                        // }
-                        // if (userGender != null) {
-                        //     document.getElementById("user-private-healthcare-num").value = userPrivateInsuranceNum;
-                        // }
+                        if (userPublicInsurance != null) {
+                            document.getElementById("user-public-insurance").value = userPublicInsurance;
+                        }
+                        if (userPublicInsuranceNum != null) {
+                            document.getElementById("user-public-healthcare-num").value = userPublicInsuranceNum;
+                        }
+                        if (userPrivateInsurance != null) {
+                            document.getElementById("user-private-insurance").value = userPrivateInsurance;
+                        }
+                        if (userPrivateInsuranceNum != null) {
+                            document.getElementById("user-private-healthcare-num").value = userPrivateInsuranceNum;
+                        }
                         if (userGender != null) {
                             document.getElementById("user-gender").value = userGender;
                         }
@@ -256,7 +286,6 @@ function populateUserInfo() {
                                     // Check if the user document exists
                                     var data = userInfo.data();
                                     db.collection("users").add({
-
                                     userFirstName : user-firstname,
                                     userMiddleName : user-middlename,
                                     userLastName : user-lastname,
