@@ -29,16 +29,16 @@ Here are the steps ...
 * Done! Enjoy your time with the app!
 
 ## 5. Known Bugs and Limitations
-Here are some known bugs:
-* ...
-* ...
-* ...
+Here are some known bugs/limitations:
+* Does not connections with actual clinics, so will not be able to apply in in the real world
+* The map feature does not have a navigation feature, so user must copy paste the address into another navigation app
+* Visual design of the app is not as appealing as some other apps
 
 ## 6. Features for Future
 What we'd like to build in the future:
-* ...
-* ...
-* ...
+* Navigation feature in app
+* real-time chat service with appointment clinics directly
+* for chronic patients, have schedule an appointment at the same time/day over a period of time
 	
 ## 7. Contents of Folder
 Content of the project folder:
