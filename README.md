@@ -87,15 +87,15 @@ It has the following subfolders and files:
     ├──/add_review.js               # add_review.html
     ├──/appmnt-info.js              # Connect appointment.html and thanks_appointment.html 
     ├──/authentication.js           # Connect with firebase authentication 
+    ├──/clinic_information.js       # Clinic details
     ├──/clinic_list.js              # Conect with clinic_list.html and appointment.html 
     ├──/clinic_profile_page.js      # Populate individual clinic information from clinic_list.html
     ├──/confirm_appointment.js      # thanks_appointment.html 
     ├──/favourite.js                # Populate favourite information from firebase 
     ├──/firebaseAPI_DTC02.js        # Basic irebase information
     ├──/history.js                  # Populate appointment history information
-    ├──/main.js                     # Clinic information
-    ├──/map.js 
-    ├──/profile.js 
+    ├──/map.js                      # Populate map with mapbox
+    ├──/profile.js                  # Wrtie and populate information from firebase
     ├──/script.js 
     ├──/skeleton.js 
     ├──/support.js 
