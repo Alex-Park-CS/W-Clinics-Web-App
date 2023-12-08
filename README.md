@@ -96,8 +96,8 @@ It has the following subfolders and files:
     ├──/history.js                  # Populate appointment history information
     ├──/map.js                      # Populate map with mapbox
     ├──/profile.js                  # Wrtie and populate information from firebase
-    ├──/script.js 
-    ├──/skeleton.js 
+    ├──/script.js                   # Logout function included
+    ├──/skeleton.js                 # Basic skeleton for log in and log out
     ├──/support.js 
 
 ```
