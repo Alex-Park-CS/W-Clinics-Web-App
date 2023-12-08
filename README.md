@@ -47,12 +47,12 @@ Content of the project folder:
 
 ```
  Top level of project folder: 
-├── .gitignore               # Git ignore file    
+├── README.md
+└──  .gitignore              # Git ignore file    
     ├── aboutus.html                # Brief explaination of the team with pitch video     
     ├── add_review.html             # A HTML form for adding review     
     ├── appointment.html            # A HTML form for adding appointmnet
     ├── clinic_list.html            # Populate vailalbe clinics
-    ├── confirm_appointment.html    # Present a confirmation of appointment when user submit an appointment form
     ├── favourite.html              # Populate users' favourite clinics
     ├── history.html                # Populate users' appointment history
     ├── login.html                  # Log-in page using firebase 
@@ -60,47 +60,45 @@ Content of the project folder:
     ├── profile.html                # Necessary profile form to navigate our web app
     ├── support.html                # Support form from users to developpers
     ├── template.html               # A basc HTML skeleton for our wep page
-    ├── thanks_medical_history.html #                
-    ├── thanks_review.html                
-    └── thanks_support.html                
-└── README.md
+    ├── thanks_appointment.html     # Present a confirmation of appointment when user submit an appointment form
+    ├── thanks_medical_history.html # Present a confirmation of medical history update           
+    ├── thanks_review.html          # Present a confirmation of writing a new review
+    └── thanks_support.html         # Present a confirmation of appointment when user submit an appointment form
 
 It has the following subfolders and files:
-├── token_number.txt                  # Folder for git repo
+├── token_number.txt         # Folder for firebase token
 ├── .git                     # Folder for git repo
-├── .firebase                   # Folder for git repo
-    └── hosting.cache              # Clinic image 3
-├── .vscode              
-    └── settings.json              # Clinic image 3
-├── images                   # Folder for images
-    ├── /CLI1.jpg                # Clinic image 1
-    ├── /CLI2.jpg                # Clinic image 2
-    └── /CLI3.jpg                # Clinic image 3
-├── text                   # Folder for images
-    ├── footer_index_login.html                # Clinic image 1
-    ├── footer.html  
-    ├── nav_after_login.html            # Clinic image 2
-    └── nav_before_login.jpg                # Clinic image 3
 ├── styles                   # Folder for styles
-    └──style.css                # 
+    └──style.css               
+├── .firebase                # Folder for firebase diploy
+    └── hosting.cache             
+├── .vscode                  # Folder for vscode
+    └── settings.json          
+├── images                   # Folder for images
+    ├── /CLI1.jpg                   # Clinic image 1
+    ├── /CLI2.jpg                   # Clinic image 2
+    └── /CLI3.jpg                   # Clinic image 3
+├── text                     # Folder for footer and nav bar
+    ├── footer_index_login.html     # A footer structure       
+    ├── footer.html                 # A footer
+    ├── nav_after_login.html        # A navbar before login
+    └── nav_before_login.jpg        # A navbar after login
 ├── scripts                  # Folder for scripts
-    ├──/add_review.js           # 
-    ├──/appmnt-info.js               # 
-    ├──/authentication.js                 # 
-    ├──/clinic_list.js                 # 
-    ├──/clinic_profile_page.js                 # 
-    ├──/confirm_appointment.js                 # 
-    ├──/favourite.js                 # 
-    ├──/firebaseAPI_DTC02.js                 # 
-    ├──/history.js             
-    ├──/main.js           
+    ├──/add_review.js               # add_review.html
+    ├──/appmnt-info.js              # Connect appointment.html and thanks_appointment.html 
+    ├──/authentication.js           # Connect with firebase authentication 
+    ├──/clinic_list.js              # Conect with clinic_list.html and appointment.html 
+    ├──/clinic_profile_page.js      # Populate individual clinic information from clinic_list.html
+    ├──/confirm_appointment.js      # thanks_appointment.html 
+    ├──/favourite.js                # Populate favourite information from firebase 
+    ├──/firebaseAPI_DTC02.js        # Basic irebase information
+    ├──/history.js                  # Populate appointment history information
+    ├──/main.js                     # Clinic information
     ├──/map.js 
     ├──/profile.js 
     ├──/script.js 
     ├──/skeleton.js 
     ├──/support.js 
-
-
 
 ```
 
