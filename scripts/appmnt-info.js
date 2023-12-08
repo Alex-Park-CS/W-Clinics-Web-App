@@ -210,7 +210,7 @@ async function clickSubmitAppointment() {
             }
 
             // Redirect to the thanks page
-            window.location.href = "confirm_appointment.html";
+            window.location.href = "thanks_appointment.html";
         } else {
             console.log("User is not validated");
         }
