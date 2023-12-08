@@ -15,14 +15,18 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * HTML, CSS, JavaScript
 * Bootstrap 5.0 (Frontend library)
 * Firebase 8.0 (BAAS - Backend as a Service)
-* ...
+* Mapbox API
+* Images CLI1, CLI2, CLI3 as pictures of the clinic profile page
+* Google API for fonts https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap
+* Google API for icons "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
-* ...
-* ...
-* ...
+* When user lands on the landing page, they are greeted with a login button. Press the login button.
+* Type in your email and name, and press Enter.
+* When you log in, you will see a hero asking you to update "my profile". Update your profile.
+* Done! Enjoy your time with the app!
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
