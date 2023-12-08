@@ -1,5 +1,6 @@
 var currentUser;
 
+// Display clinic info such as name, address, contact, hours, rating, wait time, walk-in availability
 function displayClinicInfo() {
     let params = new URL(window.location.href);
     console.log("params is = ", params)
@@ -11,6 +12,7 @@ function displayClinicInfo() {
         .doc(ID)
         .get()
         .then(doc => {
+            // receive the clinic info from firestore
             thisClinic = doc.data();
             clinicCode = thisClinic.code;
             clinicName = doc.data().clinicName;
@@ -22,7 +24,7 @@ function displayClinicInfo() {
             clinicWalkin = doc.data().walkin_availibility;
             clinicCode = doc.data().code;
 
-
+            // inject clinic profile info into html
             document.getElementById("clinicName").innerHTML = clinicName;
             document.getElementById("clinicAddress").innerHTML = clinicAddress;
             document.getElementById("clinic-hours").innerHTML = clinicHours;
@@ -47,10 +49,7 @@ function displayClinicInfo() {
 }
 displayClinicInfo();
 
-function clickHeart() {
-    console.log("test")
-}
-
+// Save clinicID to local storage and redirect to add_review.html
 function saveClinicIDAndRedirect() {
     let params = new URL(window.location.href);
     let ID = params.searchParams.get("docID");
@@ -59,6 +58,7 @@ function saveClinicIDAndRedirect() {
     window.location.href = 'add_review.html';
 }
 
+// Populate reviews from the reviews collection in firestore
 function populateReviews() {
     console.log("test");
     let clinicReviewTemplate = document.getElementById("reviewCardTemplate");
@@ -68,6 +68,7 @@ function populateReviews() {
     let clinicID = params.searchParams.get("docID");
     console.log(clinicID)
 
+    // order reviews by timestamp
     db.collection("reviews")
         .where("clinicID", "==", clinicID)
         .orderBy("timestamp", "desc")
@@ -76,6 +77,7 @@ function populateReviews() {
             reviews = allReviews.docs;
             console.log(reviews);
             reviews.forEach((doc) => {
+                // query each review's data from firestore
                 var reviewTitle = doc.data().title;
                 var treatedOnTime = doc.data().treatedOnTime;
                 var description = doc.data().comment;
@@ -85,6 +87,7 @@ function populateReviews() {
 
                 console.log(time);
 
+                // inject review data into a review card in html
                 let reviewCard = clinicReviewTemplate.content.cloneNode(true);
                 reviewCard.querySelector(".review-title").innerHTML = reviewTitle;
                 reviewCard.querySelector(".time").innerHTML = "Written on: " + new Date(
@@ -142,6 +145,7 @@ function doAll() {
 }
 doAll();
 
+// Update the bookmark icon when the user clicks on it
 function updateBookmark(bookmark_clinicID) {
     currentUser.get().then(userDoc => {
         let favourites = (userDoc.data() && userDoc.data().favourites) || [];

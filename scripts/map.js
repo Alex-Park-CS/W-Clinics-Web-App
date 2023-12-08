@@ -1,5 +1,6 @@
 const userLocation = [-122.964274, 49.236082]
 
+// Function to display the map with the user's location and event pins
 function showMap() {
     navigator.geolocation.getCurrentPosition(position => {
         const userLocation = [position.coords.longitude, position.coords.latitude];
@@ -190,6 +191,7 @@ function showMap() {
 };
 
 
+// Save the appointment document ID to local storage and redirect to appointment page
 function saveAppmntDocumentIDAndRedirect() {
     let params = new URL(window.location.href) //get the url from the search bar
     let appointmentdoc = params.searchParams.get("docID");
@@ -201,6 +203,7 @@ function saveAppmntDocumentIDAndRedirect() {
 // Call the function to display the map with the user's location and event pins
 showMap();
 
+// Function to calculate distance between two coordinate points
 function distanceFromCurrent(current_x, current_y, clinicLng, clinicLat){
     distance =(((111.320 * 0.555 * (current_x - clinicLng)) ** 2 + (110.574 * (current_y - clinicLat)) ** 2) ** 0.5)
     console.log(typeof distance)

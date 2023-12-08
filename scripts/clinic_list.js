@@ -73,6 +73,7 @@ async function displayClinicsDynamically(collection, sortBy = "distance_metres")
             const rating = await ratingAverage(docID);
             updateClinicRating(docID)
 
+            // query each clinic's data from firestore
             const clinicName = doc.data().clinicName;
             const address = doc.data().address;
             const waitTime = doc.data().wait_time_minutes;
@@ -83,6 +84,7 @@ async function displayClinicsDynamically(collection, sortBy = "distance_metres")
 
             let newcard = clinicTemplate.content.cloneNode(true);
 
+            // inject clinic data into a clinic card in html
             newcard.querySelector('.clinic-name').innerHTML = clinicName;
             newcard.querySelector('.clinic-distance').innerHTML = "Distance: " + distancePreview + "km";
             newcard.querySelector('.clinic-address').innerHTML = address;

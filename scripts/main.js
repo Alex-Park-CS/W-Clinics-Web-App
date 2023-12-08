@@ -1,4 +1,5 @@
 // Entering in Clinics into the database
+// hard coded data for now, but will be replaced with data from the API
 function writeClinics() {
     //define a variable for the collection you want to create in Firestore to populate data
     var clinicsRef = db.collection("clinics");
@@ -46,34 +47,3 @@ function writeClinics() {
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("January 1, 2023"))
     });
 }
-
-// Entering in hard-coded reviews into the database (not used anymore)
-// function writeReviews() {
-//     //define a variable for the collection you want to create in Firestore to populate data
-//     var reviewsRef = db.collection("reviews");
-
-//     reviewsRef.add({
-//         username: "Andy Jones",
-//         userid: "",
-//         clinicName: "City Centre Urgent Primary Care Centre",
-//         rating: 4.0,
-//         comments: "good clinic",
-//         last_updated: firebase.firestore.FieldValue.serverTimestamp()
-//     });
-//     reviewsRef.add({
-//         username: "Bob Marley",
-//         userid: "",
-//         clinicName: "Keefer Walk-In and Medical Clinic",
-//         rating: 3.2,
-//         comments: "ok clinic",
-//         last_updated: firebase.firestore.FieldValue.serverTimestamp()
-//     });
-//     reviewsRef.add({
-//         username: "Carly Anderson",
-//         userid: "",
-//         clinicName: "TELUS Health Care Centres",
-//         rating: 2.7,
-//         comments: "bad clinic",
-//         last_updated: firebase.firestore.FieldValue.serverTimestamp()
-//     });
-// }

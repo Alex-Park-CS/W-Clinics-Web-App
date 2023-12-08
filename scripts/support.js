@@ -22,13 +22,6 @@ async function submitForm(event) {
                     }),
                 });
 
-                // Update the document with the timestamp using serverTimestamp
-                // await userRef.update({
-                //     support: firebase.firestore.FieldValue.arrayUnion({
-                //         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                //     }),
-                // });
-
                 window.location.href = "thanks_support.html"; // Redirect to the thanks page
             } catch (error) {
                 console.error("Error updating user document:", error);
@@ -37,11 +30,9 @@ async function submitForm(event) {
     });
 }
 
-
-
-
 var currentUser;
 
+// Function to populate the user's information
 function populateUserInfo() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
