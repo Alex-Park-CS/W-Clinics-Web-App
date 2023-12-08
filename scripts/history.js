@@ -1,9 +1,12 @@
+// Function to retrieve and display user's appointments
 function getAppointmentsInfo(currentUser) {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             var userID = user.uid;
 
+            // Get user document from Firestore
             db.collection("users").doc(userID).get().then(userDoc => {
+                // Retrieve user's appointments from the document
                 var appointments = userDoc.data().appointments;
 
                 console.log("Appointments:", appointments);
@@ -16,9 +19,11 @@ function getAppointmentsInfo(currentUser) {
                     return;
                 }
 
+                // Iterate through each appointment and display its information
                 appointments.forEach(appointment => {
                     var clinicID = appointment.clinicID;
 
+                    // Get clinic document from Firestore
                     db.collection("clinics").doc(clinicID).get().then(clinicDoc => {
                         // For debugging
                         console.log("Clinic Data:", clinicDoc.data()); 
@@ -42,7 +47,6 @@ function getAppointmentsInfo(currentUser) {
                                 <p>Appointment Time: <br>${userAppmntTime}</p>
                                 <a href="clinic_profile_page.html?docID=${docID}" class="btn btn-success">To clinic page</a>
                                 <br><br>
-
                             </div>
                         `;
 
@@ -68,11 +72,12 @@ function getAppointmentsInfo(currentUser) {
 window.onload = function () {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
+            // Set the global currentUser variable to the current user's Firestore document
             var currentUser = firebase.firestore().collection("users").doc(user.uid);
+            // Retrieve and display user's appointments
             getAppointmentsInfo(currentUser);
         } else {
             console.log("No user is signed in");
         }
     });
 };
-

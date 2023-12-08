@@ -1,18 +1,19 @@
+// Global variable pointing to the current user's Firestore document
 var currentUser;
 
 // Display clinic info such as name, address, contact, hours, rating, wait time, walk-in availability
 function displayClinicInfo() {
     let params = new URL(window.location.href);
-    console.log("params is = ", params)
+    console.log("params is = ", params);
     var ID = params.searchParams.get("docID");
     console.log(ID);
 
-
+    // Retrieve clinic info from Firestore
     db.collection("clinics")
         .doc(ID)
         .get()
         .then(doc => {
-            // receive the clinic info from firestore
+            // Extract clinic information
             thisClinic = doc.data();
             clinicCode = thisClinic.code;
             clinicName = doc.data().clinicName;
@@ -24,51 +25,57 @@ function displayClinicInfo() {
             clinicWalkin = doc.data().walkin_availibility;
             clinicCode = doc.data().code;
 
-            // inject clinic profile info into html
+            // Inject clinic profile info into HTML
             document.getElementById("clinicName").innerHTML = clinicName;
             document.getElementById("clinicAddress").innerHTML = clinicAddress;
             document.getElementById("clinic-hours").innerHTML = clinicHours;
             document.getElementById("clinic-contact").innerHTML = clinicContact;
-            document.getElementById("clinic-waittime").innerHTML = clinicWaitTime + " min"
+            document.getElementById("clinic-waittime").innerHTML = clinicWaitTime + " min";
             document.getElementById("clinic-walkin").innerHTML = clinicWalkin;
             document.getElementById("clinic-rating").innerHTML = clinicRating.toFixed(1) + " / 5 ⭐";
+            
+            // Set clinic image
             let imgEvent = document.querySelector(".clinic-img");
             imgEvent.src = "../images/" + clinicCode + ".jpg";
-            document.querySelector('i').id = 'save-' + ID; // for assigning unique id to each element
-            document.querySelector('i').onclick = () => updateBookmark(ID); // for assigning unique onclick function to each element
+            
+            // Set unique ID for each bookmark icon
+            document.querySelector('i').id = 'save-' + ID; 
+            // Assign unique onclick function to each bookmark icon
+            document.querySelector('i').onclick = () => updateBookmark(ID);
 
             currentUser.get().then(userDoc => {
-                //get the user name
+                // Get the user's favorites
                 let favourites = (userDoc.data() && userDoc.data().favourites) || [];
+                
+                // Check if the current clinic is in the user's favorites
                 if (favourites.includes(ID)) {
                     document.getElementById('save-' + ID).innerText = 'favorite';
                     $('#save-' + ID).css('color', 'red');
                 }
-            })
+            });
         });
 }
-displayClinicInfo();
 
 // Save clinicID to local storage and redirect to add_review.html
 function saveClinicIDAndRedirect() {
     let params = new URL(window.location.href);
     let ID = params.searchParams.get("docID");
 
-    localStorage.setItem('clinicID', ID)
+    localStorage.setItem('clinicID', ID);
     window.location.href = 'add_review.html';
 }
 
-// Populate reviews from the reviews collection in firestore
+// Populate reviews from the reviews collection in Firestore
 function populateReviews() {
     console.log("test");
     let clinicReviewTemplate = document.getElementById("reviewCardTemplate");
     let clinicReviewGroup = document.getElementById("reviewCardGroup");
 
-    let params = new URL(window.location.href); // Get the URL from the search bar
+    let params = new URL(window.location.href);
     let clinicID = params.searchParams.get("docID");
     console.log(clinicID)
 
-    // order reviews by timestamp
+    // Order reviews by timestamp
     db.collection("reviews")
         .where("clinicID", "==", clinicID)
         .orderBy("timestamp", "desc")
@@ -77,7 +84,7 @@ function populateReviews() {
             reviews = allReviews.docs;
             console.log(reviews);
             reviews.forEach((doc) => {
-                // query each review's data from firestore
+                // Query each review's data from Firestore
                 var reviewTitle = doc.data().title;
                 var treatedOnTime = doc.data().treatedOnTime;
                 var description = doc.data().comment;
@@ -87,63 +94,54 @@ function populateReviews() {
 
                 console.log(time);
 
-                // inject review data into a review card in html
+                // Inject review data into a review card in HTML
                 let reviewCard = clinicReviewTemplate.content.cloneNode(true);
                 reviewCard.querySelector(".review-title").innerHTML = reviewTitle;
-                reviewCard.querySelector(".time").innerHTML = "Written on: " + new Date(
-                    time
-                ).toLocaleString();
+                reviewCard.querySelector(".time").innerHTML = "Written on: " + new Date(time).toLocaleString();
                 reviewCard.querySelector(".treated-on-time").innerHTML = `Treated on Time: ${treatedOnTime}`;
                 reviewCard.querySelector(".description").innerHTML = `Comment: ${description}`;
 
                 // Populate the star rating based on the rating value
-
                 let starRating = "";
+                
                 // This loop runs from i=0 to i<rating, where 'rating' is a variable holding the rating value.
                 for (let i = 0; i < rating; i++) {
                     starRating += '<span class="material-icons">star</span>';
                 }
+                
                 // After the first loop, this second loop runs from i=rating to i<5.
                 for (let i = rating; i < 5; i++) {
                     starRating += '<span class="material-icons">star_outline</span>';
                 }
+                
                 reviewCard.querySelector(".star-rating").innerHTML = starRating;
-
                 clinicReviewGroup.appendChild(reviewCard);
             });
         });
 }
 
-populateReviews();
-
-
-//appointment button
+// Appointment button - Save clinicID to local storage and redirect to appointment.html
 function makeAnAppointment() {
     let params = new URL(window.location.href);
     let ID = params.searchParams.get("docID");
 
-    localStorage.setItem('clinicID', ID)
+    localStorage.setItem('clinicID', ID);
     window.location.href = 'appointment.html';
 }
 
-//Global variable pointing to the current user's Firestore document
-var currentUser;
-
-//Function that checks if a user is logged in in clinics
+// Function that checks if a user is logged in
 function doAll() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            currentUser = db.collection("users").doc(user.uid); //global
+            currentUser = db.collection("users").doc(user.uid); // Global reference to the current user
             console.log(currentUser);
-            // displayCardsDynamically("clinics");
         } else {
             // No user is signed in.
             console.log("No user is signed in");
-            window.location.href = "login.html"; // if no one is signed in, go to login_page
+            window.location.href = "login.html"; // If no one is signed in, go to the login_page
         }
     });
 }
-doAll();
 
 // Update the bookmark icon when the user clicks on it
 function updateBookmark(bookmark_clinicID) {
@@ -173,3 +171,5 @@ function updateBookmark(bookmark_clinicID) {
         }
     });
 }
+
+// Call the doAll function to check user login
