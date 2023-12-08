@@ -1,7 +1,9 @@
-//Inez
+
+// Retrieve clinicID from local storage
 var clinicID = localStorage.getItem("clinicID");
 console.log(clinicID);
 
+// Function to write clinic name to the HTML
 function writeClinicName() {
     db.collection("clinics").doc(clinicID).get().then((thisClinic) => {
         clinicName = thisClinic.data().clinicName;
@@ -9,8 +11,10 @@ function writeClinicName() {
     });
 }
 
+// Call the function to write clinic name
 writeClinicName();
 
+// Function to display appointment information
 function displayAppointmentInfo() {
     let params = new URL(window.location.href);
     console.log("params is = ", params);
@@ -19,46 +23,47 @@ function displayAppointmentInfo() {
     console.log(aptID);
 
     firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        var userID = user.uid;
-        console.log(userID);
+        if (user) {
+            var userID = user.uid;
+            console.log(userID);
 
-        db.collection("users").doc(userID).get().then((doc) => {
-            if (doc.exists) {
-                var userAppointment = doc.data();
-                console.log(userAppointment);
+            db.collection("users").doc(userID).get().then((doc) => {
+                if (doc.exists) {
+                    var userAppointment = doc.data();
+                    console.log(userAppointment);
 
-                db.collection("users").doc(userID).update({
-                    userAppointment: doc.data(),
-                    userFirstNameAppmt: userAppointment.userFirstName,
-                    userMiddletNameAppmt: userAppointment.userMiddleName,
-                    userLasttNameAppmt: userAppointment.userLastName,
-                    userEmailAppmt: userAppointment.userEmail,
-                    userPhoneAppmt: userAppointment.userPhone,
-                    userDOBAppmt: userAppointment.userDOB,
-                    userGenderAppmt: userAppointment.userGender,
-                    userPublicInsurance: userAppointment.userPublicInsurance,
-                    userPublicInsuranceNum: userAppointment.userPublicInsuranceNum,
-                    userPrivateInsurance: userAppointment.userPrivateInsurance,
-                    userPrivateInsuranceNum: userAppointment.userPrivateInsuranceNum,
-                    userContactMethodAppmt: userAppointment.userContactMethod,
-                    userAppmntTime: userAppointment.userAppmntTime,
-                    userDateAppmt: userAppointment.userAppmntDate,
-                    userVisitReasonCold: userAppointment.userCold,
-                    userVisitReasonAllergies: userAppointment.userAllergies,
-                    userVisitReasonSkin: userAppointment.userSkin,
-                    userVisitReasonBack: userAppointment.userBack,
-                    userVisitReasonJoint: userAppointment.userJoint,
-                    userVisitReasonMental: userAppointment.userMental,
-                    userVisitReasonHead: userAppointment.userHead,
-                    userVisitReasonBlood: userAppointment.userBlood,
-                    userVisitReasonWell: userAppointment.userWell,
-                    userVisitReasonOthers: userAppointment.userOthers,
-                });
-            }
-        });
-    }
-});
+                    db.collection("users").doc(userID).update({
+                        // Update user document with appointment information
+                        userAppointment: doc.data(),
+                        userFirstNameAppmt: userAppointment.userFirstName,
+                        userMiddletNameAppmt: userAppointment.userMiddleName,
+                        userLasttNameAppmt: userAppointment.userLastName,
+                        userEmailAppmt: userAppointment.userEmail,
+                        userPhoneAppmt: userAppointment.userPhone,
+                        userDOBAppmt: userAppointment.userDOB,
+                        userGenderAppmt: userAppointment.userGender,
+                        userPublicInsurance: userAppointment.userPublicInsurance,
+                        userPublicInsuranceNum: userAppointment.userPublicInsuranceNum,
+                        userPrivateInsurance: userAppointment.userPrivateInsurance,
+                        userPrivateInsuranceNum: userAppointment.userPrivateInsuranceNum,
+                        userContactMethodAppmt: userAppointment.userContactMethod,
+                        userAppmntTime: userAppointment.userAppmntTime,
+                        userDateAppmt: userAppointment.userAppmntDate,
+                        userVisitReasonCold: userAppointment.userCold,
+                        userVisitReasonAllergies: userAppointment.userAllergies,
+                        userVisitReasonSkin: userAppointment.userSkin,
+                        userVisitReasonBack: userAppointment.userBack,
+                        userVisitReasonJoint: userAppointment.userJoint,
+                        userVisitReasonMental: userAppointment.userMental,
+                        userVisitReasonHead: userAppointment.userHead,
+                        userVisitReasonBlood: userAppointment.userBlood,
+                        userVisitReasonWell: userAppointment.userWell,
+                        userVisitReasonOthers: userAppointment.userOthers,
+                    });
+                }
+            });
+        }
+    });
 }
 
 // displayAppointmentInfo();
@@ -214,10 +219,12 @@ async function clickSubmitAppointment() {
 
 var currentUser;
 
+// Function to populate user information
 function populateUserInfo() {
+    // Firebase authentication state change listener
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            // Go to the correct user document by referencing the user uid
+            // Reference the user document using the user uid
             currentUser = db.collection("users").doc(user.uid);
 
             // Get the document for the current user
@@ -235,12 +242,13 @@ function populateUserInfo() {
                         var userGender = data.userGender;
                         var userEmail = data.userEmail;
                         var userPhone = data.userPhone;
-                        var userPublicInsurance = data.userPublicInsurance; 
-                        var userPublicInsuranceNum = data.userPublicInsuranceNum;  
-                        var userPrivateInsurance = data.userPrivateInsurance;  
-                        var userPrivateInsuranceNum = data.userPrivateInsuranceNum;  
-                        var userContactMethodAppmt = data.userContactMethodAppmt;  
+                        var userPublicInsurance = data.userPublicInsurance;
+                        var userPublicInsuranceNum = data.userPublicInsuranceNum;
+                        var userPrivateInsurance = data.userPrivateInsurance;
+                        var userPrivateInsuranceNum = data.userPrivateInsuranceNum;
+                        var userContactMethodAppmt = data.userContactMethodAppmt;
 
+                        // Populate form fields with user information
                         if (userFirstName != null) {
                             document.getElementById("user-firstname").value = userFirstName;
                         }
@@ -274,26 +282,28 @@ function populateUserInfo() {
                         if (userPhone != null) {
                             document.getElementById("user-phone").value = userPhone;
                         }
-                        
+
                     } else {
                         console.log("New user!");
-                        currentUser = db.collection("users").doc(user.uid);
 
                         // Additional logic for new user...
+                        currentUser = db.collection("users").doc(user.uid);
+
                         currentUser.get()
                             .then(userInfo => {
                                 if (userInfo.exists) {
                                     // Check if the user document exists
                                     var data = userInfo.data();
+                                    // Add a new user document
                                     db.collection("users").add({
-                                    userFirstName : user-firstname,
-                                    userMiddleName : user-middlename,
-                                    userLastName : user-lastname,
-                                    userDOB : user-DOB,
-                                    userGender : user-gender,
-                                    userEmail :user-email,
-                                    userPhone : user-phone,
-                                    })
+                                        userFirstName: user-firstname,
+                                        userMiddleName: user-middlename,
+                                        userLastName: user-lastname,
+                                        userDOB: user-DOB,
+                                        userGender: user-gender,
+                                        userEmail: user-email,
+                                        userPhone: user-phone,
+                                    });
                                 }
                             })
                             .catch(error => {

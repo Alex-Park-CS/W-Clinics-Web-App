@@ -1,16 +1,19 @@
-var clinicID = localStorage.getItem("clinicID")
-console.log(clinicID)
+// Retrieve clinicID from local storage
+var clinicID = localStorage.getItem("clinicID");
+console.log(clinicID);
 
+// Function to write clinic name to the HTML
 function writeClinicName() {
     db.collection("clinics").doc(clinicID).get().then((thisClinic) => {
         clinicName = thisClinic.data().clinicName;
         document.getElementById("clinic-name").innerHTML = "Review: <br>" + clinicName;
-
-    })
+    });
 }
 
-writeClinicName()
+// Call the function to write clinic name
+writeClinicName();
 
+// Event listener for DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
     // Select all elements with the class name "star" and store them in the "stars" variable
     const stars = document.querySelectorAll('.star');
@@ -28,13 +31,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
+// Function to submit a review
 function submitReview() {
     console.log("inside write review");
+
+    // Get values from the HTML form
     let reviewTitle = document.getElementById("title").value;
     let reviewComment = document.getElementById("review-comment").value;
     let treated_On_Time = document.getElementById("treated-on-time").value;
 
+    // Get star ratings
     const stars = document.querySelectorAll('.star');
     let clinicRating = 0;
     stars.forEach((star) => {
@@ -43,15 +49,16 @@ function submitReview() {
         }
     });
 
-    console.log(reviewTitle, reviewComment, treated_On_Time, clinicRating);
+    // For debugging purpose
+    console.log(reviewTitle, reviewComment, treated_On_Time, clinicRating); 
 
     var user = firebase.auth().currentUser;
     if (user) {
         var currentUser = db.collection("users").doc(user.uid);
         var userID = user.uid;
-        console.log(userID)
+        console.log(userID);
 
-        // Get the document for the current user.
+        // Get the document for the current user and add a review to the "reviews" collection
         db.collection("reviews").add({
             clinicID: clinicID,
             userID: userID,
@@ -67,4 +74,7 @@ function submitReview() {
         console.log("No user is signed in");
     }
 }
+
+// Call the function to submit a review
 submitReview();
+
