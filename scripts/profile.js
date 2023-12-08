@@ -168,6 +168,31 @@ function saveUserInfo() {
 
     console.log("Medical history form:", historyRespi, historyCardio, historyVision, historyInfection, historyMental, historyJoint);
 
+                // Validate certain arrayscontains only numbers
+    if (!/^\d+$/.test(userPublicInsuranceNum)) {
+        alert("Please enter only numeric values for the public insurance number.");
+        return; // Stop further execution
+    }
+    if (!/^\d+$/.test(userPhoneAppmt)) {
+        alert("Please enter only numeric values for the phone number.");
+        return; // Stop further execution
+    }
+    // Validate that names contain only letters
+    if (userFirstNameAppmt.trim() === "") {
+        alert("Please enter the first name.");
+        return; // Stop further execution
+    }
+
+    if (userMiddletNameAppmt.trim() !== "" && !/^[A-Za-z]+$/.test(userMiddletNameAppmt)) {
+        alert("Please enter only alphabetic characters for the middle name.");
+        return; // Stop further execution
+    }
+
+    if (userLasttNameAppmt.trim() === "") {
+        alert("Please enter the last name.");
+        return; // Stop further execution
+                }
+                
     // Check if the user document exists
     currentUser.get()
         .then(doc => {
