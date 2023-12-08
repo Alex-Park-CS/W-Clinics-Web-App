@@ -1,18 +1,18 @@
 // Declare a global variable to store the user's location
 let userLocation = [];
-//Global variable pointing to the current user's Firestore document
+// Global variable pointing to the current user's Firestore document
 var currentUser;
 
-//Function that checks if a user is logged in in clinics
+// Function that checks if a user is logged in
 function doAll() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            currentUser = db.collection("users").doc(user.uid); //global
+            currentUser = db.collection("users").doc(user.uid); // Global reference to the current user
             console.log(currentUser);
         } else {
             // No user is signed in.
             console.log("No user is signed in");
-            window.location.href = "login.html";
+            window.location.href = "login.html"; // Redirect to the login page
         }
     });
 }
@@ -46,9 +46,8 @@ async function getUserLocation() {
     });
 }
 
-
-// display clinic lists dynamically
-// sort by distance by default
+// Display clinic lists dynamically
+// Sort by distance by default
 async function displayClinicsDynamically(collection, sortBy = "distance_metres") {
     document.getElementById("clinics-go-here").innerHTML = "";
     let clinicTemplate = document.getElementById("clinicCardTemplate");
@@ -68,23 +67,24 @@ async function displayClinicsDynamically(collection, sortBy = "distance_metres")
 
         allClinics.docs.forEach(async (doc) => {
             const docID = doc.id;
-            console.log(docID)
+            console.log(docID);
+
             // Call ratingAverage for each clinic individually
             const rating = await ratingAverage(docID);
-            updateClinicRating(docID)
+            updateClinicRating(docID);
 
-            // query each clinic's data from firestore
+            // Query each clinic's data from Firestore
             const clinicName = doc.data().clinicName;
             const address = doc.data().address;
             const waitTime = doc.data().wait_time_minutes;
             const lat = doc.data().lat;
             const lng = doc.data().lng;
-            distancePreview = Number((distanceFromCurrent(userLocation[0], userLocation[1], lng, lat)).toFixed(2))
-            updateDistance(docID, distancePreview)
+            distancePreview = Number((distanceFromCurrent(userLocation[0], userLocation[1], lng, lat)).toFixed(2));
+            updateDistance(docID, distancePreview);
 
             let newcard = clinicTemplate.content.cloneNode(true);
 
-            // inject clinic data into a clinic card in html
+            // Inject clinic data into a clinic card in HTML
             newcard.querySelector('.clinic-name').innerHTML = clinicName;
             newcard.querySelector('.clinic-distance').innerHTML = "Distance: " + distancePreview + "km";
             newcard.querySelector('.clinic-address').innerHTML = address;
@@ -99,21 +99,19 @@ async function displayClinicsDynamically(collection, sortBy = "distance_metres")
     }
 }
 
-// Eventhandler to choose sort type (rating, distance, wait time)
+// Event handler to choose sort type (rating, distance, wait time)
 document.getElementById('sort-select').addEventListener('change', function () {
-    displayClinicsDynamically("clinics", this.value)
-})
+    displayClinicsDynamically("clinics", this.value);
+});
 
-
-//calling appointment html
+// Call appointment HTML
 function saveAppmntDocumentIDAndRedirect() {
-    let params = new URL(window.location.href) //get the url from the search bar
+    let params = new URL(window.location.href); // Get the URL from the search bar
     let appointmentdoc = params.searchParams.get("docID");
 
     localStorage.setItem('appointmentID', appointmentdoc);
     window.location.href = 'appointment.html';
 }
-
 
 // Get average rating of a clinic
 async function ratingAverage(clinicID) {
@@ -136,7 +134,7 @@ async function ratingAverage(clinicID) {
     }
 }
 
-// update the average rating to firebase
+// Update the average rating to Firestore
 async function updateClinicRating(clinicID) {
     const averageRating = await ratingAverage(clinicID);
 
@@ -154,15 +152,14 @@ async function updateClinicRating(clinicID) {
 
 // Calculate distance to clinic from current location
 function distanceFromCurrent(current_x, current_y, clinicLng, clinicLat) {
-    distance = (((111.320 * 0.555 * (current_x - clinicLng)) ** 2 + (110.574 * (current_y - clinicLat)) ** 2) ** 0.5)
-    console.log(typeof distance)
-    console.log(distance)
-    return distance
+    distance = (((111.320 * 0.555 * (current_x - clinicLng)) ** 2 + (110.574 * (current_y - clinicLat)) ** 2) ** 0.5);
+    console.log(typeof distance);
+    console.log(distance);
+    return distance;
 }
 
-// Update distance to firebase
+// Update distance to Firestore
 async function updateDistance(clinicID, distance) {
-
     const clinicRef = db.collection("clinics").doc(clinicID);
 
     try {
@@ -175,7 +172,7 @@ async function updateDistance(clinicID, distance) {
     }
 }
 
-// Call main function to start the script
+// Call the main function to start the script
 async function main() {
     try {
         // Wait for getUserLocation to complete before proceeding
