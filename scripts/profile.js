@@ -49,16 +49,16 @@ function populateUserInfo() {
                         if (userGender != null) {
                             document.getElementById("genderInput").value = userGender;
                         }
-                        if (userGender != null) {
+                        if (userPublicInsurance != null) {
                             document.getElementById("user-public-insurance").value = userPublicInsurance;
                         }
-                        if (userGender != null) {
+                        if (userPublicInsuranceNum != null) {
                             document.getElementById("user-public-healthcare-num").value = userPublicInsuranceNum;
                         }
-                        if (userGender != null) {
+                        if (userPrivateInsurance != null) {
                             document.getElementById("user-private-insurance").value = userPrivateInsurance;
                         }
-                        if (userGender != null) {
+                        if (userPrivateInsuranceNum != null) {
                             document.getElementById("user-private-healthcare-num").value = userPrivateInsuranceNum;
                         }
                         if (userEmail != null) {
@@ -68,7 +68,6 @@ function populateUserInfo() {
                             document.getElementById("phoneInput").value = userPhone;
                         }
                         // Update medical history fields with user data
-                        // why it works with s
                         if (historysRespi != null) { 
                             document.getElementById("history-respi").value = historysRespi;
                         }
@@ -121,8 +120,6 @@ function populateUserInfo() {
                                     userHistoryInfect : history-infection,
                                     userHistoryMental : history-mental,
                                     userHistoryJont : history-joint
-
-
                                     })
                                 }
                             })
