@@ -1,26 +1,35 @@
+// Declare a global variable to store the current user
 let currentUser;
 
+// Function to perform initial actions when the page loads
 function doAll() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
+            // Set the global currentUser variable to the current user's Firestore document
             currentUser = firebase.firestore().collection("users").doc(user.uid);
-            getfavourites(user);
+            // Retrieve and display the user's bookmarked clinics
+            getFavourites(user);
         } else {
             console.log("No user is signed in");
         }
     });
 }
 
+// Call the function to perform initial actions
 doAll();
 
-function getfavourites(user) {
+// Function to retrieve and display user's bookmarked clinics
+function getFavourites(user) {
     db.collection("users").doc(user.uid).get()
         .then(userDoc => {
+            // Retrieve the user's list of bookmarked clinics
             var favourites = userDoc.data().favourites;
             console.log(favourites);
 
+            // Get the HTML element to display clinic cards
             var clinicCardGroup = document.getElementById("ClinicCardGroup");
 
+            // Iterate through each bookmarked clinic and display its card
             favourites.forEach(savedClinics => {
                 console.log(savedClinics);
                 db.collection("clinics").doc(savedClinics).get().then(doc => {
@@ -56,7 +65,8 @@ function getfavourites(user) {
         });
 }
 
-function updateBookmark(bookmark_clinicID) {
+// Function to update bookmark status on click
+function updateBookmark(bookmarkClinicID) {
     // Ensure currentUser is defined before proceeding
     if (!currentUser) {
         console.error("currentUser is not defined");
@@ -65,24 +75,24 @@ function updateBookmark(bookmark_clinicID) {
 
     currentUser.get().then(userDoc => {
         let favourites = (userDoc.data() && userDoc.data().favourites) || [];
-        let iconID = `save-${bookmark_clinicID}`;
-        let isBookmarked = favourites.includes(bookmark_clinicID);
+        let iconID = `save-${bookmarkClinicID}`;
+        let isBookmarked = favourites.includes(bookmarkClinicID);
 
         if (isBookmarked) {
             // Remove the bookmark if it already exists
             currentUser.update({
-                favourites: firebase.firestore.FieldValue.arrayRemove(bookmark_clinicID)
+                favourites: firebase.firestore.FieldValue.arrayRemove(bookmarkClinicID)
             }).then(() => {
-                console.log("Item was removed: " + bookmark_clinicID);
+                console.log("Item was removed: " + bookmarkClinicID);
                 document.getElementById(iconID).innerText = 'favorite_border'; // Change to unfilled heart icon
                 $('#' + iconID).css('color', 'gray');
             });
         } else {
             // Add the bookmark if it doesn't exist
             currentUser.update({
-                favourites: firebase.firestore.FieldValue.arrayUnion(bookmark_clinicID)
+                favourites: firebase.firestore.FieldValue.arrayUnion(bookmarkClinicID)
             }).then(() => {
-                console.log("Item added to favourites: " + bookmark_clinicID);
+                console.log("Item added to favourites: " + bookmarkClinicID);
                 document.getElementById(iconID).innerText = 'favorite'; // Change to filled heart icon 
                 $('#' + iconID).text('favorite').css('color', 'red');
             });

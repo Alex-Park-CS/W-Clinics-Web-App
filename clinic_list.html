@@ -9,16 +9,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap Library CSS CDN go here -->
+    <!-- Bootstrap Library CSS CDN -->
     <link rel="stylesheet" href="./styles/style.css">
-    <!-- body - font-family: Rubik, sans-serif -->
-    <!-- head - font-family: Rubik Mono One, sans-serif -->
+
+    <!-- Font Families -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@300&display=swap" rel="stylesheet">
-    
 
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-- Firebase 8 Library related CSS, JS, JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -27,17 +26,18 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-    <!-- Bootstrap Library JS CDN  go here -->
+    <!-- Bootstrap Library JS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <script src="./scripts/firebaseAPI_DTC02.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/main.js"></script>
 
+    <!-- Custom Scripts -->
+    <script src="./scripts/firebaseAPI_DTC02.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/clinic_information.js"></script>
+    <script src="./scripts/login_check.js"></script>
 
     <!-- Home Icon -->
     <link rel="stylesheet"
@@ -56,6 +56,7 @@
     <div id="body_container">
         <!-- The Navbar -->
         <nav id="navbarPlaceholder"></nav>
+        
         <!-- Sort by dropdown -->
         <div class="card-body form-group dropdown">
             <select id="sort-select">
@@ -65,8 +66,7 @@
             </select>
         </div>
 
-
-        <!-- Clinics container for all clinics  -->
+        <!-- Clinics container for all clinics -->
         <div class="clinic-list">
             <div id="clinics-go-here"></div>
         </div>
@@ -75,7 +75,7 @@
         <template id="clinicCardTemplate">
             <div class="clinic-card">
                 <div class="text-clinic-card">
-                    <a href="clinic_profile_page.html" class="clinic-name clinic-card-title" style="font-family:Rubik Mono One, Sans-serif">Clinic 1</a>
+                    <a href="clinic_profile_page.html" class="clinic-name clinic-card-title" style="font-family: Rubik Mono One, Sans-serif">Clinic 1</a>
                     <div class="split-title-content">
                         <p class="clinic-distance clinic-card-distance-time">102m</p>
                         <p class="clinic-address clinic-card-distance-time">1234 Robson St</p>
@@ -85,11 +85,13 @@
                 </div>
             </div>
         </template>
+        
         <nav id="footerPlaceholder"></nav>
     </div>
+    
     <br><br>
+    
     <script src="./scripts/clinic_list.js"></script>
-
 </body>
 
 </html>

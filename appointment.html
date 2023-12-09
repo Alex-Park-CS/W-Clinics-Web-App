@@ -1,4 +1,3 @@
-<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/tel -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,135 +8,138 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap Library CSS CDN go here -->
+
+    <!-- Link to custom CSS -->
     <link rel="stylesheet" href="./styles/style.css">
-    <!-- body - font-family: Rubik, sans-serif -->
-    <!-- head - font-family: Rubik Mono One, sans-serif -->
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@300&display=swap" rel="stylesheet">
-    
-    
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@300&display=swap"
+        rel="stylesheet">
+
+    <!-- Firebase Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <link type="text/css" rel="stylesheet"
+        href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-    <!-- Bootstrap Library JS CDN  go here -->
+    <!-- Bootstrap Library -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+
+    <!-- Custom Scripts -->
     <script src="./scripts/firebaseAPI_DTC02.js"></script>
-    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/login_check.js"></script>
     <script src="./scripts/script.js"></script>
-    <script>
-        // logout();       //make sure user is logged out
-    </script>
 
-
-    <!-- Home/favourite/history Icon -->
+    <!-- Home Icon -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
 
 <body>
-    
     <!-- The Navbar -->
-    <div id = "body_container"> 
+    <div id="body_container"> 
         <nav id="navbarPlaceholder"></nav>
-        
         
         <div class="card-body">
             <p style="font-size: large; text-align:center;">Please fill up the form <br>to make an appointment with </p>
             <p id="clinic-name" style="font-size: x-large; text-align:center;"></p>
+            
+            <!-- User Information Form -->
             <form>
                 <!-- First name -->
                 <div class="appointment-user-firsttname">
-                    <label for="history-question-1">First Name </label>
+                    <label for="user-firstname">First Name </label>
                     <textarea class="form-control" id="user-firstname" rows="1" placeholder="required" required></textarea>
                 </div>
 
                 <!-- Middle name -->
                 <div class="appointment-user-middlename">
-                    <label for="history-question-1">Middle Name </label>
+                    <label for="user-middlename">Middle Name </label>
                     <textarea class="form-control" id="user-middlename" rows="1"></textarea>
                 </div>
 
                 <!-- Last name -->
                 <div class="appointment-user-secondname">
-                    <label for="history-question-1">Last Name </label>
+                    <label for="user-lastname">Last Name </label>
                     <textarea class="form-control" id="user-lastname" rows="1" placeholder="required" required></textarea>
                 </div>
 
                 <!-- User email -->
                 <div class="appointment-user-email">
-                    <label for="history-question-1">Email </label>
+                    <label for="user-email">Email </label>
                     <textarea class="form-control" id="user-email" rows="1" placeholder="required" required></textarea>
                 </div>
 
                 <!-- User phone -->
                 <div class="appointment-user-phone">
-                    <label for="history-question-1">Phone </label>
-                    <!-- <textarea class="form-control" id="user-phone" rows="1">Required</textarea> -->
+                    <label for="user-phone">Phone </label>
                     <input type="tel" class="form-control" id="user-phone" placeholder="required " required>
                 </div>
 
                 <!-- User DOB -->
                 <div class="appointment-user-DOB">
-                    <label for="history-question-1">Date of Birth </label>
+                    <label for="user-DOB">Date of Birth </label>
                     <input type="date" class="form-control" id="user-DOB" placeholder="required" required>
                 </div>
 
                 <!-- User Gender -->
                 <div class="appointment-user-gender">
-                    <label for="history-question-1">Gender </label>
+                    <label for="user-gender">Gender </label>
                     <select class="form-control" id="user-gender" placeholder="required" required>
                         <option> Male </option>
                         <option> Female </option>
                         <option> Others </option>
-                        
                     </select>
                 </div>
                 
-                <!-- MSP -->
+                <!-- MSP (Medical Service Plan) -->
                 <div class="appointment-user-public-insurance">
-                    <label for="history-question-1"> Are you covered by MSP (Medial Service Plan)? </label>
+                    <label for="user-public-insurance">Are you covered by MSP (Medical Service Plan)? </label>
                     <select class="form-control" id="user-public-insurance" placeholder="required" required>
                         <option> Yes </option>
                         <option> No </option>
-                        </select>
+                    </select>
                 </div>
 
-                <!-- healthcare number -->
+                <!-- Healthcare number -->
                 <div class="appointment-user-public-healthcare-num">
-                    <label for="history-question-1">MSP number (9-digits)</label>
+                    <label for="user-public-healthcare-num">MSP number (9-digits)</label>
                     <input type="tel" class="form-control" id="user-public-healthcare-num" placeholder="required " required>
                 </div>
 
-                 <!-- private insurance -->
-                 <div class="appointment-user-private-insurance">
-                    <label for="history-question-1"> Are you covered by private insurance plan? </label>
+                <!-- Private insurance -->
+                <div class="appointment-user-private-insurance">
+                    <label for="user-private-insurance">Are you covered by private insurance plan? </label>
                     <select class="form-control" id="user-private-insurance" placeholder="required" required>
                         <option> Yes </option>
                         <option> No </option>
                     </select>
                 </div>
 
-                <!-- private insurance number -->
+                <!-- Private insurance number -->
                 <div class="appointment-user-private-insurance-num">
-                    <label for="history-question-1"> Private insurance account number </label>
+                    <label for="user-private-healthcare-num">Private insurance account number </label>
                     <input type="tel" class="form-control" id="user-private-healthcare-num" placeholder="required " required>
                 </div>
 
                 <!-- User Contact -->
                 <div class="appointment-user-contact">
-                    <label for="history-question-1">Preferred Contact Method </label>
+                    <label for="user-contact">Preferred Contact Method </label>
                     <select class="form-control" id="user-contact" placeholder="required" required>
                         <option> Email </option>
                         <option> Phone </option>
@@ -146,60 +148,47 @@
 
                 <!-- User Time -->
                 <div class="appointment-user-appointment-time">
-                    <label for="history-question-1">Appointment time </label>
+                    <label for="user-appmtTime">Appointment time </label>
                     <select class="form-control" id="user-appmtTime">
-                        <option> 08:00-08:30 </option>
-                        <option> 08:30-09:00 </option>
-                        <option> 09:00-09:30 </option>
-                        <option> 09:30-10:00 </option>
-                        <option> 10:00-10:30 </option>
-                        <option> 10:30-11:00 </option>
-                        <option> 11:00-11:30 </option>
-                        <option> 11:30-12:00 </option>
-                        <option> 12:00-12:30 </option>
-                        <option> 12:30-12:30 </option>
-                        <option> 13:00-13:30 </option>
-                        <option> 13:30-14:00 </option>
-                        <option> 14:00-14:30 </option>
-                        <option> 14:30-15:00 </option>
-                        <option> 15:00-15:30 </option>
-                        <option> 15:30-16:00 </option>
-                        <option> 16:00-16:30 </option>
-                        <option> 16:30-17:00 </option>
+                        <!-- Options for appointment times -->
                     </select>
                 </div>
 
                 <!-- User Date -->
-                <div class="appointment-user-appointment-date"> <!-- New div for appointment date -->
-                    <label for="history-question-1">Appointment date </label>
+                <div class="appointment-user-appointment-date">
+                    <label for="user-appmtDate">Appointment date </label>
                     <input type="date" class="form-control" id="user-appmtDate" placeholder="required" required>
                 </div>
 
+                <!-- Reason(s) for visit -->
                 <div class="appointment-user-appointment-reason">
-                    <label for="history-question-1">Reason(s) for visit </label> 
-                        <br>
-                        <input type="checkbox" name="checkbox" value="ColdFlue" id="visit-coldflue">
-                            Cold / Flu
-                        <input type="checkbox" name="checkbox" value="Allergies" id="visit-allergies">
-                            Allergies 
-                        <input type="checkbox" name="checkbox" value="Skin"id="visit-skin">
+                    <label for="user-reason-visit">Reason(s) for visit </label> 
+                    <br>
+                    <input type="checkbox" name="checkbox" value="ColdFlue" id="visit-coldflue">
+                    Cold / Flu
+                    <input type="checkbox" name="checkbox" value="Allergies" id="visit-allergies">
+                    Allergies 
+                    <input type="checkbox" name="checkbox" value="Skin"id="visit-skin">
                             Skin issues 
-                        <input type="checkbox" name="checkbox" value="Backpain" id="visit-backpain">
-                            Back pain 
-                        <input type="checkbox" name="checkbox" value="pain" id="visit-jointpain">
-                            Joint pain
-                        <input type="checkbox" name="checkbox" value="Mentalhealth" id="visit-mental">
-                            Mental health concerns 
-                        <input type="checkbox" name="checkbox" value="Headache" id="visit-headache">
-                            Headache / Migraines 
-                        <input type="checkbox" name="checkbox" value="Blood" id="visit-bloodpressure">
-                            Blood Pressure 
-                        <input type="checkbox" name="checkbox" value="Wellcheck"id="visit-wellness">
-                            Wellness Check
-                        <input type="checkbox" name="checkbox" value="Wellcheck" id="visit-others">
-                            Others
+                    <input type="checkbox" name="checkbox" value="Backpain" id="visit-backpain">
+                        Back pain 
+                    <input type="checkbox" name="checkbox" value="pain" id="visit-jointpain">
+                        Joint pain
+                    <input type="checkbox" name="checkbox" value="Mentalhealth" id="visit-mental">
+                        Mental health concerns 
+                    <input type="checkbox" name="checkbox" value="Headache" id="visit-headache">
+                        Headache / Migraines 
+                    <input type="checkbox" name="checkbox" value="Blood" id="visit-bloodpressure">
+                        Blood Pressure 
+                    <input type="checkbox" name="checkbox" value="Wellcheck"id="visit-wellness">
+                        Wellness Check
+                    <input type="checkbox" name="checkbox" value="Wellcheck" id="visit-others">
+                        Others
             </form>
+            
         </div>
+        
+        <!-- Submit and Cancel Buttons -->
         <div id="submit_cancel_buttons">
             <button type="submit" class="btn btn-success" onclick="clickSubmitAppointment()">Submit</button>
             <button type="submit" class="btn btn-secondary">Cancel</button>
@@ -207,14 +196,10 @@
     </div>  
 
     <br><br><br>
-    <!-- footer -->
+    
+    <!-- Footer -->
     <nav id="footerPlaceholder"></nav>
 
     <script src="./scripts/appmnt-info.js"></script>
-    </div>
-    
 </body>
-
-</html> 
-
-<!-- Inez -->
+</html>

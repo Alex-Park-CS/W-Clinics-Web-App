@@ -1,39 +1,47 @@
-<!-- body - font-family: Rubik, sans-serif -->
-<!-- head - font-family: Rubik Mono One, sans-serif -->
+<!-- Include Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@300&display=swap" rel="stylesheet">
-    
-<!--Link to css script-->
+
+<!-- Link to External CSS Script -->
 <link rel="stylesheet" href="./styles/style.css">
-    <!-- The Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid nav_container">
-            <a class="navbar-brand">
-                <img src="./images/w_clinics_logo.png" width="180" height="100">
-                </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<!-- Navbar Section -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid nav_container">
+        <!-- Clinic Logo -->
+        <a class="navbar-brand">
+            <img src="./images/w_clinics_logo.png" width="180" height="100" alt="Clinic Logo">
+        </a>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-family: Rubik, sans-serif">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../aboutus.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../support.html">Support</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../profile.html">My Profile</a>
-                    </li>
-                </ul>
-                <div class="d-flex text-center justify-content-center">
-                    <a class="btn btn-outline-success text-center" style="padding: 5px;" href="../index.html">Logout</a>
-                </div>
+        <!-- Navbar Toggler Button for Mobile View -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-family: Rubik, sans-serif">
+                <!-- About Us Link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="../aboutus.html">About Us</a>
+                </li>
+                <!-- Support Link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="../support.html">Support</a>
+                </li>
+                <!-- My Profile Link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="../profile.html">My Profile</a>
+                </li>
+            </ul>
+
+            <!-- Logout Button -->
+            <div class="d-flex text-center justify-content-center">
+                <a class="btn btn-outline-success text-center" style="padding: 5px;" href="../index.html">Logout</a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>

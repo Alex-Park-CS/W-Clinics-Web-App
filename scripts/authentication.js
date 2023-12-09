@@ -1,57 +1,49 @@
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
+// Configuration for FirebaseUI
 var uiConfig = {
     callbacks: {
-      signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-        // User successfully signed in.
-        // Return type determines whether we continue the redirect automatically
-        // or whether we leave that to developer to handle.
+        // Callback triggered when sign-in is successful
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+            // User successfully signed in.
+            var user = authResult.user;
+            
+            // Check if the user is a new user
+            if (authResult.additionalUserInfo.isNewUser) {
+                // Add new user to Firestore
+                db.collection("users").doc(user.uid).set({
+                    userFirstName: user.displayName,
+                    userEmail: user.email,
+                }).then(function() {
+                    console.log("New user added to Firestore");
+                    window.location.assign("main.html"); // Redirect to the main page
+                }).catch(function(error) {
+                    console.log("Error adding new user: " + error);
+                });
+            } else {
+                return true; // Continue with the default behavior for existing users
+            }
+            
+            return false; // Prevent the default behavior
+        },
         
-        //Inez
-        var user = authResult.user;
-        if (authResult.additionalUserInfo.isNewUser) {
-          db.collection("users").doc(user.uid).set({
-            userFirstName: user.displayName,
-            userEmail: user.email,
-
-          }).then(function(){
-            console.log("New user added to firestore");
-            window.location.assign("main.html");
-
-          }).catch(function (error) {
-            console.log("Error adding new user: " + error);
-          });
-          
-        } else {
-          return true;
+        // Callback triggered when UI is shown
+        uiShown: function() {
+            document.getElementById('loader').style.display = 'none'; // Hide loader when UI is shown
         }
-          return false;
-      },
-
-
-      uiShown: function() {
-        // The widget is rendered.
-        // Hide the loader.
-        document.getElementById('loader').style.display = 'none';
-      }
     },
-    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    // Use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
-    signInSuccessUrl: "main.html",
+    signInSuccessUrl: "main.html", // URL to redirect to after successful sign-in
     signInOptions: [
-      // Leave the lines as is for the providers you want to offer your users.
-    //   firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    //   firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    //   firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    //   firebase.auth.GithubAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    //   firebase.auth.PhoneAuthProvider.PROVIDER_ID
+        firebase.auth.EmailAuthProvider.PROVIDER_ID, // Enable Email/Password authentication
     ],
-    // Terms of service url.
-    tosUrl: '<your-tos-url>',
-    // Privacy policy url.
-    privacyPolicyUrl: '<your-privacy-policy-url>'
-  };
-  
-  ui.start('#firebaseui-auth-container', uiConfig);
+    // Terms of service URL.
+    tosUrl: '<your-tos-url>', // Replace with your terms of service URL
+    // Privacy policy URL.
+    privacyPolicyUrl: '<your-privacy-policy-url>' // Replace with your privacy policy URL
+};
+
+// Start the FirebaseUI with the provided configuration
+ui.start('#firebaseui-auth-container', uiConfig);
