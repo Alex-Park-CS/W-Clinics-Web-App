@@ -13,6 +13,13 @@ function logout() {
     });
 }
 
+function countClicks() {
+    let count = 0;
+      count++;
+      console.log(count);
+      document.getElementById(".clinic-card-title").innerHTML = count;
+  };
+
 // Function to set up the click event on clinic card titles
 function setup() {
     console.log("Setting up");

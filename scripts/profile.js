@@ -168,30 +168,30 @@ function saveUserInfo() {
 
     console.log("Medical history form:", historyRespi, historyCardio, historyVision, historyInfection, historyMental, historyJoint);
 
-                // Validate certain arrayscontains only numbers
-    if (!/^\d+$/.test(userPublicInsuranceNum)) {
+    // Validate certain arrayscontains only numbers
+    if (userPublicInsuranceNum !== '' && !/^\d+$/.test(userPublicInsuranceNum)) {
         alert("Please enter only numeric values for the public insurance number.");
         return; // Stop further execution
-    }
-    if (!/^\d+$/.test(userPhoneAppmt)) {
+    }    
+    if (!/^\d+$/.test(userPhone)) {
         alert("Please enter only numeric values for the phone number.");
         return; // Stop further execution
     }
     // Validate that names contain only letters
-    if (userFirstNameAppmt.trim() === "") {
+    if (userFirstName.trim() === "") {
         alert("Please enter the first name.");
         return; // Stop further execution
     }
 
-    if (userMiddletNameAppmt.trim() !== "" && !/^[A-Za-z]+$/.test(userMiddletNameAppmt)) {
+    if (userMiddleName.trim() !== "" && !/^[A-Za-z]+$/.test(userMiddleName)) {
         alert("Please enter only alphabetic characters for the middle name.");
         return; // Stop further execution
     }
 
-    if (userLasttNameAppmt.trim() === "") {
+    if (userLastName.trim() === "") {
         alert("Please enter the last name.");
         return; // Stop further execution
-                }
+    }
                 
     // Check if the user document exists
     currentUser.get()
