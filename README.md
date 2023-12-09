@@ -47,17 +47,62 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
+    ├── index.html               # landing HTML file, this is what users see when you come to url
+    ├── aboutus.html               # landing HTML file, this is what users see when you come to url
+    ├── add_review.html               # landing HTML file, this is what users see when you come to url
+    ├── appointment.html               # landing HTML file, this is what users see when you come to url
+    ├── clinic_list.html               # landing HTML file, this is what users see when you come to url
+    ├── clinic_profile_page.html               # landing HTML file, this is what users see when you come to url
+    ├── confirm_appointment.html               # landing HTML file, this is what users see when you come to url
+    ├── favourite.html               # landing HTML file, this is what users see when you come to url
+    ├── history.html               # landing HTML file, this is what users see when you come to url
+    ├── login.html               # landing HTML file, this is what users see when you come to url
+    ├── main.html               # landing HTML file, this is what users see when you come to url
+    ├── profile.html               # landing HTML file, this is what users see when you come to url
+    ├── support.html               # landing HTML file, this is what users see when you come to url
+    ├── template.html               # landing HTML file, this is what users see when you come to url
+    ├── thanks_medical_history.html               # landing HTML file, this is what users see when you come to url
+    ├── thanks_review.html               # landing HTML file, this is what users see when you come to url
+    └── thanks_support.html               # landing HTML file, this is what users see when you come to url
 └── README.md
-
 It has the following subfolders and files:
-├── .git                     # Folder for git repo
-├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
-├── scripts                  # Folder for scripts
-    /blah.js                 # 
-├── styles                   # Folder for styles
-    /blah.css                # 
-
+├── token_number.txt                # Folder for git repo
+├── .git                            #    Folder for git repo
+├── .firebase                       # Folder for git repo
+    └── hosting.cache               # Clinic image 3
+├── .vscode              
+    └── settings.json               # Clinic image 3
+├── images                          # Folder for images
+    /blah.jpg                       # Acknowledge source
+├── scripts                         # Folder for scripts
+    /blah.js                        # 
+    ├── /CLI1.jpg                   # Clinic image 1
+    ├── /CLI2.jpg                   # Clinic image 2
+    └── /CLI3.jpg                   # Clinic image 3
+├── text                            # Folder for images
+    ├── footer_index_login.html     # Clinic image 1
+    ├── footer.html  
+    ├── nav_after_login.html        # Clinic image 2
+    └── nav_before_login.jpg        # Clinic image 3
+├── styles                          # Folder for styles
+    /blah.css                       # 
+    └──style.css                    # 
+├── scripts                         # Folder for scripts
+    ├──/add_review.js            
+    ├──/appmnt-info.js                
+    ├──/authentication.js                  
+    ├──/clinic_list.js                 
+    ├──/clinic_profile_page.js                 
+    ├──/confirm_appointment.js                 
+    ├──/favourite.js                 
+    ├──/firebaseAPI_DTC02.js                 
+    ├──/history.js                 
+    ├──/main.js                 
+    ├──/map.js 
+    ├──/profile.js 
+    ├──/script.js 
+    ├──/skeleton.js 
+    ├──/support.js 
 
 
 ```
