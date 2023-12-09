@@ -24,7 +24,7 @@ function getAppointmentsInfo(currentUser) {
 
                         db.collection("clinics").doc(clinicID).get().then(clinicDoc => {
                             // For debugging
-                            console.log("Clinic Data:", clinicDoc.data()); 
+                            console.log("Clinic Data:", clinicDoc.data());
 
                             // Actual code
                             var clinicName = clinicDoc.data().clinicName;
@@ -43,7 +43,7 @@ function getAppointmentsInfo(currentUser) {
                                     <div class="card-text">${clinicAddress}</div>
                                     <p>Appointment Date: <br>${userAppmntDate}</p>
                                     <p>Appointment Time: <br>${userAppmntTime}</p>
-                                    <a href="clinic_profile_page.html?docID=${docID}" class="btn btn-success">To clinic page</a>
+                                    <a id="save-${docID}" href="clinic_profile_page.html?docID=${docID}" class="btn btn-success">To clinic page</a>
                                     <br><br>
                                 </div>
                             `;
@@ -51,13 +51,20 @@ function getAppointmentsInfo(currentUser) {
                             // Append the appointment information to the container
                             appointmentsContainer.appendChild(appointmentDiv);
 
-                            // Update bookmark status on click
-                            document.getElementById(`save-${docID}`).onclick = () => updateBookmark(currentUser, docID);
+                            // Update bookmark status on click if the element exists
+                            var saveButton = document.getElementById(`save-${docID}`);
+                            if (saveButton) {
+                                saveButton.onclick = () => updateBookmark(currentUser, docID);
+                            } else {
+                                console.error(`Element with ID save-${docID} not found`);
+                            }
                         }).catch(error => {
                             console.error("Error getting clinic document: ", error);
                         });
                     });
-                } 
+                } else {
+                    console.log("No appointments found");
+                }
             }).catch(error => {
                 console.error("Error getting user document: ", error);
             });
