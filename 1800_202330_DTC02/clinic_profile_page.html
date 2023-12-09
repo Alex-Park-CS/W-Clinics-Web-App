@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>W-Clinics</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Library CSS CDN -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <!-- Firebase 8 Library related CSS, JS, JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Bootstrap Library JS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="./scripts/firebaseAPI_DTC02.js"></script>
+    <script src="./scripts/login_check.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/clinic_information.js"></script>
+
+    <!-- Icon API -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Favourite Star Icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- History -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="body_container">
+        <!-- The Navbar -->
+        <nav id="navbarPlaceholder"></nav>
+
+        <!-- Profile template -->
+        <div class="container responsive">
+            <br>
+
+            <div class="profile-title d-flex flex-row">
+                <span id="clinicName" style="font-family: Rubik Mono One, sans-serif; font-size: x-large;"> Clinic 1 </span>
+                <i id="clinic-favourite" class="material-icons unfilled align-self-end">favorite_border</i>
+            </div>
+
+            <!-- Important info such as name, address, and rating of clinic -->
+            <div id="clinicAddress" style="font-size: large;">address</div>
+            <div id="clinic-contact" style="font-size: large;">contact</div>
+            <div id="clinic-rating" style="font-size: large;">rating</div>
+            <hr class="my-4">
+
+            <!-- Image of clinic -->
+            <div class="relative-button-position">
+                <img class="clinic-img responsive" src="">
+            </div>
+
+            <hr class="my-4">
+            <p class="lead clinic-info">
+                <!-- clinic info populated from firestore -->
+                <h5 style="text-align:center">Business Hours </h5>
+                <div id="clinic-hours" style="font-size: large; text-align:center"></div>
+                <br>
+                <h5 style="text-align:center">Walk-in Availability </h5>
+                <div id="clinic-walkin" style="font-size: large; text-align:center"></div>
+                <br>
+                <h5 style="text-align:center">Current Wait-time </h5>
+                <div id="clinic-waittime" style="font-size: large; text-align:center"></div>
+            </p>
+
+            <!-- button to book an appointment -->
+            <hr class="my-4">
+            <h4 style="text-align:center">Appointments</h4>
+            <div class="text-center">
+                <button class="btn btn-success btn-block" onclick="makeAnAppointment()">Make an appointment</button>
+            </div>
+
+            <!-- button to write a review -->
+            <hr class="my-4">
+            <div class="reponsive">
+                <p class="profile-title">
+                    <h4 style="text-align:center">Reviews</h4>
+                </p>
+
+                <div class="text-center">
+                    <button class="btn btn-success btn-block" onclick="saveClinicIDAndRedirect()">Write a review</button>
+                </div>
+                <br>
+
+                <div id="details-go-here"></div>
+                <!-- Here is the container for cards with horizontal scrolling -->
+                <div class="card-container">
+                    <div id="reviewCardGroup" class="row row-cols-auto">
+                        <!-- Add your card templates here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Template -->
+            <template id="reviewCardTemplate">
+                <div class="card border-success mb-3">
+                    <img class="card-img-top">
+                    <div class="card-body bg-white text-center">
+                        <h4 class="card-title review-title"> Title </h4>
+                        <p class="star-rating"></p>
+                        <p class="time">Time Written</p>
+                        <p class="treated-on-time">True/False</p>
+                        <p class="description">Comments</p>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <br><br><br>
+        <nav id="footerPlaceholder"></nav>
+        <script src="./scripts/clinic_profile_page.js"></script>
+    </body>
+</html>

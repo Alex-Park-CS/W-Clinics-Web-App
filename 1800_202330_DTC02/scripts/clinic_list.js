@@ -1,0 +1,188 @@
+// Declare a global variable to store the user's location
+let userLocation = [];
+// Global variable pointing to the current user's Firestore document
+var currentUser;
+
+// Function that checks if a user is logged in
+function doAll() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = db.collection("users").doc(user.uid); // Global reference to the current user
+            console.log(currentUser);
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+            window.location.href = "login.html"; // Redirect to the login page
+        }
+    });
+}
+doAll();
+
+// Check if the Geolocation API is supported by the browser
+async function getUserLocation() {
+    return new Promise((resolve, reject) => {
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    // Get latitude and longitude coordinates
+                    userLocation = [position.coords.longitude, position.coords.latitude];
+                    console.log("User's Location:", userLocation);
+
+                    // Call the function here, inside the success callback
+                    displayClinicsDynamically("clinics");
+
+                    resolve();
+                },
+                (error) => {
+                    console.error("Error getting user's location:", error.message);
+                    reject(error);
+                }
+            );
+        } else {
+            // Geolocation is not supported by the browser
+            console.error("Geolocation is not supported by this browser");
+            reject(new Error("Geolocation is not supported"));
+        }
+    });
+}
+
+// Display clinic lists dynamically
+// Sort by distance by default
+async function displayClinicsDynamically(collection, sortBy = "distance_metres") {
+    document.getElementById("clinics-go-here").innerHTML = "";
+    let clinicTemplate = document.getElementById("clinicCardTemplate");
+
+    try {
+        let query = db.collection(collection);
+
+        if (sortBy === "rating") {
+            // If sorting by rating, order in reverse
+            query = query.orderBy(sortBy, "desc");
+        } else {
+            // Otherwise, use the standard sorting parameter
+            query = query.orderBy(sortBy);
+        }
+
+        const allClinics = await query.get();
+
+        allClinics.docs.forEach(async (doc) => {
+            const docID = doc.id;
+            console.log(docID);
+
+            // Call ratingAverage for each clinic individually
+            const rating = await ratingAverage(docID);
+            updateClinicRating(docID);
+
+            // Query each clinic's data from Firestore
+            const clinicName = doc.data().clinicName;
+            const address = doc.data().address;
+            const waitTime = doc.data().wait_time_minutes;
+            const lat = doc.data().lat;
+            const lng = doc.data().lng;
+            distancePreview = Number((distanceFromCurrent(userLocation[0], userLocation[1], lng, lat)).toFixed(2));
+            updateDistance(docID, distancePreview);
+
+            let newcard = clinicTemplate.content.cloneNode(true);
+
+            // Inject clinic data into a clinic card in HTML
+            newcard.querySelector('.clinic-name').innerHTML = clinicName;
+            newcard.querySelector('.clinic-distance').innerHTML = "Distance: " + distancePreview + "km";
+            newcard.querySelector('.clinic-address').innerHTML = address;
+            newcard.querySelector('.clinic-rating').innerHTML = "Rating: " + rating.toFixed(1) + " / 5";
+            newcard.querySelector('.clinic-wait-time').innerHTML = "Wait Time: " + waitTime + " min";
+            newcard.querySelector('a').href = "clinic_profile_page.html?docID=" + docID;
+
+            document.getElementById(collection + "-go-here").appendChild(newcard);
+        });
+    } catch (error) {
+        console.error("Error getting clinics: ", error);
+    }
+}
+
+// Event handler to choose sort type (rating, distance, wait time)
+document.getElementById('sort-select').addEventListener('change', function () {
+    displayClinicsDynamically("clinics", this.value);
+});
+
+// Call appointment HTML
+function saveAppmntDocumentIDAndRedirect() {
+    let params = new URL(window.location.href); // Get the URL from the search bar
+    let appointmentdoc = params.searchParams.get("docID");
+
+    localStorage.setItem('appointmentID', appointmentdoc);
+    window.location.href = 'appointment.html';
+}
+
+// Get average rating of a clinic
+async function ratingAverage(clinicID) {
+    try {
+        const allReviews = await db.collection("reviews").where("clinicID", "==", clinicID).get();
+        const reviews = allReviews.docs;
+
+        let sumOfReviews = 0;
+        let countOfReviews = reviews.length;
+
+        reviews.forEach((doc) => {
+            sumOfReviews += doc.data().rating;
+        });
+
+        const averageRating = countOfReviews > 0 ? sumOfReviews / countOfReviews : 0;
+        return averageRating;
+    } catch (error) {
+        console.error("Error fetching reviews:", error);
+        return 0;
+    }
+}
+
+// Update the average rating to Firestore
+async function updateClinicRating(clinicID) {
+    const averageRating = await ratingAverage(clinicID);
+
+    const clinicRef = db.collection("clinics").doc(clinicID);
+
+    try {
+        await clinicRef.update({
+            rating: averageRating,
+        });
+        console.log("Clinic rating updated successfully.");
+    } catch (error) {
+        console.error("Error updating clinic rating:", error);
+    }
+}
+
+// Calculate distance to clinic from current location
+function distanceFromCurrent(current_x, current_y, clinicLng, clinicLat) {
+    distance = (((111.320 * 0.555 * (current_x - clinicLng)) ** 2 + (110.574 * (current_y - clinicLat)) ** 2) ** 0.5);
+    console.log(typeof distance);
+    console.log(distance);
+    return distance;
+}
+
+// Update distance to Firestore
+async function updateDistance(clinicID, distance) {
+    const clinicRef = db.collection("clinics").doc(clinicID);
+
+    try {
+        await clinicRef.update({
+            distance_metres: distance,
+        });
+        console.log("Distance updated successfully.");
+    } catch (error) {
+        console.error("Error updating distance:", error);
+    }
+}
+
+// Call the main function to start the script
+async function main() {
+    try {
+        // Wait for getUserLocation to complete before proceeding
+        await getUserLocation();
+
+        // Now you can use the userLocation variable
+        console.log("User's Location (in main function):", userLocation);
+
+    } catch (error) {
+        console.error("Error in main function:", error);
+    }
+}
+main();
