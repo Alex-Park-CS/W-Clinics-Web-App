@@ -79,9 +79,7 @@ function saveAppointmentData() {
         }).catch((error) => {
             console.error("Error saving appointment data:", error);
         });
-    } else {
-        console.error("User is not signed in");
-    }
+    } 
 }
 
 // Call the function to save appointment data
