@@ -1,18 +1,17 @@
-# Project Title
+# Project Title 
+W-Clinic
 
 ## 1. Project Description
-
 Our team DTC02 developped an app for finding a walk-clinic to help walk-clinic users to combat the wait times and confusion of business hours by providing information on correct business hours/estimated wait time. 
 
 
 ## 2. Names of Contributors
-List team members and/or short bio's here... 
 * Hi my name is Alex and I'm excited to create a web app from the beginning!
 * Hi I'm Richard, I like hiking and reading!
 * Hello, My name is Inez! I do love coding and I am excited to learn how to use Git and Github.
 
 ## 3. Technologies and Resources Used
-List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
+
 * HTML, CSS, JavaScript
 * Bootstrap 5.0 (Frontend library)
 * Firebase 8.0 (BAAS - Backend as a Service)
@@ -23,12 +22,16 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 
 ## 4. Complete setup/installion/usage
 To run the W-Clinics web app locally, follow these steps:
+
 1. Clone the repository.
 2. Open the desired HTML file in a web browser.
 3. When users land on the landing page, they are greeted with a login button. Press the login button.
 4. Type in your email and name, and press Enter.
 5. After logging in, you will see a hero asking you to update "my profile". Update your profile.
 6. Done! Enjoy your time with the app!
+
+To run the W-Clinics web app with deloyed version, please click the link:
+https://comp-1800-dtc02.web.app/
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs/limitations:
@@ -84,7 +87,7 @@ It has the following subfolders and files:
     ├── nav_after_login.html        # A navbar before login
     └── nav_before_login.jpg        # A navbar after login
 ├── scripts                  # Folder for scripts
-    ├──/add_review.js               # add_review.html
+    ├──/add_review.js               # Submit review for add_review.html
     ├──/appmnt-info.js              # Connect appointment.html and thanks_appointment.html 
     ├──/authentication.js           # Connect with firebase authentication 
     ├──/clinic_information.js       # Clinic details
@@ -98,7 +101,7 @@ It has the following subfolders and files:
     ├──/profile.js                  # Wrtie and populate information from firebase
     ├──/script.js                   # Logout function included
     ├──/skeleton.js                 # Basic skeleton for log in and log out
-    ├──/support.js 
+    ├──/support.js                  # Submit support ticket to firebase 
 
 ```
 
