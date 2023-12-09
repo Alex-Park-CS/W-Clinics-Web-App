@@ -87,6 +87,7 @@ async function clickSubmitAppointment() {
             let userPublicInsuranceNum = document.getElementById("user-public-healthcare-num").value;
             let userPrivateInsurance = document.getElementById("user-private-insurance").value;
             let userPrivateInsuranceNum = document.getElementById("user-private-healthcare-num").value;
+            let userContactMethodAppmt = document.getElementById("user-contact").value;
             let userDateAppmt = document.getElementById("user-appmtDate").value;
             let userTimeAppmt = document.getElementById("user-appmtTime").value;
             let userVisitReasonCold = document.getElementById("visit-coldflue").value;
@@ -113,7 +114,7 @@ async function clickSubmitAppointment() {
             var userDoc = await userRef.get();
 
             // Validate certain arrayscontains only numbers
-            if (!/^\d+$/.test(userPublicInsuranceNum)) {
+            if (userPublicInsuranceNum !== '' && !/^\d+$/.test(userPublicInsuranceNum)) {
                 alert("Please enter only numeric values for the public insurance number.");
                 return; // Stop further execution
             }
