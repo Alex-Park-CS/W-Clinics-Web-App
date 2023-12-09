@@ -49,16 +49,16 @@ function populateUserInfo() {
                         if (userGender != null) {
                             document.getElementById("genderInput").value = userGender;
                         }
-                        if (userPublicInsurance != null) {
+                        if (userGender != null) {
                             document.getElementById("user-public-insurance").value = userPublicInsurance;
                         }
-                        if (userPublicInsuranceNum != null) {
+                        if (userGender != null) {
                             document.getElementById("user-public-healthcare-num").value = userPublicInsuranceNum;
                         }
-                        if (userPrivateInsurance != null) {
+                        if (userGender != null) {
                             document.getElementById("user-private-insurance").value = userPrivateInsurance;
                         }
-                        if (userPrivateInsuranceNum != null) {
+                        if (userGender != null) {
                             document.getElementById("user-private-healthcare-num").value = userPrivateInsuranceNum;
                         }
                         if (userEmail != null) {
@@ -68,6 +68,7 @@ function populateUserInfo() {
                             document.getElementById("phoneInput").value = userPhone;
                         }
                         // Update medical history fields with user data
+                        // why it works with s
                         if (historysRespi != null) { 
                             document.getElementById("history-respi").value = historysRespi;
                         }
@@ -120,6 +121,8 @@ function populateUserInfo() {
                                     userHistoryInfect : history-infection,
                                     userHistoryMental : history-mental,
                                     userHistoryJont : history-joint
+
+
                                     })
                                 }
                             })
@@ -168,31 +171,6 @@ function saveUserInfo() {
 
     console.log("Medical history form:", historyRespi, historyCardio, historyVision, historyInfection, historyMental, historyJoint);
 
-    // Validate certain arrayscontains only numbers
-    if (userPublicInsuranceNum !== '' && !/^\d+$/.test(userPublicInsuranceNum)) {
-        alert("Please enter only numeric values for the public insurance number.");
-        return; // Stop further execution
-    }    
-    if (!/^\d+$/.test(userPhone)) {
-        alert("Please enter only numeric values for the phone number.");
-        return; // Stop further execution
-    }
-    // Validate that names contain only letters
-    if (userFirstName.trim() === "") {
-        alert("Please enter the first name.");
-        return; // Stop further execution
-    }
-
-    if (userMiddleName.trim() !== "" && !/^[A-Za-z]+$/.test(userMiddleName)) {
-        alert("Please enter only alphabetic characters for the middle name.");
-        return; // Stop further execution
-    }
-
-    if (userLastName.trim() === "") {
-        alert("Please enter the last name.");
-        return; // Stop further execution
-    }
-                
     // Check if the user document exists
     currentUser.get()
         .then(doc => {

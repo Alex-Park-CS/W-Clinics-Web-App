@@ -1,4 +1,3 @@
-// Function to handle form submission
 async function submitForm(event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -6,7 +5,7 @@ async function submitForm(event) {
     let messageTitle = document.getElementById("messageTitle").value;
     let userMessage = document.getElementById("message").value;
 
-    // Check if user is authenticated
+    // Check if user is still authenticated
     firebase.auth().onAuthStateChanged(async function (user) {
         if (user) {
             var userID = user.uid;
@@ -15,7 +14,7 @@ async function submitForm(event) {
             var userRef = db.collection("users").doc(userID);
 
             try {
-                // Update the user document with the support message using arrayUnion
+                // Update the document with the supportMessage using arrayUnion
                 await userRef.update({
                     support: firebase.firestore.FieldValue.arrayUnion({
                         supportMessageTitle: messageTitle,
@@ -37,7 +36,7 @@ var currentUser;
 function populateUserInfo() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            // Reference the user document by uid
+            // Go to the correct user document by referencing the user uid
             currentUser = db.collection("users").doc(user.uid);
 
             // Get the document for the current user
@@ -47,12 +46,11 @@ function populateUserInfo() {
                         // Check if the user document exists
                         var data = userInfo.data();
 
-                        // Get user data fields
+                        // Get the data fields of the user
                         var userFirstName = data.userFirstName;
                         var userEmail = data.userEmail;
                         var userPhone = data.userPhone;
 
-                        // Update form fields with user data
                         if (userFirstName != null) {
                             document.getElementById("name").value = userFirstName;
                         }
@@ -74,10 +72,11 @@ function populateUserInfo() {
                                     // Check if the user document exists
                                     var data = userInfo.data();
                                     db.collection("users").add({
-                                        userFirstName: user-firstname,
-                                        userEmail: user-email,
-                                        userPhone: user-phone,
-                                    });
+
+                                    userFirstName : user-firstname,
+                                    userEmail :user-email,
+                                    userPhone : user-phone,
+                                    })
                                 }
                             })
                             .catch(error => {
@@ -91,5 +90,5 @@ function populateUserInfo() {
     });
 }
 
-// Call the function to populate user information
+// Call the function to run it
 populateUserInfo();

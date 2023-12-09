@@ -1,10 +1,10 @@
-/* Global Styles */
-* {
-    font-family: Rubik, sans-serif;
-    color: black;
-}
 
-/* Welcome Banner and History Page */
+*{
+font-family: Rubik, sans-serif;
+color: black;
+}
+/*-----------  Richard's code except a button----------------------*/
+/* History Page */
 .welcome-banner a {
     color: #303030;
     background-color: #C9EFC7;
@@ -15,8 +15,9 @@
     margin: auto 0;
 }
 
-/* Header Styles */
-/* Styles for the button */
+/* History page and welcome banner is required to put at the top, because the button below overrides it */
+
+/* header */
 .button {
     background-color: #b8a9c9;
     border: none;
@@ -31,15 +32,14 @@
     font-weight: bold;
 }
 
-/* Link Styles */
+
 a {
     color: black;
     text-decoration: none !important;
     padding: 12px;
     text-align: center;
 }
-
-button a.footer_icons {
+button a.footer_icons{
     padding-left: 0px;
     padding-right: 0px;
 }
@@ -49,7 +49,6 @@ a:link {
     color: grey;
 }
 
-/* Navbar Styles */
 .navbar {
     font-size: 18px;
     background-color: #C9EFC7;
@@ -61,11 +60,11 @@ a:link {
     z-index: 1;
 }
 
-.nav_container a {
+.nav_container a{
     padding: 0px;
 }
 
-/* Body Styles */
+/* body  */
 #body_container {
     margin-bottom: 86.44px;
 }
@@ -75,7 +74,8 @@ a:link {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 0px;
+    padding:0px;
+    
 }
 
 .view-map {
@@ -90,7 +90,8 @@ a:link {
     margin: 10px;
 }
 
-/* Submit and Cancel Buttons in Add Reviews */
+/* submit and cancel button in add_reviews */
+
 #submit_cancel_buttons {
     text-align: center;
 }
@@ -104,7 +105,7 @@ a:link {
     margin-bottom: 20px;
 }
 
-/* Log-in Button */
+/* log-in button */
 #log_in a {
     background-color: #C9EFC7;
     border: none;
@@ -117,34 +118,33 @@ a:link {
     border-radius: 30px;
     font-weight: bold;
 }
-
-/* Favourite Button */
+/* favourite button */
 .unfilled {
     color: gray;
 }
 
-/* Favourite Page, Clinic Cards */
+/* favourite page, clinic cards */
 .favourite_container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
-
-#favourite_title p {
+#favourite_title p{
     font-size: xx-large;
     font-weight: bold;
     color: darkgreen;
     display: flex;
     justify-content: center;
+    
 }
 
-#saved-clinic-card {
+#saved-clinic-card{
     justify-content: center;
     display: flex;
 }
-
 #saved-clinic-card #clinicName {
-    color: #333;
+    color: #333; 
     font-size: 20px;
 }
 
@@ -153,9 +153,11 @@ a:link {
     display: flex;
     width: 80%;
     height: 100%;
+    /* border: solid  green 1px; */
     margin-left: 40px;
     font-weight: 700;
     font-size: xx-large;
+
 }
 
 #saved-clinic-card a#clinicName {
@@ -164,9 +166,7 @@ a:link {
     font-size: 18px;
 }
 
-#clinicAddress,
-#clinic-rating,
-#clinic-contact {
+#clinicAddress, #clinic-rating, #clinic-contact{
     text-align: center;
 }
 
@@ -175,17 +175,24 @@ a:link {
     height: auto;
 }
 
+/* Inez */
+
 .youtube-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Appointment */
+/* appointmnet */
 .form {
+
     padding: 5% 15% 10% 15%;
+
 }
-/* Hamburger */
+
+/* hamburger */
+
+
 #smallmenu {
     color: grey;
 }
@@ -193,20 +200,24 @@ a:link {
 .hamburgerright {
     display: flex;
     justify-content: center;
+    /* Center horizontally */
     align-items: center;
+    /* Center vertically */
     text-align: center;
+    /* Center the text content */
+
 }
 
-/* User Info */
+/* userinfo */
 #contactemail,
 #contactcall,
 #contacttext {
     padding: 100%;
 }
 
-/* Table Styling */
 table {
     padding: 0% 15% 0% 15%;
+    text-align: center;
 }
 
 #userinfothtd {
@@ -217,7 +228,7 @@ tr:nth-child(even) {
     background-color: #D6EEEE;
 }
 
-/* Appointment Code */
+/* appntmnt code */
 .group:after {
     content: "";
     display: block;
@@ -317,6 +328,7 @@ tr:nth-child(even) {
 .form-appointment input[type=submit] {
     background-color: rgb(118, 207, 118);
     border: 1px solid rgb(134, 189, 134);
+    /* border-radius: 4px; */
     color: rgb(255, 255, 255);
     cursor: pointer;
     font-family: inherit;
@@ -338,13 +350,14 @@ span.wpcf7-list-item {
     margin-left: -.02em;
 }
 
-/* About Us */
+/* aboutus */
 #aboutus-body {
     text-align: center;
     padding: 20px;
 }
 
-/* Support */
+/* support */
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
 * {
@@ -356,6 +369,7 @@ span.wpcf7-list-item {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
     -o-font-smoothing: antialiased;
+    /* font-smoothing: antialiased; */
     text-rendering: optimizeLegibility;
 }
 
@@ -365,6 +379,7 @@ body {
     font-size: 12px;
     line-height: 30px;
     color: #777;
+
 }
 
 .container {
@@ -490,12 +505,20 @@ fieldset {
     color: #888;
 }
 
-/* Footer */
+/* -----------More of Richard's stuff ----------- */
+
+/* footer */
 .material-symbols-outlined {
-    font-variation-settings: 'FILL' 30, 'wght' 400, 'GRAD' 50, 'opsz' 24;
+    /* Home button */ /*Favourite button */ /* History button */ 
+    font-variation-settings: 
+        'FILL' 30,
+        'wght' 400,
+        'GRAD' 50,
+        'opsz' 24;
     font-size: 40px;
     text-align: center;
     display: block;
+    /* padding-left: 0px; */
 }
 
 footer {
@@ -504,10 +527,13 @@ footer {
     justify-content: space-around;
 }
 
+
 button {
+    /* border-radius: 50%; */
     border-color: transparent;
     background-color: transparent;
 }
+
 
 .welcome-banner {
     width: 70%;
@@ -525,7 +551,8 @@ button {
     text-align: center;
 }
 
-/* Clinic List */
+/* ---------- Clinic List CSS (Alex) ---------- */
+
 .clinic-list {
     margin-bottom: 80px;
 }
@@ -545,9 +572,11 @@ button {
     color: white;
     padding-top: 10px;
     padding-bottom: 10px;
+
 }
 
 .text-clinic-card {
+    /* width: 100%; */
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -566,19 +595,30 @@ button {
     border-radius: 30px;
 }
 
+
+
 .clinic-card-distance-time {
     font-size: 14px;
 }
 
-/* Clinic Profile/Review (Alex) */
+
+
+
+/* -----------Clinic Profile/Review (Alex) ------------*/
+
 .card-container {
     max-height: 350px;
+    /* Adjust the maximum height as needed */
     overflow-y: auto;
+
 }
 
+/* Style the individual cards as needed */
 .card {
     width: 90%;
+    /* Adjust the width as per your design, leaving a little space for margins */
     margin: 0 auto;
+    /* Add margin between cards */
     margin-bottom: 10px;
 }
 
@@ -588,7 +628,8 @@ button {
     color: black;
 }
 
-.split-title-content {
+
+.split-title-content{
     text-align: left;
     padding-left: 10px;
 }
@@ -596,6 +637,31 @@ button {
 .clinic-info {
     padding: 10px;
     text-align: center;
+}
+
+body {
+    font-family: Arial;
+    margin: 0 auto;
+}
+
+.heading {
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+#contact-submit {
+    background-color: green;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    padding: 2px 10px 2px 10px;
+}
+
+/* Map CSS */
+
+.entire-map-box {
+    padding: 20px;
 }
 
 .view-clinic-button {
@@ -611,7 +677,11 @@ button {
     padding: 12px;
     color: black;
     font-weight: 700;
+
 }
+
+
+/* ------------ */
 
 .rating-star {
     display: flex;
@@ -627,12 +697,13 @@ button {
     color: orange;
 }
 
-/* Three-column layout */
+/* Three column layout */
 .side {
     float: left;
     width: 15%;
     margin-top: 10px;
     font-size: 12px;
+
 }
 
 .middle {
@@ -641,17 +712,19 @@ button {
     margin-top: 10px;
 }
 
+/* Place text to the right */
 .right {
     text-align: right;
 }
 
+/* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Bar Container */
+/* The bar container */
 .bar-container {
     width: 100%;
     background-color: #f1f1f1;
@@ -659,7 +732,7 @@ button {
     color: white;
 }
 
-/* Individual Bars */
+/* Individual bars */
 .bar-5 {
     width: 60%;
     height: 18px;
@@ -698,17 +771,18 @@ button {
 .clinic-profile-page-buttons-group {
     display: flex;
     justify-content: space-around;
+
 }
 
 .review-button {
-    background-color: #C9EFC7;
+    background-color: #C9EFC7
 }
 
 .appntmnt-button {
     background-color: #C9EFC7;
 }
 
-/* Profile View Review */
+/*-----------Profile View Review----------- */
 .rev-section {
     margin: auto;
     padding: 0 1rem;
@@ -749,6 +823,7 @@ button {
     width: 150px;
     height: 150px;
 }
+
 
 .body-review {
     background-color: rgb(238, 238, 238);

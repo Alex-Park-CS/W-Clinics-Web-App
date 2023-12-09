@@ -7,6 +7,7 @@ function displayClinicInfo() {
     var ID = params.searchParams.get("docID");
     console.log(ID);
 
+
     db.collection("clinics")
         .doc(ID)
         .get()
@@ -114,6 +115,7 @@ function populateReviews() {
 }
 
 populateReviews();
+
 
 //appointment button
 function makeAnAppointment() {
