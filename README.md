@@ -1,5 +1,3 @@
-# Project Title
-
 ## Project Link
 https://comp-1800-dtc02.web.app/
 
